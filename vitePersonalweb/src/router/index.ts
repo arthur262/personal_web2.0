@@ -9,12 +9,12 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/Home",
     name: "Home",
-    component: () => import("@/components/HomePage.vue"),
+    component: () => import("../components/HomePage.vue"),
   },
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 });
 
