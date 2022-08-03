@@ -31,11 +31,15 @@ export default {
   height: 70vh;
   background-size: 100% 100%;
   margin: 2vh auto;
-  transition: fadeIn 1s;
+  animation-duration:1s;
+  animation-name: fadeIn;
+  animation-delay: .3s;
+  opacity:0;
+  animation-fill-mode:forwards;
 }
 @keyframes fadeIn{
-  0%{width:50vw;}
-  100%{width: 90vw;}
+  0%{opacity:.1;}
+  100%{opacity: 1;}
 }
 .Wordcontainer {
   padding: 2vh 0;
@@ -44,6 +48,8 @@ export default {
   backdrop-Filter: "blur(20px)";
   width: fit-content;
 }
+
+/*  set up text */
 .link {
   color: rgba(245,245,245,0.7);
   font-size: 3.5em;
