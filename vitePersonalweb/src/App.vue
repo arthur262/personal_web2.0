@@ -1,12 +1,11 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import Nav from "../src/components/NavBar.vue";
+
 </script>
 
 <template>
   <div>
-  <Nav/>
     <router-view />
   </div>
 </template>
@@ -19,6 +18,9 @@ import Nav from "../src/components/NavBar.vue";
   text-align: start;
   padding: 0;
   margin: 0;
+  max-width:100%;
+  min-height: 100vh;
+  background-color:#242424;
 }
 body {
   place-items:  normal start ;
@@ -28,5 +30,6 @@ body {
    padding: 0;
   margin: 0;
   background-color:whitesmoke;
+  
 }
 </style>
