@@ -41,12 +41,6 @@
           </a-col>
         </a-row>
       </a-layout-content>
-      <!-- switch-->
-      <a-layout-content class="head">
-        <h2 class="w2" style="text-alient: center; margin: 0">
-          {{ statement }}
-        </h2>
-      </a-layout-content>
       <!-- water fall-->
       <div>
         <div class="waterfall px-container clearfix" v-cloak>
@@ -113,7 +107,7 @@ export default defineComponent({
     
     return {
       curent: 'all',
-      statement: "",
+    
       AllLabels: "",
       Landscape: "",
       Sky: "",
@@ -148,13 +142,10 @@ export default defineComponent({
           }
         )
         .then((response) => {
-          this.statement = response.data.statement;
           this.AllLabels = response.data.AllLabels;
           this.Landscape = response.data.Landscape;
           this.Travel = response.data.Travel;
           this.Sky = response.data.Sky;
-          
-
           
         })
         .catch(function (error) {

@@ -2,79 +2,146 @@
 
 <template>
   <div class="container">
-    <div class="selfshoots"></div>
-    <div class="Wordcontainer">
-      <a-row type="flex">
-        <a-col :flex="2"
-          ><router-link to="/" class="link middle"
-          @mouseenter="mouseover(0)" @mouseleave="mouseLeave()"
-            >Programmer</router-link
-          ></a-col
-        >
-        <a-col :flex="2"
-          ><router-link to="/" class="link middle"
-          @mouseenter="mouseover(1)" @mouseleave="mouseLeave()"
-            >Stock trader</router-link
-          ></a-col
-        >
-        <a-col :flex="2"
-          ><router-link to="/" class="link middle"
-          @mouseenter="mouseover(2)" @mouseleave="mouseLeave()">
-          Student</router-link></a-col
-        >
+    <div class="filterimage"></div>
+    <div class="plasticback">
+      <a-row justify="center" :gutter="32">
+        <!-- 左侧菜单 -->
+        <a-col :flex="12" style="display: flex; justify-content: center; align-items: center">
+          <div class="Wordcontainer">
+            <ul class="menu">
+              <li>
+                <router-link to="/" class="link middle" @mouseenter="mouseover(0)" @mouseleave="mouseLeave()">Programmer
+                </router-link>
+              </li>
+              <li>
+                <router-link to="/" class="link middle" @mouseenter="mouseover(1)" @mouseleave="mouseLeave()">Stock
+                  trader
+                </router-link>
+              </li>
+              <li>
+                <router-link to="/" class="link middle" @mouseenter="mouseover(2)" @mouseleave="mouseLeave()">
+                  Student</router-link>
+              </li>
+              <li>
+                <router-link to="/Photograph" class="link middle" @mouseenter="mouseover(3)" @mouseleave="mouseLeave()">
+                  Photographer</router-link>
+              </li>
+              <li>
+              <!-- 图标区 -->
+                <div class="mediacontact">
+                  <a-row justify="center" :gutter="32">
+                    <a-col :flex="8">
+                      <github-outlined :style="{ fontSize: '32px' }" />
+                    </a-col>
+                    <a-col :flex="8">
+                      <linkedin-outlined :style="{ fontSize: '32px' }" />
+                    </a-col>
+                    <a-col :flex="8">
+                      <wechat-outlined :style="{ fontSize: '32px' }" />
+                    </a-col>
+                  </a-row>
+                </div>
+              </li>
+            </ul>
 
-        <a-col :flex="2"
-          ><router-link to="/Photograph" class="link middle"
-          @mouseenter="mouseover(3)" @mouseleave="mouseLeave()"
-            >Photographer</router-link
-          ></a-col
-        >
+          </div>
+        </a-col>
+        <!-- 右侧图片区 -->
+        <a-col :flex="12">
+          <div class="selfshoots"></div>
+
+        </a-col>
       </a-row>
     </div>
   </div>
 </template>
 <script lang="ts">
+import {
+  GithubOutlined,
+  LinkedinOutlined,
+  WechatOutlined,
+} from "@ant-design/icons-vue";
 export default {
-  components: {},
+  components: {
+    GithubOutlined,
+    LinkedinOutlined,
+    WechatOutlined,
+  },
+  methods: {
+    mouseover(index: number): void {
+      console.log(index);
+    },
+    mouseLeave(): void { },
+  },
 };
-function mouseover(index:number):void{
-
-}
-function mouseLeave():void{
-
-}
 </script>
 
 <style scoped>
 .container {
-  height: fit-content;
-  padding-top: 3vh;
+  width: 100%;
+
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  overflow: hidden;
 }
+
+.mediacontact {
+  padding: 1ch;
+  border-radius: 2.5ch;
+  width: fit-content;
+  margin: 1.5vh auto;
+  background-color: rgba(245, 245, 245, 0.5);
+}
+
+.filterimage {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  min-height: 100vh;
+  background-image: url("http://arthur2.oss-cn-beijing.aliyuncs.com/DSC00368-HDR-2(1).jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(0.5px);
+}
+
+.plasticback {
+  background-color: rgba(245, 245, 245, 0.1);
+  padding: 3ch;
+  backdrop-filter: blur(5px);
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 2.5ch;
+}
+
 .selfshoots {
   background-image: url("http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/%E5%9B%BE%E7%89%87.png");
-  width: 50vw;
-  height: 70vh;
+  width: 35vw;
+  height: 45ch;
   background-size: 100% 100%;
-  margin: 2vh auto;
+  background-position: 50% 50%;
+  margin: 0 auto;
   animation-duration: 1s;
   animation-name: fadeIn;
   animation-delay: 0.3s;
   opacity: 0;
   animation-fill-mode: forwards;
 }
+
 @keyframes fadeIn {
   0% {
     opacity: 0.1;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 .Wordcontainer {
-  padding: 2vh 0;
-  display: flex;
-  margin: 0 auto;
-  backdrop-filter: "blur(20px)";
   width: fit-content;
 }
 
@@ -84,14 +151,38 @@ function mouseLeave():void{
   font-size: 3.5em;
   font-family: "Helvetica";
   font-weight: bold;
+}
+
+ul {
+  list-style: none;
+}
+
+/* control each text */
+.menu :nth-child(1):hover a {
+  color: #dca7a7;
+  margin: 0 0.4vw 0 1.2vw;
   transition: 0.4s;
 }
-.link:hover {
+
+.menu :nth-child(2):hover a {
   color: rgba(127, 146, 99, 1);
-  margin: 0 0.4vw;
+  margin: 0 0.4vw 0 1.2vw;
+  transition: 0.4s;
 }
+
+.menu :nth-child(3):hover a {
+  color: #bab76d;
+  margin: 0 0.4vw 0 1.2vw;
+  transition: 0.4s;
+}
+
+.menu :nth-child(4):hover a {
+  color: #8eb8de;
+  margin: 0 0.4vw 0 1.2vw;
+  transition: 0.4s;
+}
+
 .middle {
-  vertical-align: middle;
   margin: 0 0.8vw;
 }
 </style>
