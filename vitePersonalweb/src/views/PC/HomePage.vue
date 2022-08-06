@@ -10,19 +10,15 @@
         <a-col  :xs="{ order: 2 }" :sm="{ order: 2 }" :md="{ order: 2 }" :lg="{ order: 1 }" style="display: flex; justify-content: center; align-items: center">
           <div class="Wordcontainer">
             <ul class="menu">
-            
-            
               <li>
                 <router-link to="/" class="link middle" @mouseenter="mouseover(0)" @mouseleave="mouseLeave()">Programmer
                 </router-link>
               </li>
-              
               <li>
                 <router-link to="/" class="link middle" @mouseenter="mouseover(1)" @mouseleave="mouseLeave()">Stock
                   trader
                 </router-link>
               </li>
-              
               <li>
                 <router-link to="/" class="link middle" @mouseenter="mouseover(2)" @mouseleave="mouseLeave()">
                   Student</router-link>
@@ -31,11 +27,8 @@
                 <router-link to="/Photograph" class="link middle" @mouseenter="mouseover(3)" @mouseleave="mouseLeave()">
                   Photographer</router-link>
               </li>
-            
-              
             </ul>
             <!-- 图标区 -->
-            
                 <div class="mediacontact">
                   <a-row justify="center" :gutter="32">
                     <a-col :flex="8">
@@ -53,7 +46,6 @@
                     </a-col>
                   </a-row>
                 </div>
-               
           </div>
         </a-col>
         <!-- 右侧图片区 -->
@@ -175,27 +167,33 @@ ul {
   color: #dca7a7;
   margin: 0 0.4vw 0 1.2vw;
   transition: 0.4s;
+  text-decoration:underline;
 }
 
 .menu :nth-child(2):hover a {
   color: rgba(127, 146, 99, 1);
   margin: 0 0.4vw 0 1.2vw;
   transition: 0.4s;
+  text-decoration:underline;
 }
 
 .menu :nth-child(3):hover a {
   color: #bab76d;
   margin: 0 0.4vw 0 1.2vw;
   transition: 0.4s;
+  text-decoration:underline;
 }
 
 .menu :nth-child(4):hover a {
   color: #8eb8de;
   margin: 0 0.4vw 0 1.2vw;
   transition: 0.4s;
+  text-decoration:underline;
 }
 
 .middle {
   margin: 0 0.8vw;
+  text-transform: uppercase;
+  font-family:"Executive-Medium";
 }
 </style>
