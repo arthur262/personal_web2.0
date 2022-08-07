@@ -20,7 +20,7 @@
                 </router-link>
               </li>
               <li>
-                <router-link to="/" class="link middle" @mouseenter="mouseover(2)" @mouseleave="mouseLeave()">
+                <router-link to="/Student" class="link middle" @mouseenter="mouseover(2)" @mouseleave="mouseLeave()">
                   Student</router-link>
               </li>
               <li>
@@ -162,6 +162,10 @@ ul {
   list-style: none;
 }
 
+a{
+  color: black;
+ }
+
 /* control each text */
 .menu :nth-child(1):hover a {
   color: #dca7a7;
@@ -191,6 +195,7 @@ ul {
   text-decoration:underline;
 }
 
+/* control all text*/
 .middle {
   margin: 0 0.8vw;
   text-transform: uppercase;

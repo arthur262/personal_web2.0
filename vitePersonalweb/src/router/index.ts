@@ -21,6 +21,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "Photograph",
     component: () => import("../views/PC/Photo.vue"),
   },
+  {
+    path:"/Student",
+    name: "Student",
+    component: () => import("../views/PC/CV.vue"),
+  },
 ];
 
 const router = createRouter({
