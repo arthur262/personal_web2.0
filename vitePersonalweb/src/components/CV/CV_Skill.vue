@@ -1,8 +1,9 @@
 <template>
   <div>
-    <!--  Ability Box    -->
     <div class="abilitybox" id="Ability">
       <a-descriptions bordered title="Language I know So Far">
+
+      <!-- DataBase -->
       <a-descriptions-item label="DataBase" style="font-weight: bold">
           <p
             class="w1"
@@ -12,6 +13,8 @@
             {{ iteam }}
           </p>
         </a-descriptions-item>
+
+        <!-- UI -->
         <a-descriptions-item label="UI" style="font-weight: bold">
           <p 
           class="w1" 
@@ -22,7 +25,7 @@
           </p>
         </a-descriptions-item>
         
-
+        <!-- Framework -->
         <a-descriptions-item label="Framework"  style="font-weight: bold">
           <p
             class="w1"
@@ -32,6 +35,8 @@
             {{ iteam }}
           </p>
         </a-descriptions-item>
+
+        <!-- Languages -->
         <a-descriptions-item label="Languages" >
           <p class="w1" v-for="iteam in datas.Front_language" :key="iteam.id">
             {{ iteam }}
@@ -43,10 +48,6 @@
         </a-descriptions-item>
       </a-descriptions>
 
-
-
-
-      
     </div>
     <div v-if="false" class="detail">
       <ul v-for="iteam in datas.Techlist" :key="iteam.id">
@@ -90,6 +91,9 @@ export default {
   border-radius: 1.5ch;
   margin: 4ch auto 4ch;
   background: whitesmoke;
+}
+.abilitybox h1, h2, h3, h4, h5, h6, p{
+  margin: 0 ;
 }
 .detail {
   width: fit-content;

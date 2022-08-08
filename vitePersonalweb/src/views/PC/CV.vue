@@ -3,8 +3,8 @@
     <a-layout>
       <!-- content-->
 
-      <div style="margin: 0 auto">
-        <a-layout-content class="Content" style="margin-top: 2vh">
+      <div style="margin: 0 auto;display:flex;">
+        <a-layout-content class="Content" style="margin-top: 5vh">
           <a-page-header
             style="border: 0px solid rgb(235, 237, 240)"
             title="Home"
@@ -40,19 +40,21 @@
             <br />
             <Educationcontent :datas="DataBase"/>
           </section>
-
-          <section>
-          <Skills :datas="DataBase"/>
+          <section style="margin-top:5vh;" v-animate-onscroll.repeat="'upswing'" >
+          <Skills :datas="DataBase"  id="skill"/>
           </section>
-        <!-- <Project />  -->
+          <section>
+        <Project  :datas="DataBase"  id="project"/> 
+        </section>
         </a-layout-content>
-      </div>
-      <!-- affix -->
-      <!-- <a-anchor :target-offset="targetOffset">
+        <!-- affix -->
+      <a-anchor :target-offset="targetOffset" :showInkInFixed="true" style="margin: 15vh 0 0 1vw;">
         <a-anchor-link href="#main" title="Education" />
-        <a-anchor-link title="Ability" />
-        <a-anchor-link title="Project"> </a-anchor-link>
-      </a-anchor> -->
+        <a-anchor-link href="#skill" title="Skills" />
+        <a-anchor-link href="#project" title="Project"/> 
+      </a-anchor>
+      </div>
+      
     </a-layout>
   </div>
 </template>
@@ -62,9 +64,10 @@ import axios from "axios";
 import Educationcontent from "../../components/CV/CV_Edu_Back.vue";
 import Skills from "../../components/CV/CV_Skill.vue";
 import Project from "../../components/CV/CV_Project.vue";
+
 import { CloudDownloadOutlined } from "@ant-design/icons-vue";
 
-import { defineComponent } from "vue";
+import { defineComponent,onMounted, ref } from "vue";
 
 const basicURL =
   "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
@@ -72,11 +75,18 @@ const basicURL =
 export default defineComponent({
   components: { Skills, Educationcontent, Project, CloudDownloadOutlined },
   setup() {
+    const targetOffset = ref<number | undefined>(undefined);
+    onMounted(() => {
+      targetOffset.value = window.innerHeight / 2;
+    });
+    return {
+      targetOffset,
+    };
   },
 
   data() {
     return {
-      DataBase:'',
+      DataBase:{},
     };
   },
   mounted: function () {
@@ -113,6 +123,21 @@ export default defineComponent({
   display: relative;
   max-width: 100ch;
   min-height: 100vh;
+}
+
+@keyframes upswing {
+  0%{
+    transform: translateX(-5%);
+    opacity: 0;
+  }
+  50%{
+    transform: translateX(-4%);
+    opacity: 0.3;
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .describe_box {

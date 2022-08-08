@@ -2,98 +2,29 @@
   "phone_CN": "13957510004",
   "email": "arthur262@outlook.com",
   "github": "https://github.com/arthur262",
-  "Bacher": "Bachelor of Computer Science",
-  "School": "Dalhousie University, Halifax, NS",
-  "School_Date": "2019.Sept-2023.April",
-  "Education_content": "Courses include Algorithm, Database System, Networking, Software Development, Computer system, and Front-end and Back-end Web development",
-  "CGPA":3.30,
-  "Front_language": [
-    "HTML",
-    "CSS",
-    "Node.js",
-    "JavaScript",
-    "TypeScript"
-  ],
-  "Back_language": [
-    "R",
-    "C",
-    "Python",
-    "Java",
-    "C++"
-  ],
-  "DataBase": ["MySQL,MongDB"],
-  "Framework": ["Vue3.0","React18"],
-  "Techlist": [
+  "Education": [
     {
-      "title": "Technical",
-      "children": [
-        {
-          "description": "Ability to program HTML, CSS, and JavaScript during website development"
-        },
-        {
-          "description": "Skilled in using XML and Java on Mobile Application project development."
-        },
-        {
-          "description": "Familiar with analyzing data and coding projects through Python"
-        },
-        {
-          "description": "Using the C code to deal with some single chip code"
-        },
-        { "description": "Familiar calculation with R" }
-      ]
+      "Bachelor": "Bachelor of Computer Science",
+      "School": "Dalhousie University, Halifax, NS,Canada",
+      "School_Date": "2019.Sept-2023.April",
+      "Education_content": "Courses include Algorithm, Database System, Networking, Software Development, Computer system, and Front-end and Back-end Web development",
+      "CGPA": 3.30
     },
     {
-      "title": "Database system",
-      "children": [
-        {
-          "description": "Building MySQL database, and processing data through it."
-        },
-        { "description": "Using MySQL at back-end web development." }
-      ]
-    },
-    {
-      "title": "Tools",
-      "children": [
-        {
-          "description": "Familiar with using Git as well as using Git CI/CD tool to debug."
-        },
-        {
-          "description": "Familiar with Junit debugging tool, and PowerShell debug tools of multiple programming languages."
-        },
-        { "description": "Familiar with using JUNIT debugging tool" },
-        {
-          "description": "Familiar with using Microsoft suites and Advanced functions, including using Macro."
-        },
-        {
-          "description": "Using the Premiere pro, Lighting room, Photoshop."
-        }
-      ]
-    },
-    {
-      "title": "Framework",
-      "children": [
-        {
-          "description": "Able to use the Vue (Element-design, ant design) to design a dynamic web"
-        }
-      ]
-    },
-    {
-      "title": "Communicate",
-      "children": [
-        {
-          "description": "Familiar with using axios method to exchange .Json package with back-end"
-        }
-      ]
-    },
-    {
-      "title": "Operation System",
-      "children": [
-        {
-          "description": "Familiar with Linux(Ubuntu , deepin), and Windows PowerShell command"
-        }
-      ]
+      "Bachelor": "Highschool Certificate",
+      "School": "Rockridge Secondary School, West Vancouver, BC,Canada",
+      "School_Date": "2016.Sept-2019.April",
+      "Education_content": "Rockridge Secondary School offers a range of Advanced Placement (AP) courses for Grade 11 and 12. All students in Grades 8-10 participate in the IB Middle Years Programme.",
+      "CGPA": 0
     }
+
   ],
+  "Front_language": ["HTML", "CSS", "Node.js", "JavaScript", "TypeScript"],
+  "Back_language": ["R", "C", "Python", "Java", "C++"],
+  "DataBase": ["MySQL,MongDB"],
+  "Framework": ["Vue3.0", "React18"],
+  "UI":["Ant design","Element UI","Material UI","Bootstrap React"],
+
   "Project": [
     {
       "pciture": "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/istockphoto-1080052820-170667a.jpg",
