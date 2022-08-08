@@ -4,7 +4,7 @@
       <!-- content-->
 
       <div style="margin: 0 auto">
-        <a-layout-content class="Content" style="margin-top: 10vh">
+        <a-layout-content class="Content" style="margin-top: 2vh">
           <a-page-header
             style="border: 0px solid rgb(235, 237, 240)"
             title="Home"
@@ -18,13 +18,12 @@
               <a-col :flex="16">
                 <span style="padding: 3vh 2vw; text-align: center">
                   <h1 style="font-size: 1.5em"><b>YuanZheZhang(Arthur)</b></h1>
-                  <h3 class="w3">Phone: CN-{{ phone_CN }}</h3>
+                  <h3 class="w3">Phone: CN-{{ DataBase.phone_CN }}</h3>
                   <h3 class="w3">
                     Email :<a
                       href="mailto:arthur262@outlook.com"
                       title="Send me the Email"
-                      style="color: black"
-                      >{{ email }}</a
+                      >{{ DataBase.email }}</a
                     >
                   </h3>
                   <h3 class="w3">
@@ -32,38 +31,40 @@
                     <a
                       href="https://github.com/arthur262"
                       title="Github link"
-                      >{{ github }}</a
+                      >{{ DataBase.github }}</a
                     >
                   </h3>
                 </span>
               </a-col>
             </a-row>
             <br />
-            <Educationcontent />
+            <Educationcontent :datas="DataBase"/>
           </section>
 
-          <!-- <Skills />
-        <Project />  -->
+          <section>
+          <Skills :datas="DataBase"/>
+          </section>
+        <!-- <Project />  -->
         </a-layout-content>
       </div>
       <!-- affix -->
-      <a-anchor :target-offset="targetOffset">
+      <!-- <a-anchor :target-offset="targetOffset">
         <a-anchor-link href="#main" title="Education" />
         <a-anchor-link title="Ability" />
         <a-anchor-link title="Project"> </a-anchor-link>
-      </a-anchor>
+      </a-anchor> -->
     </a-layout>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import axios from "axios";
 import Educationcontent from "../../components/CV/CV_Edu_Back.vue";
 import Skills from "../../components/CV/CV_Skill.vue";
 import Project from "../../components/CV/CV_Project.vue";
 import { CloudDownloadOutlined } from "@ant-design/icons-vue";
 
-import { defineComponent, onMounted, ref } from "vue";
+import { defineComponent } from "vue";
 
 const basicURL =
   "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
@@ -71,22 +72,11 @@ const basicURL =
 export default defineComponent({
   components: { Skills, Educationcontent, Project, CloudDownloadOutlined },
   setup() {
-    const targetOffset = ref(undefined);
-    onMounted(() => {
-      targetOffset.value = window.innerHeight / 2;
-    });
-    return {
-      targetOffset,
-    };
   },
 
   data() {
     return {
-      phone_CN: "",
-      phone_CA: "",
-      email: "",
-      github: "",
-      Currentyear: "",
+      DataBase:'',
     };
   },
   mounted: function () {
@@ -94,26 +84,25 @@ export default defineComponent({
   },
   methods: {
     getdata() {
-      axios
-        .get(
-          basicURL,
-          {
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          },
-          {
-            emulateJSON: true,
-            crossOriginIsolated: true,
-          }
-        )
-        .then((response) => {
-          this.phone_CN = response.data.phone_CN;
-          this.phone_CA = response.data.phone_CA;
-          this.email = response.data.email;
-          this.github = response.data.github;
-        })
-        .catch(function (error) {
+      // axios
+      //   .get(
+      //     basicURL,
+      //     {
+      //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      //     }
+      //   )
+      //   .then((response) => {
+      //     this.DataBase = response.data;
+      //   })
+      //   .catch(function (error) {
+      //     console.log(error);
+      //   });
+      axios.get('/CV_EN.json').then((response) => {
+           this.DataBase = response.data;
+         }).catch(function (error) {
           console.log(error);
         });
+
     },
   },
 });
