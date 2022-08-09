@@ -14,11 +14,11 @@
                 <router-link to="/" class="link middle" @mouseenter="mouseover(0)" @mouseleave="mouseLeave()">Programmer
                 </router-link>
               </li>
-              <li>
+              <!-- <li>
                 <router-link to="/" class="link middle" @mouseenter="mouseover(1)" @mouseleave="mouseLeave()">Stock
                   trader
                 </router-link>
-              </li>
+              </li> -->
               <li>
                 <router-link to="/Student" class="link middle" @mouseenter="mouseover(2)" @mouseleave="mouseLeave()">
                   Student</router-link>

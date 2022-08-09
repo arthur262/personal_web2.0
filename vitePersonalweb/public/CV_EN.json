@@ -19,7 +19,7 @@
     }
 
   ],
-  "Front_language": ["HTML", "CSS", "Node.js", "JavaScript", "TypeScript"],
+  "Front_language": ["HTML", "CSS", "Node.js", "JavaScript", "TypeScript","PHP"],
   "Back_language": ["R", "C", "Python", "Java", "C++"],
   "DataBase": ["MySQL,MongDB"],
   "Framework": ["Vue3.0", "React18"],
