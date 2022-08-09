@@ -10,6 +10,7 @@
             title="Home"
             @back="() => $router.go(-1)"
           />
+
           <section class="describe_box" id="main">
             <a-row type="flex">
               <a-col :flex="8">
@@ -40,9 +41,12 @@
             <br />
             <Educationcontent :datas="DataBase"/>
           </section>
-          <section style="margin-top:5vh;" v-animate-onscroll.repeat="'upswing'" >
-          <Skills :datas="DataBase"  id="skill"/>
+
+          <section style="margin-top:5vh;"  ref="target">
+          <Skills :datas="DataBase" v-show="targetIsVisible" id="skill" class="fademount"/>
           </section>
+
+
           <section>
         <Project  :datas="DataBase"  id="project"/> 
         </section>
@@ -66,20 +70,34 @@ import Skills from "../../components/CV/CV_Skill.vue";
 import Project from "../../components/CV/CV_Project.vue";
 
 import { CloudDownloadOutlined } from "@ant-design/icons-vue";
-
+import { useIntersectionObserver } from '@vueuse/core'
 import { defineComponent,onMounted, ref } from "vue";
 
 const basicURL =
   "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
 
+
 export default defineComponent({
   components: { Skills, Educationcontent, Project, CloudDownloadOutlined },
   setup() {
+    const target = ref(null)
+    const targetIsVisible = ref(false)
+    const { stop } = useIntersectionObserver(
+      target,
+      ([{ isIntersecting }], observerElement) => {
+        if(isIntersecting)targetIsVisible.value = isIntersecting;
+      },
+      {threshold:0.5}
+    )
+
     const targetOffset = ref<number | undefined>(undefined);
     onMounted(() => {
       targetOffset.value = window.innerHeight / 2;
     });
+    
     return {
+      target,
+      targetIsVisible,
       targetOffset,
     };
   },
@@ -114,6 +132,7 @@ export default defineComponent({
         });
 
     },
+    
   },
 });
 </script>
@@ -124,18 +143,17 @@ export default defineComponent({
   max-width: 100ch;
   min-height: 100vh;
 }
+.fademount{
+  animation:upswing .5s linear;
+}
 
 @keyframes upswing {
   0%{
-    transform: translateX(-5%);
+    transform: translateY(-5%);
     opacity: 0;
   }
-  50%{
-    transform: translateX(-4%);
-    opacity: 0.3;
-  }
   100%{
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
   }
 }

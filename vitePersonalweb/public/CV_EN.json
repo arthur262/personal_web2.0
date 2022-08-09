@@ -33,7 +33,8 @@
       "github": "https://github.com/CSCIX691DAL/asw",
       "Technical": ["React","Material UI","Ant design","NextJS","Firebase","bootstrap","date-fns","echarts","react-spring","react-hook-form"],
       "children": [
-        "Using Next.js, React,Material UI,and Spring react to build an animation personal website. As a core member of the team, I was responsible for building the framework of the whole website and the database and status management module behind it. At the same time, after completing the construction of my own part, I helped the students who did not follow the progress to understand and write the code. Besides, I reconstructed almost all the core code of the former team, including the creation of user management system, and was mainly responsible for the building of the homepage and accomplishment page. Added all the animation elements in the page"
+        "Using Next.js, React,Material UI,and Spring react to build an animation personal website. As a core member of the team, I was responsible for building the framework of the whole website and the database and status management module behind it.",
+        "At the same time, after completing the construction of my own part, I helped the students who did not follow the progress to understand and write the code. Besides, I reconstructed almost all the core code of the former team, including the creation of user management system, and was mainly responsible for the building of the homepage and accomplishment page. Added all the animation elements in the page"
       ]
     },
     

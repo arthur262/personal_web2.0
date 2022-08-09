@@ -28,13 +28,9 @@
                 <a v-bind:href="iteam.github"> {{ iteam.github }}</a>
               </h4>
               <div v-show="describe_OP">
-                <ol
-                  class="C_content"
-                  v-for=" ({ iteamson }, index) in iteam.children"
-                  :key="index"
-                >
-                  <li>{{ iteamson }}</li>
-                </ol>
+                <ul v-for="child in iteam.children" :key="child.id">
+                  <li>{{ child }}</li>
+                </ul>
               </div>
               <fullscreen-outlined class="icon" />
             </template>
