@@ -28,55 +28,46 @@
   "Project": [
     {
       "pciture": "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/istockphoto-1080052820-170667a.jpg",
-      "Title": "Simple multi thread server project",
-      "TimeRanges": "Sept-Oct.2021",
-      "github": "",
+      "Title": "Personal Web for Mohammad Etemad",
+      "TimeRanges": "April.2022-Jun.15.2022",
+      "github": "https://github.com/CSCIX691DAL/asw",
+      "Technical": ["React","Material UI","Ant design","NextJS","Firebase","bootstrap","date-fns","echarts","react-spring","react-hook-form"],
       "children": [
-        {
-          "details": "The use of Java.net to achieve the client and server communication, and the use of the basic multi-threading rules, up to 20 users at the same time to support access, at the same time the use of real-time thread monitoring for some of the user's special code mode switch, such as encryption communication and thread broadcast."
-        }
+        "Using Next.js, React,Material UI,and Spring react to build an animation personal website. As a core member of the team, I was responsible for building the framework of the whole website and the database and status management module behind it. At the same time, after completing the construction of my own part, I helped the students who did not follow the progress to understand and write the code. Besides, I reconstructed almost all the core code of the former team, including the creation of user management system, and was mainly responsible for the building of the homepage and accomplishment page. Added all the animation elements in the page"
+      ]
+    },
+    
+    {
+      "pciture": "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/6128107.png",
+      "Title": "Personal Web Project1.0 ",
+      "TimeRanges": "Oct.2021-Nov.2021",
+      "github": "https://github.com/arthur262/personal_web.git",
+      "Technical": ["Vue2.0","Element UI","Ant design","better-scroll","axios"],
+      "children": [
+        "Ongoing outside class project with three other peers, using Vue and ant-design to Help myself to build a personal Photo show web as well as self CV, In the blueprint I will have a background for uploading images",
+        "Implementation technology: front and rear end separation, Axios to communicate and My SQL as the database in Dal server, and .json with switch package."
+      ]
+    },
+    {
+      "pciture": "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/%E4%B8%8B%E8%BD%BD.png",
+      "Title": "58 (Second Hand Sale website)",
+      "TimeRanges": "April.2022-May.2022",
+      "github": "https://github.com/arthur262/58.git",
+      "Technical": ["Vue2.0","Element Plus","Alicloud OSS","Next.js","axios"],
+      "children": [
+        "Using Vue and Element ui to build the basic structure for front display and use express-js to modified with MongDB and Alicloud OSS for json data and picture compression. I take the role of developer and designer. ",
+        "Planning to adapt with SMS verification code. Also taking the 95% of the whole work and the team leader and design and project management."
       ]
     },
     {
       "pciture": "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/7d9b1d662b28cd365b33a01a3d0288e1.jpg",
       "Title": "Robot Project, Aseba",
       "TimeRanges": "Feb-March.2020",
+      "Technical": ["Aseba"],
       "github": "",
       "children": [
-        {
-          "details": "Design and test the robot to avoid obstacles automatically and find objects automatically by using sensors"
-        },
-        {
-          "details": "Competition, and complete the analysis, implementation, and testing"
-        }
-      ]
-    },
-    {
-      "pciture": "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/6128107.png",
-      "Title": "Personal Web Project, Vue ",
-      "TimeRanges": "Oct.2021-present",
-      "github": "https://github.com/arthur262/personal_web.git",
-      "children": [
-        {
-          "details": "Ongoing outside class project with three other peers, using Vue and ant-design to Help myself to build a personal Photo show web as well as self CV, In the blueprint I will have a background for uploading images"
-        },
-        {
-          "details": "Implementation technology: front and rear end separation, Axios to communicate and My SQL as the database in Dal server, and .json with switch package."
-        }
-      ]
-    },
-    {
-      "pciture": "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/%E4%B8%8B%E8%BD%BD.png",
-      "Title": "University Course Election Assistance App",
-      "TimeRanges": "Oct. 2021-present",
-      "github": "https://github.com/arthur262/dalhousie_app.git",
-      "children": [
-        {
-          "details": "Ongoing outside class project with three other peers, using Android develop Ide to develop a mobile app, which can help university students plan for future classes, and help them organize the weekly schedule"
-        },
-        {
-          "details": "My main job is about the Team leader and UI and assistant with back-end which is about to do the Home page and giving student a Google map location to see the building, and achieve functions of this page, I am using XML to design UI, and using java to do back-end programing with several APIs. Also, I would be the tester of this project, I am currently using JUNIT to do."
-        }
+        "Design and test the robot to avoid obstacles automatically and find objects automatically by using sensors",
+        "Competition, and complete the analysis, implementation, and testing"
       ]
     }
   ]
