@@ -43,13 +43,14 @@
           </section>
 
           <section style="margin-top:5vh;"  ref="target">
-          <Skills :datas="DataBase" v-show="targetIsVisible" id="skill" class="fademount"/>
+          <Transition name="fademount">
+          <Skills :datas="DataBase" v-show="targetIsVisible" id="skill" />
+          </Transition>
           </section>
+         
 
 
-          <section>
-        <Project  :datas="DataBase"  id="project"/> 
-        </section>
+          
         </a-layout-content>
         <!-- affix -->
       <a-anchor :target-offset="targetOffset" :showInkInFixed="true" style="margin: 15vh 0 0 1vw;">
@@ -58,6 +59,10 @@
         <a-anchor-link href="#project" title="Project"/> 
       </a-anchor>
       </div>
+       <section style="margin: 0 auto;">
+        <Project  :datas="DataBase"  id="project"/> 
+        </section>
+      
       
     </a-layout>
   </div>
@@ -70,7 +75,7 @@ import Skills from "../../components/CV/CV_Skill.vue";
 import Project from "../../components/CV/CV_Project.vue";
 
 import { CloudDownloadOutlined } from "@ant-design/icons-vue";
-import { useIntersectionObserver } from '@vueuse/core'
+import { useIntersectionObserver } from '@vueuse/core';
 import { defineComponent,onMounted, ref } from "vue";
 
 const basicURL =
@@ -85,16 +90,16 @@ export default defineComponent({
     const { stop } = useIntersectionObserver(
       target,
       ([{ isIntersecting }], observerElement) => {
-        if(isIntersecting)targetIsVisible.value = isIntersecting;
+        targetIsVisible.value = isIntersecting;
       },
-      {threshold:0.5}
+      {threshold:0.}
     )
 
     const targetOffset = ref<number | undefined>(undefined);
     onMounted(() => {
       targetOffset.value = window.innerHeight / 2;
     });
-    
+
     return {
       target,
       targetIsVisible,
@@ -143,8 +148,11 @@ export default defineComponent({
   max-width: 100ch;
   min-height: 100vh;
 }
-.fademount{
+.fademount-enter-active{
   animation:upswing .5s linear;
+}
+.fademount-leave-active{
+  animation:upswing .5s reverse;
 }
 
 @keyframes upswing {
