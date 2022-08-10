@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
 
     <div v-for="(iteam, index) in datas.Project" :key="index" class="card">
 
@@ -37,8 +37,10 @@
       <div>
       
         <span v-for="child in iteam.picture" :key="child.id">
-          <img :src="child" height="400" >
+          <img :src="child" width="500" class="image">
+
         </span>
+
       </div>
     </div>
 
@@ -46,15 +48,11 @@
 </template>
 
 <script lang="ts">
-import Parallax from 'vue-parallaxy'
-import { FullscreenOutlined } from "@ant-design/icons-vue";
-
 export default {
   setup() { },
   props: ["datas"],
   data() {
     return {
-      describe_OP: false,
     };
   },
   mounted: function () { },
@@ -62,7 +60,7 @@ export default {
 
   },
   components: {
-    FullscreenOutlined,
+    
   },
 };
 </script>
@@ -72,6 +70,7 @@ export default {
   display: flex;
   padding:0;
   max-width: 140ch;
+  margin: 20vh 0;
 }
 
 .card div {
@@ -81,5 +80,12 @@ export default {
 .container {
   border-radius: 1.5ch;
   height: fit-content;
+  top: 30%;
+  z-index: 1;
+  position: sticky;
+}
+.image{
+  margin: 5vh 0;
+  border-radius: 1.5ch;
 }
 </style>

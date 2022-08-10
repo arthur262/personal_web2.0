@@ -3,7 +3,7 @@
     <a-layout>
       <!-- content-->
 
-      <div style="margin: 0 auto;display:flex;">
+      <div style="margin: 0 auto; display: flex">
         <a-layout-content class="Content" style="margin-top: 5vh">
           <a-page-header
             style="border: 0px solid rgb(235, 237, 240)"
@@ -39,31 +39,34 @@
               </a-col>
             </a-row>
             <br />
-            <Educationcontent :datas="DataBase"/>
+            <Educationcontent :datas="DataBase" />
           </section>
 
-          <section style="margin-top:5vh;"  ref="target">
-          <Transition name="fademount">
-          <Skills :datas="DataBase" v-show="targetIsVisible" id="skill" />
-          </Transition>
+          <section style="margin-top: 5vh" ref="target">
+            <Transition name="fademount">
+              <Skills :datas="DataBase" v-show="targetIsVisible" id="skill" />
+            </Transition>
           </section>
-         
-
-
-          
         </a-layout-content>
         <!-- affix -->
-      <a-anchor :target-offset="targetOffset" :showInkInFixed="true" style="margin: 15vh 0 0 1vw;">
-        <a-anchor-link href="#main" title="Education" />
-        <a-anchor-link href="#skill" title="Skills" />
-        <a-anchor-link href="#project" title="Project"/> 
-      </a-anchor>
+        <a-anchor
+          :target-offset="targetOffset"
+          :showInkInFixed="true"
+          style="margin: 15vh 0 0 1vw"
+        >
+          <a-anchor-link href="#main" title="Education" />
+          <a-anchor-link href="#skill" title="Skills" />
+          <a-anchor-link href="#project" title="Project" />
+        </a-anchor>
       </div>
-       <section style="margin: 0 auto;">
-        <Project  :datas="DataBase"  id="project"/> 
-        </section>
-      
-      
+      <!-- Project -->
+      <Transition name="fademount">
+        <div v-bind:style="background" ref="backtarget">
+          <section style="margin: 0 auto; width: fit-content">
+            <Project :datas="DataBase" id="project" />
+          </section>
+        </div>
+      </Transition>
     </a-layout>
   </div>
 </template>
@@ -74,27 +77,38 @@ import Educationcontent from "../../components/CV/CV_Edu_Back.vue";
 import Skills from "../../components/CV/CV_Skill.vue";
 import Project from "../../components/CV/CV_Project.vue";
 
-import { CloudDownloadOutlined } from "@ant-design/icons-vue";
-import { useIntersectionObserver } from '@vueuse/core';
-import { defineComponent,onMounted, ref } from "vue";
+import { useIntersectionObserver } from "@vueuse/core";
+import { onMounted, ref } from "vue";
+import from "../../assets/api/threadhold.ts";
 
 const basicURL =
   "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
 
-
-export default defineComponent({
-  components: { Skills, Educationcontent, Project, CloudDownloadOutlined },
+export default {
+  components: { Skills, Educationcontent, Project },
   setup() {
-    const target = ref(null)
-    const targetIsVisible = ref(false)
-    const { stop } = useIntersectionObserver(
+    const target = ref(null);
+    const backtarget=ref(null);
+
+    const backtargetIsVisible=ref(false);
+    const targetIsVisible = ref(false);
+    var viewheight=document.documentElement.clientHeight || document.body.clientHeight;
+
+    useIntersectionObserver(
       target,
       ([{ isIntersecting }], observerElement) => {
         targetIsVisible.value = isIntersecting;
       },
-      {threshold:0.}
-    )
-
+      { threshold: 0.1 }
+    );
+    useIntersectionObserver(
+      backtarget,
+      ([{ isIntersecting }], observerElement) => {
+        backtargetIsVisible.value = isIntersecting;
+      },
+      { threshold: 0.1 }
+    );
+    
     const targetOffset = ref<number | undefined>(undefined);
     onMounted(() => {
       targetOffset.value = window.innerHeight / 2;
@@ -104,18 +118,39 @@ export default defineComponent({
       target,
       targetIsVisible,
       targetOffset,
+      backtarget,
+      backtargetIsVisible,
+      viewheight,
     };
   },
 
   data() {
     return {
-      DataBase:{},
+      background: {
+        backgroundColor: "rgba(36,36,36,1)",
+        paddingTop: "30vh",
+      },
+      DataBase: {},
     };
   },
   mounted: function () {
     this.getdata();
   },
+  // 监听project元素是否进入视图
+  watch:{
+    viewheight:function(newData,oldData){
+      if(this.backtargetIsVisible==true){
+
+      }
+    }
+  },
   methods: {
+    watchbackground(element, el2:number): void {
+      if(this.backtargetIsVisible){
+        console.log(element.offsetTop);
+      }
+      
+    },
     getdata() {
       // axios
       //   .get(
@@ -130,16 +165,17 @@ export default defineComponent({
       //   .catch(function (error) {
       //     console.log(error);
       //   });
-      axios.get('/CV_EN.json').then((response) => {
-           this.DataBase = response.data;
-         }).catch(function (error) {
+      axios
+        .get("/CV_EN.json")
+        .then((response) => {
+          this.DataBase = response.data;
+        })
+        .catch(function (error) {
           console.log(error);
         });
-
     },
-    
   },
-});
+};
 </script>
 
 <style scoped>
@@ -148,19 +184,19 @@ export default defineComponent({
   max-width: 100ch;
   min-height: 100vh;
 }
-.fademount-enter-active{
-  animation:upswing .5s linear;
+.fademount-enter-active {
+  animation: upswing 0.5s linear;
 }
-.fademount-leave-active{
-  animation:upswing .5s reverse;
+.fademount-leave-active {
+  animation: upswing 0.5s reverse;
 }
 
 @keyframes upswing {
-  0%{
+  0% {
     transform: translateY(-5%);
     opacity: 0;
   }
-  100%{
+  100% {
     transform: translateY(0);
     opacity: 1;
   }
