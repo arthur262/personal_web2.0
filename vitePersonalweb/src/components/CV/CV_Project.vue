@@ -37,7 +37,7 @@
       <div>
       
         <span v-for="child in iteam.picture" :key="child.id">
-          <img :src="child" width="500" class="image">
+          <img :src="child" height="400" class="image">
 
         </span>
 
@@ -70,7 +70,7 @@ export default {
   display: flex;
   padding:0;
   max-width: 140ch;
-  margin: 20vh 0;
+  margin-bottom: 20vh;
 }
 
 .card div {
@@ -85,7 +85,7 @@ export default {
   position: sticky;
 }
 .image{
-  margin: 5vh 0;
+  margin: 5vh auto;
   border-radius: 1.5ch;
 }
 </style>

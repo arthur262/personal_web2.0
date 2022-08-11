@@ -79,7 +79,7 @@ import Project from "../../components/CV/CV_Project.vue";
 
 import { useIntersectionObserver } from "@vueuse/core";
 import { onMounted, ref } from "vue";
-import from "../../assets/api/threadhold.ts";
+import threadhold from "../../assets/api/threadhold.js";
 
 const basicURL =
   "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
