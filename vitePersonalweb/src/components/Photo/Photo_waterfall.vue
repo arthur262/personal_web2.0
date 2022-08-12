@@ -1,8 +1,5 @@
 <template>
   <div>
-    <a-button v-on:click="show()" style="margin: 0 auto">
-      {{ informational }} 1111
-    </a-button>
     <div class="waterfall px-container clearfix" v-cloak>
       <a-image-preview-group>
         <div
@@ -48,7 +45,7 @@ export default {
   },
   data() {
     return {
-      selectedKeys: "Sky",
+      selectedKeys: "all",
       waterfallData: "",
       newWaterfallData: "",
     };
