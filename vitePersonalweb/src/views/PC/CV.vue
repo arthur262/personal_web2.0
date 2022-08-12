@@ -62,9 +62,9 @@
       <!-- Project -->
       <Transition name="fademount">
         <div v-bind:style="background" ref="backtarget">
-          <section style="margin: 0 auto; width: fit-content">
+          
             <Project :datas="DataBase" id="project" />
-          </section>
+         
         </div>
       </Transition>
     </a-layout>
@@ -128,7 +128,6 @@ export default {
     return {
       background: {
         backgroundColor: "rgba(36,36,36,1)",
-        paddingTop: "30vh",
       },
       DataBase: {},
     };

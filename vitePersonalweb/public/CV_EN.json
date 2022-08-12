@@ -28,7 +28,7 @@
   "Project": [
     {
       "picture": ["http://arthur2.oss-cn-beijing.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-08-09%20%E4%B8%8B%E5%8D%887.37.45.png"],
-      "Title": "Personal Web for Mohammad Etemad",
+      "Title": "Mohammad Etemad Personal Web",
       "TimeRanges": "April.2022-Jun.15.2022",
       "github": "https://github.com/CSCIX691DAL/asw",
       "Technical": ["React","Material UI","Ant design","NextJS","Firebase","bootstrap","date-fns","echarts","react-spring","react-hook-form"],

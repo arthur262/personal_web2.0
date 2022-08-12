@@ -52,7 +52,7 @@
         <kinesis-element :strength="12">
         <a-col  :xs="{ order: 1 }" :sm="{ order: 1 }" :md="{ order: 1 }" :lg="{ order: 2 }">
           <div class="selfshoots">
-          <img width="400" src="../../../public/Photo/5.1.jpg"  style="border-radius:1.5ch"/>
+          <img width="400" src="/public/Photo/5.1.jpg"  style="border-radius:1.5ch"/>
           </div>
         </a-col>
         </kinesis-element>
@@ -96,7 +96,7 @@ export default {
 <style scoped>
 .container {
   width: 100%;
-background-image: url("../../../public/Photo/DSC00368-HDR-2\(1\).jpg");
+background-image: url("/Photo/DSC00368-HDR-2\(1\).jpg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;

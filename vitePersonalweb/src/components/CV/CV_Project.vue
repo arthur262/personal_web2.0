@@ -1,76 +1,80 @@
 <template>
-  <div >
+  <div>
+    <div class="cardb">
+      <section style="padding-top: 30vh">
+        <div v-for="(iteam, index) in datas.Project" :key="index" class="card">
+          <!-- card description -->
+          <a-card class="container">
+            <a-card-meta>
+              <template #description>
+                <span >
+                  <h2 style="float: left">{{ iteam.Title }}</h2>
+                  <p style="margin: 0; float: right">
+                    <b>{{ iteam.TimeRanges }}</b>
+                  </p>
+                </span>
 
-    <div v-for="(iteam, index) in datas.Project" :key="index" class="card">
+                <br />
+                <br />
+                <span>
+                  <h4 style="display: inline">Technical used:</h4>
+                  <p
+                    v-for="child in iteam.Technical"
+                    :key="child"
+                    style="display: inline"
+                  >
+                    {{ child }},
+                  </p>
+                </span>
 
-<!-- card description -->
-      <a-card hoverable class="container">
-        
-        <a-card-meta>
-          <template #description>
-            <h2 class="w2">{{ iteam.Title }}</h2>
 
-            <p style="margin: 0">
-              <b>{{ iteam.TimeRanges }}</b>
-            </p>
-
-            <h4 style="margin: 0;" >
-            Technical used:
-            </h4>
-
-            <span >
-            <p v-for="child in iteam.Technical" :key="child" style="display:inline;">{{child}},</p>
+                <span>
+                <h4>
+                  Github:
+                  <a v-bind:href="iteam.github"> {{ iteam.github }}</a>
+                </h4>
+                </span>
+                <ul v-for="child in iteam.children" :key="child.id">
+                  <li>{{ child }}</li>
+                </ul>
+              </template>
+            </a-card-meta>
+          </a-card>
+          <!-- deyail image -->
+          <div>
+            <span
+              v-for="child in iteam.picture"
+              :key="child.id"
+              style="index: 20"
+            >
+              <img :src="child" height="500" class="image" />
             </span>
-
-            <h4 style="margin: 0">
-              Github:
-              <a v-bind:href="iteam.github"> {{ iteam.github }}</a>
-            </h4>
-
-            <ul v-for="child in iteam.children" :key="child.id">
-              <li>{{ child }}</li>
-            </ul>
-          </template>
-        </a-card-meta>
-      </a-card>
-<!-- deyail image -->
-      <div>
-      
-        <span v-for="child in iteam.picture" :key="child.id">
-          <img :src="child" height="400" class="image">
-
-        </span>
-
-      </div>
+          </div>
+        </div>
+      </section>
     </div>
-
   </div>
 </template>
 
 <script lang="ts">
 export default {
-  setup() { },
+  setup() {},
   props: ["datas"],
   data() {
-    return {
-    };
+    return {};
   },
-  mounted: function () { },
-  methods: {
-
-  },
-  components: {
-    
-  },
+  mounted: function () {},
+  methods: {},
+  components: {},
 };
 </script>
 
 <style scoped>
 .card {
   display: flex;
-  padding:0;
+  padding: 0;
   max-width: 140ch;
-  margin-bottom: 20vh;
+  margin: 10vh auto;
 }
 
 .card div {
@@ -83,9 +87,16 @@ export default {
   top: 30%;
   z-index: 1;
   position: sticky;
+  min-width: 30vw;
 }
-.image{
+.image {
   margin: 5vh auto;
   border-radius: 1.5ch;
+}
+.cardb {
+  background: url("/Photo/A7M2 (152).jpg") rgba(36, 36, 36, 1) no-repeat fixed;
+  background-position: center;
+  width: 100%;
+  
 }
 </style>
