@@ -5,6 +5,7 @@ import vue from "@vitejs/plugin-vue";
 export default defineConfig({
   plugins: [vue()],
   publicpath: "/",
+  srcpath: "@",
   css: {
     preprocessorOptions: {
       less: {

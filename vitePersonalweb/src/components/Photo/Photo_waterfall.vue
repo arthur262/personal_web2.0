@@ -26,11 +26,11 @@
     </div>
   </div>
 </template>
+
 <script>
 import axios from "axios";
 import { ref } from "vue";
-const basicURL =
-  "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/Photo_Src.json";
+
 export default {
   props: {
     informational:{
@@ -40,14 +40,11 @@ export default {
   },
   setup() {
     return {
-      current: ref(1),
     };
   },
   data() {
     return {
-      selectedKeys: "all",
       waterfallData: "",
-      newWaterfallData: "",
     };
   },
   mounted: function () {
@@ -57,83 +54,18 @@ export default {
   methods: {
     getdata() {
       axios
-        .get(
-          basicURL,
-          {
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          },
-          {
-            emulateJSON: true,
-            crossOriginIsolated: true,
-          }
-        )
+        .get("/data/Photo_Src.json")
         .then((response) => {
-          this.waterfallData = this.condition(
-            response.data.Traveller,
-            response.data.Landscape,
-            response.data.Sky
-          );
-          this.fresh();
+          this.waterfallData = response.data;
         })
         .catch(function (error) {
           console.log(error);
         });
     },
-    fresh() {
-      let [...waterfallData] = this.waterfallData;
-      let [...newWaterfallData] = [[], [], []];
-      waterfallData.sort(function () {
-        return Math.random() > 0.5 ? -1 : 1;
-      });
-
-      waterfallData.forEach((el, i) => {
-        //如果第一行不能进入
-
-        switch (i % 3) {
-          case 0:
-            newWaterfallData[0].push(el);
-            break;
-          case 1:
-            newWaterfallData[1].push(el);
-            break;
-          case 2:
-            newWaterfallData[2].push(el);
-            break;
-        }
-      });
-      this.newWaterfallData = newWaterfallData;
-    },
-    isHorzeontal(element) {
-      var img = new Image();
-      img.src = element.u_img;
-      img.onload = function () {
-        return img.width > img.height ? true : false;
-      };
-    },
-    show() {
-      console.log(this.informational);
-    },
-    condition(el1, el2, el3) {
-      if (this.selectedKeys == "all") {
-        return el1.concat(el2.concat(el3.concat));
-      }
-      else if(this.selectedKeys == "Sky")
-      {
-        return el3
-      }
-      else if(this.selectedKeys == "Landscape")
-      {
-        return el2;
-      }
-      else if(this.selectedKeys == "Travel")
-      {
-        return el1;
-      }
-    },
   },
 };
 </script>
-<style lang="less" scoped>
+<style  scoped>
 .px-container {
   width: fit-content;
   max-width: 1200px;

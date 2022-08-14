@@ -1,22 +1,19 @@
 <template>
-  <div style="width:100%;background-color:whitesmoke;">
+  <div style="width:100%;background-color:whitesmoke;min-height:100vh;">
     <a-layout class="Photo">
       <a-page-header style="border: 0px solid rgb(235, 237, 240); margin-left: 2%" title="Photo"
         @back="() => $router.back()" />
-      <!-- water fall-->
       <div>
-        <Waterfall />
       </div>
-      <!-- water fall-->
       <a-back-top />
     </a-layout>
   </div>
 </template>
 
 <script lang="ts">
-import Waterfall from "../../components/Photo/Photo_waterfall.vue";
+
 export default ({
-  components: { Waterfall },
+  components: {  },
   setup() {
     return {
     };

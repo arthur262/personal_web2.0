@@ -74,7 +74,7 @@ export default {
   display: flex;
   padding: 0;
   max-width: 140ch;
-  margin: 0 auto;
+  margin: 0 auto 8vh auto;
 }
 
 .card div {
@@ -88,6 +88,7 @@ export default {
   z-index: 1;
   position: sticky;
   min-width: 30vw;
+  box-shadow: 0 16px 16px rgba(10, 16, 20, 0.24), 0 0 16px rgba(10, 16, 20, 0.12);
 }
 .image {
   margin: 5vh auto;
@@ -95,8 +96,9 @@ export default {
   vertical-align:middle;
 }
 .cardb {
-  background: url("/Photo/A7M2 (152).jpg") rgba(36, 36, 36, 1) no-repeat fixed;
+  background: url("/Photo/A7M2 (152).jpg") rgba(36, 36, 36, 1) no-repeat  fixed;
   background-position: center;
+  background-size:cover;
   width: 100%;
   
 }

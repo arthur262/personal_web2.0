@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-layout>
+    <a-layout style="scroll-behavior: smooth;">
       <!-- content-->
 
       <div style="margin: 0 auto; display: flex">
@@ -62,12 +62,15 @@
       <!-- Project -->
       <Transition name="fademount">
         <div v-bind:style="background" ref="backtarget">
-          
             <Project :datas="DataBase" id="project" />
-         
         </div>
       </Transition>
     </a-layout>
+    <div id="components-back-top-demo-custom">
+    <a-back-top>
+      <div class="ant-back-top-inner">UP</div>
+    </a-back-top>
+  </div>
   </div>
 </template>
 
@@ -79,9 +82,6 @@ import Project from "../../components/CV/CV_Project.vue";
 
 import { useIntersectionObserver } from "@vueuse/core";
 import { onMounted, ref } from "vue";
-
-const basicURL =
-  "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/CV_EN.json";
 
 export default {
   components: { Skills, Educationcontent, Project },
@@ -164,7 +164,7 @@ export default {
       //     console.log(error);
       //   });
       axios
-        .get("/CV_EN.json")
+        .get("/data/CV_EN.json")
         .then((response) => {
           this.DataBase = response.data;
         })
@@ -181,6 +181,7 @@ export default {
   display: relative;
   max-width: 100ch;
   min-height: 100vh;
+  
 }
 .fademount-enter-active {
   animation: upswing 0.5s linear;
@@ -210,8 +211,21 @@ export default {
 .ID {
   height: 24ch;
   width: 24ch;
-  background-image: url("http://arthur1.oss-us-west-1.aliyuncs.com/self-web/CV/Personal.jpg");
+  background-image: url("/Photo/personal.jpg");
   background-size: 24ch;
   margin: auto 3ch auto;
+}
+#components-back-top-demo-custom .ant-back-top-inner {
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  background-color: rgba(127, 146, 99, 1);
+  color: whitesmoke;
+  text-align: center;
+  font-size: 20px;
+}
+#components-back-top-demo-custom .ant-back-top {
+  bottom: 100px;
 }
 </style>
