@@ -47,7 +47,7 @@
               :key="child.id"
               style="index: 20"
             >
-              <img :src="child" height="500" class="image" />
+              <img :src="child" height="400" class="image" />
             </span>
           </div>
         </div>
@@ -74,7 +74,7 @@ export default {
   display: flex;
   padding: 0;
   max-width: 140ch;
-  margin: 10vh auto;
+  margin: 0 auto;
 }
 
 .card div {
@@ -92,6 +92,7 @@ export default {
 .image {
   margin: 5vh auto;
   border-radius: 1.5ch;
+  vertical-align:middle;
 }
 .cardb {
   background: url("/Photo/A7M2 (152).jpg") rgba(36, 36, 36, 1) no-repeat fixed;
