@@ -1,9 +1,30 @@
 <template>
   <div style="width: 100%; min-height: 100vh">
-    <header >
-    
-      
-      <ul id="menu" ref="menu">
+    <header class="background-image">
+      <a-row type="flex" style="padding: 4vh 8vw 0 8vw">
+        <a-col :flex="2">
+          <router-link to="/Photograph">
+            <img src="/public/Photo/Artsy.png" height="120" />
+          </router-link>
+        </a-col>
+        <a-col :flex="2">
+          <ul id="menu" ref="menu">
+            <li>
+              <router-link to="/Home" class="link"> Home</router-link>
+            </li>
+            <li>
+              <router-link to="/Programmer" class="link"
+                >Programmer
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/Student" class="link"> Student</router-link>
+            </li>
+          </ul>
+        </a-col>
+      </a-row>
+
+      <!-- <ul id="menu" ref="menu">
         <li>
           <router-link
             to="/Programmer"
@@ -29,8 +50,7 @@
           >
         </li>
       </ul>
-     <video  class="backpic" preload="auto" src="../../../public/video/序列 01.mp4" loop playsinline autoplay muted> </video>
-      
+     <video  class="backpic" preload="auto" src="../../../public/video/序列 01.mp4"  playsinline autoplay muted> </video> -->
     </header>
     <section></section>
     <a-back-top />
@@ -41,64 +61,52 @@
 export default {
   components: {},
   setup() {
-    
     return {};
   },
   data() {
     return {};
   },
-  mounted: function () {
-    let lefts=(window.screen.width- this.$refs.menu.offsetWidth)/2+"px";
-    this.$refs.menu.style.left = lefts;
+  mounted: function () {},
+  methods: {
+    menuloc() {
+      let lefts =
+        (window.innerWidth - this.$refs.menu.offsetWidth) / 1.95 + "px";
+      this.$refs.menu.style.left = lefts;
+    },
   },
-  methods: {},
 };
 </script>
 
 <style scoped>
+.background-image {
+  min-height: 100vh;
+  background-image: url("/Photo/A7M2\ \(1\).jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 #menu {
-  position: absolute;
   list-style: none;
   display: flex;
   width: fit-content;
-  padding: 1vh 0 0 0;
+  float: right;
   opacity: 0;
   z-index: 10;
-  left: 0;
   animation: upswing 0.5s linear;
-  animation-delay: .5s;
+  animation-delay: 0.5s;
   animation-fill-mode: forwards;
 }
 
 .link {
-  color: transparent;
--webkit-text-stroke:2px rgba(0, 0, 0, 0.7);
-  font-size: 3rem;
-  font-weight:bolder;  
+  color: whitesmoke;
+  font-size: 1.5rem;
+  margin: 0 1vw;
+  white-space: nowrap;
+  font-family: "ivypresto-display";
 }
 #menu :hover a {
-  color: whitesmoke;
-  -webkit-text-stroke:.5px rgba(0, 0, 0, 0.7);
-  transition:1.5s;
-  
+  color: rgba(245, 245, 245, 0.7);
+  transition: 1s;
 }
-
-.middle {
-  margin: 0 1vw;
-  text-transform: uppercase;
-  font-family:"ivypresto-display";
-}
-.backpic{
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  object-fit:cover;
-  overflow:hidden;
-  z-index: 1;
-}
-
-
 
 @keyframes upswing {
   0% {
@@ -108,5 +116,4 @@ export default {
     opacity: 1;
   }
 }
-
 </style>
