@@ -51,17 +51,20 @@ import { DoubleRightOutlined } from "@ant-design/icons-vue";
         </div>
       </div>
     </header>
+    <div style="max-width:140ch;margin:0 auto;height:fit-content;">
     <secton>
-      <div style="min-height: 100vh;width:100%">
-        <div style="margin: 0 auto;width:fit-content;">
-          <img src="../../../public/Photo/A7M2 (241).jpg" height="800" />
-          <img src="../../../public/Photo/A7M2 (244).jpg" height="800" />
+      <div style="min-height:100vh;">
+        <div class="doubleimge" style="margin:8vh auto; padding:4ch;padding:2ch;border:2px solid black;box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);display:flex;">
+          <div ></div>
+          <div></div>
         </div>
       </div>
     </secton>
     <section>
-      <!-- <video   class="videos" src="../../../public/video/序列 01.mp4"  playsinline autoplay muted> </video>  -->
+      
     </section>
+    </div>
+    <video   class="videos" src="/public/video/序列 01.mp4"  playsinline autoplay muted> </video> 
     <a-back-top />
   </div>
 </template>
@@ -87,22 +90,26 @@ export default {
 </script>
 
 <style scoped>
-.followdown {
-  width: 5ch;
-  height: 5ch;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
-  position: relative;
-  transform: rotate(45deg);
+.videos{
+  width:100%;
 }
-.followdown :nth-child(1) {
-  width: 5ch;
-  height: 5ch;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
-  position: relative;
-  transform: rotate(45deg);
+.doubleimge :nth-child(1){
+  background: url("/Photo/A7M2\ \(244\).jpg") no-repeat ;
+  width:50%;
+  height:80vh;
+  background-position: bottom ;
+  background-size: contain;
+  background-attachment: fixed;
 }
+.doubleimge :nth-child(2){
+  background: url("/Photo/A7M2\ \(241\).jpg") no-repeat ;
+  width:50%;
+  height:80vh;
+  background-position: bottom ;
+  background-size: contain;
+  background-attachment: fixed;
+}
+
 .themeword {
   position: absolute;
   bottom: 1vh;
