@@ -1,9 +1,9 @@
 <template>
   <div style="width: 100%; min-height: 100vh">
-    <header class="backpic">
+    <header >
     
-      <ul class="menu">
-        
+      
+      <ul id="menu" ref="menu">
         <li>
           <router-link
             to="/Programmer"
@@ -29,7 +29,8 @@
           >
         </li>
       </ul>
-      <!-- <div /> -->
+     <video  class="backpic" preload="auto" src="../../../public/video/序列 01.mp4" loop playsinline autoplay muted> </video>
+      
     </header>
     <section></section>
     <a-back-top />
@@ -40,53 +41,72 @@
 export default {
   components: {},
   setup() {
+    
     return {};
   },
   data() {
     return {};
   },
-  mounted: function () {},
+  mounted: function () {
+    let lefts=(window.screen.width- this.$refs.menu.offsetWidth)/2+"px";
+    this.$refs.menu.style.left = lefts;
+  },
   methods: {},
 };
 </script>
 
 <style scoped>
-.menu {
+#menu {
+  position: absolute;
   list-style: none;
   display: flex;
   width: fit-content;
-  margin: 0 auto;
   padding: 1vh 0 0 0;
+  opacity: 0;
   z-index: 10;
+  left: 0;
+  animation: upswing 0.5s linear;
+  animation-delay: .5s;
+  animation-fill-mode: forwards;
 }
 
 .link {
-  
   color: transparent;
-  
--webkit-text-stroke:2px rgba(245, 245, 245, 0.7);
-  font-size: 2.5em;
-  font-family: "Helvetica";
+-webkit-text-stroke:2px rgba(0, 0, 0, 0.7);
+  font-size: 3rem;
   font-weight:bolder;  
 }
-.menu :hover a {
-  color: #8eb8de;
-  -webkit-text-stroke:0 rgba(245, 245, 245, 0.7);
+#menu :hover a {
+  color: whitesmoke;
+  -webkit-text-stroke:.5px rgba(0, 0, 0, 0.7);
+  transition:1.5s;
   
 }
 
 .middle {
   margin: 0 1vw;
   text-transform: uppercase;
-  font-family: "Executive-Medium";
+  font-family:"ivypresto-display";
 }
 .backpic{
-  background-image: url("/Photo/A7M2 (208).jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  width:100vw;
+  position: absolute;
+  top: 0;
+  width: 100%;
   height: 100vh;
+  object-fit:cover;
+  overflow:hidden;
   z-index: 1;
 }
+
+
+
+@keyframes upswing {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 </style>
