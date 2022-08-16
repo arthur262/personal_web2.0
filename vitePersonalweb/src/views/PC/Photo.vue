@@ -51,20 +51,85 @@ import { DoubleRightOutlined } from "@ant-design/icons-vue";
         </div>
       </div>
     </header>
-    <div style="max-width:140ch;margin:0 auto;height:fit-content;">
-    <secton>
-      <div style="min-height:100vh;">
-        <div class="doubleimge" style="margin:8vh auto; padding:4ch;padding:2ch;border:2px solid black;box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);display:flex;">
-          <div ></div>
-          <div></div>
+    <section>
+      <div style="max-width: 140ch; margin: 0 auto">
+        <secton>
+          <div style="min-height: 110vh; padding-top: 6vh">
+            <div
+              class="doubleimge"
+              style="
+                padding: 4ch;
+                padding: 2ch;
+                border: 2px solid black;
+                box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+                display: flex;
+              "
+            >
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </secton>
+      </div>
+    </section>
+    <div style="min-height: 110vh; background-color: black; position: relative">
+      <div
+        style="
+          background: url('/Photo/DSC00528-5.jpg') no-repeat;
+          width: 100%;
+          height: 110vh;
+          background-position: center;
+          background-size: cover;
+          position: absolute;
+          background-attachment: fixed;
+          z-index: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <div style="height: fit-content; width: 80vw">
+          <span style="float: right">
+            <h1
+              style="
+                color: whitesmoke;
+                font-size: 4.5rem;
+                margin:0;
+                
+                white-space: nowrap;
+                font-family:futura-pt;
+                font-style:normal;
+                font-weight:100;
+                letter-spacing: 0.233333em;
+              "
+            >
+              Emotion
+            </h1>
+            <h4
+              style="
+                color: whitesmoke;
+                font-size: 1.5rem;
+                margin: 2vw 1vh;
+                white-space: nowrap;
+                font-family: Crimson Text;
+                letter-spacing: 0.133333em;
+              "
+            >
+              profile
+            </h4>
+          </span>
         </div>
       </div>
-    </secton>
-    <section>
-      
-    </section>
     </div>
-    <video   class="videos" src="/public/video/序列 01.mp4"  playsinline autoplay muted> </video> 
+    <section></section>
+
+    <video
+      class="videos"
+      src="/video/序列 01.mp4"
+      playsinline
+      autoplay
+      muted
+    ></video>
     <a-back-top />
   </div>
 </template>
@@ -90,23 +155,23 @@ export default {
 </script>
 
 <style scoped>
-.videos{
-  width:100%;
+.videos {
+  width: 100%;
 }
-.doubleimge :nth-child(1){
-  background: url("/Photo/A7M2\ \(244\).jpg") no-repeat ;
-  width:50%;
-  height:80vh;
-  background-position: bottom ;
-  background-size: contain;
+.doubleimge :nth-child(1) {
+  background: url("/Photo/A7M2\ \(208\).jpg") no-repeat;
+  width: 50%;
+  height: 80vh;
+  background-position: center;
+  background-size: cover;
   background-attachment: fixed;
 }
-.doubleimge :nth-child(2){
-  background: url("/Photo/A7M2\ \(241\).jpg") no-repeat ;
-  width:50%;
-  height:80vh;
-  background-position: bottom ;
-  background-size: contain;
+.doubleimge :nth-child(2) {
+  background: url("/Photo/_DSC3902.jpg") no-repeat;
+  width: 50%;
+  height: 80vh;
+  background-position: center;
+  background-size: cover;
   background-attachment: fixed;
 }
 
