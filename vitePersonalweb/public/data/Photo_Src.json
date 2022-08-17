@@ -1,7 +1,7 @@
 {
-  "img":[
-  {
-        "u_img": "http://arthur1.oss-us-west-1.aliyuncs.com/self-web/image/Landscape/_DSC0386.JPG"
-      }
-    ]
+  "background_image":[
+    "/Photo/_DSC0191.jpg",
+    "/Photo/_DSC0195.jpg",
+    "/Photo/_DSC3902.jpg"
+  ]
 }

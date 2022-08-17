@@ -3,33 +3,47 @@ import { DoubleRightOutlined } from "@ant-design/icons-vue";
 </script>
 <template>
   <div style="width: 100%; min-height: 100vh">
-    <header class="background-image">
-      <a-row type="flex" style="padding: 4vh 8vw 0 8vw">
-        <a-col :flex="2">
-          <router-link to="/Photograph">
-            <img
-              src="/public/Photo/Artsy.png"
-              style="opacity: 0.7"
-              height="120"
-            />
-          </router-link>
-        </a-col>
-        <a-col :flex="2">
-          <ul id="menu" ref="menu" class="animation-container">
-            <li>
-              <router-link to="/Home" class="link"> Home</router-link>
-            </li>
-            <li>
-              <router-link to="/Programmer" class="link"
-                >Programmer
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/Student" class="link"> Student</router-link>
-            </li>
-          </ul>
-        </a-col>
-      </a-row>
+    <section>
+      <a-carousel effect="fade" autoplay>
+        <div
+          v-for="iteam in DataBase.background_image"
+          :key="iteam"
+          class="background-image"
+          :style="{ backgroundImage: `url(${iteam})` }"
+        >
+          <header>
+            <a-row type="flex" style="padding: 4vh 8vw 0 8vw">
+              <a-col :flex="2">
+                <router-link to="/Photograph">
+                  <img
+                    src="/Photo/Artsy.png"
+                    style="opacity: 0.7"
+                    height="120"
+                  />
+                </router-link>
+              </a-col>
+              <a-col :flex="2">
+                <ul id="menu" ref="menu" class="animation-container">
+                  <li>
+                    <router-link to="/Home" class="link"> Home</router-link>
+                  </li>
+                  <li>
+                    <router-link to="/Programmer" class="link"
+                      >Programmer
+                    </router-link>
+                  </li>
+                  <li>
+                    <router-link to="/Student" class="link">
+                      Student</router-link
+                    >
+                  </li>
+                </ul>
+              </a-col>
+            </a-row>
+          </header>
+        </div>
+      </a-carousel>
+
       <div class="themeword">
         <h2
           style="
@@ -50,10 +64,10 @@ import { DoubleRightOutlined } from "@ant-design/icons-vue";
           />
         </div>
       </div>
-    </header>
+    </section>
     <section>
       <div style="max-width: 140ch; margin: 0 auto">
-        <secton>
+        <section>
           <div style="min-height: 110vh; padding-top: 6vh">
             <div
               class="doubleimge"
@@ -69,97 +83,133 @@ import { DoubleRightOutlined } from "@ant-design/icons-vue";
               <div></div>
             </div>
           </div>
-        </secton>
+        </section>
       </div>
     </section>
-    <div style="min-height: 110vh; background-color: black; position: relative">
+    <section>
       <div
-        style="
-          background: url('/Photo/DSC00528-5.jpg') no-repeat;
-          width: 100%;
-          height: 110vh;
-          background-position: center;
-          background-size: cover;
-          position: absolute;
-          background-attachment: fixed;
-          z-index: 1;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        "
+        style="min-height: 110vh; background-color: black; position: relative"
       >
-        <div style="height: fit-content; width: 80vw">
-          <span style="float: right">
-            <h1
-              style="
-                color: whitesmoke;
-                font-size: 4.5rem;
-                margin:0;
-                
-                white-space: nowrap;
-                font-family:futura-pt;
-                font-style:normal;
-                font-weight:100;
-                letter-spacing: 0.233333em;
-              "
-            >
-              Emotion
-            </h1>
-            <h4
-              style="
-                color: whitesmoke;
-                font-size: 1.5rem;
-                margin: 2vw 1vh;
-                white-space: nowrap;
-                font-family: Crimson Text;
-                letter-spacing: 0.133333em;
-              "
-            >
-              profile
-            </h4>
-          </span>
+        <div
+          style="
+            background: url('/Photo/DSC00528-5.jpg') no-repeat;
+            width: 100%;
+            height: 110vh;
+            background-position: center;
+            background-size: cover;
+            position: absolute;
+            background-attachment: fixed;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <div style="height: fit-content; width: 80vw">
+            <span style="float: right">
+              <h1
+                style="
+                  color: whitesmoke;
+                  font-size: 4.5rem;
+                  margin: 0;
+                  white-space: nowrap;
+                  font-family: futura-pt;
+                  font-style: normal;
+                  font-weight: 100;
+                  letter-spacing: 0.233333em;
+                "
+              >
+                Emotion
+              </h1>
+              <h4>
+                <router-link to="/" class="e-profile"> profile </router-link>
+              </h4>
+            </span>
+          </div>
         </div>
       </div>
-    </div>
-    <section></section>
-
+    </section>
+    <section>
+    
+    </section>
+    <section>
     <video
       class="videos"
       src="/video/序列 01.mp4"
+      loop
       playsinline
       autoplay
       muted
     ></video>
+    </section>
     <a-back-top />
   </div>
 </template>
 
 <script lang="ts">
+import axios from "axios";
 export default {
   components: { DoubleRightOutlined },
   setup() {
     return {};
   },
   data() {
-    return {};
+    return {
+      DataBase: "",
+    };
   },
-  mounted: function () {},
+  mounted: function () {
+    this.getdata();
+  },
   methods: {
     menuloc() {
       let lefts =
         (window.innerWidth - this.$refs.menu.offsetWidth) / 1.95 + "px";
       this.$refs.menu.style.left = lefts;
     },
+    getdata() {
+      axios
+        .get("/data/Photo_Src.json")
+        .then((response) => {
+          this.DataBase = response.data;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
   },
 };
 </script>
 
 <style scoped>
+.e-profile {
+  color: whitesmoke;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  font-family: Crimson Text;
+  letter-spacing: 0.133333em;
+}
+.e-profile:hover {
+  font-size: 1.5rem;
+  white-space: nowrap;
+  font-family: Crimson Text;
+  letter-spacing: 0.133333em;
+  color: #8eb8de;
+  transition: 0.4s;
+  margin: 0 0 0.5em 1vw;
+}
 .videos {
   width: 100%;
 }
+#menu {
+  list-style: none;
+  display: flex;
+  width: fit-content;
+  float: right;
+  z-index: 10;
+}
 .doubleimge :nth-child(1) {
-  background: url("/Photo/A7M2\ \(208\).jpg") no-repeat;
+  background: url(/Photo/A7M2_208.jpg) no-repeat;
   width: 50%;
   height: 80vh;
   background-position: center;
@@ -167,7 +217,7 @@ export default {
   background-attachment: fixed;
 }
 .doubleimge :nth-child(2) {
-  background: url("/Photo/_DSC3902.jpg") no-repeat;
+  background: url(/Photo/_DSC3902.jpg) no-repeat;
   width: 50%;
   height: 80vh;
   background-position: center;
@@ -181,21 +231,13 @@ export default {
   left: 46%;
 }
 .background-image {
+  background: #8eb8de;
   min-height: 100vh;
-  background-image: url("/Photo/A7M2\ \(1\).jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
-#menu {
-  list-style: none;
-  display: flex;
-  width: fit-content;
-  float: right;
-
-  z-index: 10;
-}
-
 .link {
   color: whitesmoke;
   font-size: 1.5rem;
