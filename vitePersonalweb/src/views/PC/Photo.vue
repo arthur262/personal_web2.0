@@ -271,21 +271,5 @@ export default {
   }
 }
 
-.opcty-enter-active {
-  animation: upswing 0.5s linear;
-}
-.opcty-leave-active {
-  animation: upswing 0.5s reverse;
-}
 
-@keyframes upswing {
-  0% {
-    transform: translateY(-5%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
 </style>

@@ -11,14 +11,9 @@
           <div class="Wordcontainer">
             <ul class="menu">
               <li>
-                <router-link to="/" class="link middle">Programmer
+                <router-link to="/Programmer" class="link middle">Programmer
                 </router-link>
               </li>
-              <!-- <li>
-                <router-link to="/" class="link middle" @mouseenter="mouseover(1)" @mouseleave="mouseLeave()">Stock
-                  trader
-                </router-link>
-              </li> -->
               <li>
                 <router-link to="/Student" class="link middle" >
                   Student</router-link>
