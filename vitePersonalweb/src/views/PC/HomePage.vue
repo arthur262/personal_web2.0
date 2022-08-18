@@ -96,7 +96,7 @@ export default {
 <style scoped>
 .container {
   width: 100%;
-background-image: url("/Photo/DSC00368-HDR-2\(1\).jpg");
+background-image: url("http://arthur2.oss-cn-beijing.aliyuncs.com/DSC00368-HDR-2(1).jpg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
