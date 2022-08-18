@@ -4,9 +4,9 @@ import { DoubleRightOutlined } from "@ant-design/icons-vue";
 <template>
   <div style="width: 100%; min-height: 100vh">
     <section>
-      <a-carousel effect="fade" autoplay>
+      <a-carousel effect="fade" autoplay dots:false>
         <div
-          v-for="iteam in DataBase.background_image"
+          v-for="iteam in DataBase"
           :key="iteam"
           class="background-image"
           :style="{ backgroundImage: `url(${iteam})` }"
@@ -65,6 +65,7 @@ import { DoubleRightOutlined } from "@ant-design/icons-vue";
         </div>
       </div>
     </section>
+
     <section>
       <div style="max-width: 140ch; margin: 0 auto">
         <section>
@@ -86,6 +87,9 @@ import { DoubleRightOutlined } from "@ant-design/icons-vue";
         </section>
       </div>
     </section>
+
+   <Photo_random :datas="ForRandom"/>
+
     <section>
       <div
         style="min-height: 110vh; background-color: black; position: relative"
@@ -129,18 +133,16 @@ import { DoubleRightOutlined } from "@ant-design/icons-vue";
         </div>
       </div>
     </section>
+
     <section>
-    
-    </section>
-    <section>
-    <video
-      class="videos"
-      src="/video/序列 01.mp4"
-      loop
-      playsinline
-      autoplay
-      muted
-    ></video>
+      <video
+        class="videos"
+        src="/video/序列 01.mp4"
+        loop
+        playsinline
+        autoplay
+        muted
+      ></video>
     </section>
     <a-back-top />
   </div>
@@ -148,14 +150,16 @@ import { DoubleRightOutlined } from "@ant-design/icons-vue";
 
 <script lang="ts">
 import axios from "axios";
+import Photo_random from "../../components/Photo/Photo_random.vue";
 export default {
-  components: { DoubleRightOutlined },
+  components: { DoubleRightOutlined,Photo_random },
   setup() {
     return {};
   },
   data() {
     return {
-      DataBase: "",
+      DataBase: [],
+      ForRandom:[],
     };
   },
   mounted: function () {
@@ -171,7 +175,8 @@ export default {
       axios
         .get("/data/Photo_Src.json")
         .then((response) => {
-          this.DataBase = response.data;
+          this.DataBase = response.data.background_image;
+          this.ForRandom = response.data.showup_img;
         })
         .catch(function (error) {
           console.log(error);
@@ -182,6 +187,7 @@ export default {
 </script>
 
 <style scoped>
+
 .e-profile {
   color: whitesmoke;
   font-size: 1.5rem;
@@ -231,7 +237,6 @@ export default {
   left: 46%;
 }
 .background-image {
-  background: #8eb8de;
   min-height: 100vh;
   background-position: center;
   background-size: cover;
@@ -253,15 +258,33 @@ export default {
 
 .animation-container {
   opacity: 0;
-  animation: upswing 0.5s linear;
+  animation: swing 0.5s linear;
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
 }
-@keyframes upswing {
+@keyframes swing {
   0% {
     opacity: 0;
   }
   100% {
+    opacity: 1;
+  }
+}
+
+.opcty-enter-active {
+  animation: upswing 0.5s linear;
+}
+.opcty-leave-active {
+  animation: upswing 0.5s reverse;
+}
+
+@keyframes upswing {
+  0% {
+    transform: translateY(-5%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
     opacity: 1;
   }
 }
