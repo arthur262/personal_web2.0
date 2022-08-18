@@ -96,7 +96,7 @@ export default {
   vertical-align:middle;
 }
 .cardb {
-  background: url("/Photo/A7M2 (152).jpg") rgba(36, 36, 36, 1) no-repeat  fixed;
+  background: url("/Photo/A7M2_152.jpg") rgba(36, 36, 36, 1) no-repeat  fixed;
   background-position: center;
   background-size:cover;
   width: 100%;

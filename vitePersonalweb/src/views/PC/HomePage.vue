@@ -11,7 +11,7 @@
           <div class="Wordcontainer">
             <ul class="menu">
               <li>
-                <router-link to="/" class="link middle" @mouseenter="mouseover(0)" @mouseleave="mouseLeave()">Programmer
+                <router-link to="/" class="link middle">Programmer
                 </router-link>
               </li>
               <!-- <li>
@@ -20,11 +20,11 @@
                 </router-link>
               </li> -->
               <li>
-                <router-link to="/Student" class="link middle" @mouseenter="mouseover(2)" @mouseleave="mouseLeave()">
+                <router-link to="/Student" class="link middle" >
                   Student</router-link>
               </li>
               <li>
-                <router-link to="/Photograph" class="link middle" @mouseenter="mouseover(3)" @mouseleave="mouseLeave()">
+                <router-link to="/Photograph" class="link middle" >
                   Photographer</router-link>
               </li>
             </ul>
@@ -81,9 +81,6 @@ export default {
     }
   },
   methods: {
-    mouseover(index: number): void {
-    },
-    mouseLeave(): void { },
     _isMobile() {
       let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
       return flag;
@@ -181,14 +178,8 @@ a{
   text-decoration:underline;
 }
 
-.menu :nth-child(3):hover a {
-  color: #bab76d;
-  margin: 0 0.4vw 0 1.2vw;
-  transition: 0.4s;
-  text-decoration:underline;
-}
 
-.menu :nth-child(4):hover a {
+.menu :nth-child(3):hover a {
   color: #8eb8de;
   margin: 0 0.4vw 0 1.2vw;
   transition: 0.4s;
