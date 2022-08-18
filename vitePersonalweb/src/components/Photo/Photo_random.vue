@@ -5,19 +5,37 @@
         <div style="margin-bottom: 10vh">
           <a-row :gutter="[{ xs: 0, sm: 8, md: 24, lg: 32 }]">
             <a-col :span="14">
-              <div class="example fade-in"/>
-              <div style="height: 5vh"/>
+              <div
+                class="example"
+                v-motion
+                :initial="{ opacity: 0, y: 30, scale: 0.7 }"
+                :visible="{ opacity: 1, y: 0, scale: 1 }"
+                :delay="200"
+              />
+              <div style="height: 5vh" />
               <a-row>
-                <a-col :span="8"/>
+                <a-col :span="8" />
                 <a-col :span="14">
-                  <div class="example_h fade-in" />
+                  <div
+                    class="example_h"
+                    v-motion
+                    :initial="{ opacity: 0, y: 30, scale: 0.7 }"
+                    :visible="{ opacity: 1, y: 0, scale: 1 }"
+                    :delay="200"
+                  />
                 </a-col>
-                <a-col :span="2"/>
+                <a-col :span="2" />
               </a-row>
             </a-col>
             <a-col :span="10">
-              <div style="height: 15vh"/>
-              <div class="example_h fade-in" />
+              <div style="height: 15vh" />
+              <div
+                class="example_h"
+                v-motion
+                :initial="{ opacity: 0, y: 30, scale: 0.7 }"
+                :visible="{ opacity: 1, y: 0, scale: 1 }"
+                :delay="200"
+              />
             </a-col>
           </a-row>
         </div>
@@ -27,35 +45,24 @@
 </template>
 
 <script lang="ts">
-import { onMounted, onUnmounted } from 'vue'
 export default {
-  setup() {
-    var fadeInElements=[];
-    onMounted(() => {
-      fadeInElements = Array.from(document.getElementsByClassName('fade-in'));
-      document.addEventListener('scroll', handleScroll)
-  handleScroll()
-    })
-
-    onUnmounted(() => {
-      document.removeEventListener('scroll', handleScroll);
-    })
-  },
+  setup() {},
   props: ["datas"],
   data() {
-    return { 
-      
-      ImgList: this.datas };
+    return {
+      ImgList: this.datas,
+    };
   },
-  
 
   mounted: function () {},
 };
 </script>
 
 <style scoped>
-.fade-in{
+.fade-in {
   opacity: 0;
+  transition: 0.3s all ease-out;
+  transform: scale(0.8);
 }
 .example {
   background: url(/Photo/A7M2_208.jpg) no-repeat;
@@ -72,26 +79,5 @@ export default {
   background-position: center;
   background-size: cover;
   cursor: pointer;
-}
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-.fademount-enter-active {
-  animation: upswing 0.5s;
-}
-.fademount-leave-active {
-  animation: upswing 0.5s reverse;
-}
-
-@keyframes upswing {
-  0% {
-    transform: translateY(-5%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 </style>
