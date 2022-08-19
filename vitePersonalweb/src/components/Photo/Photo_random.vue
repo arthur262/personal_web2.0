@@ -1,3 +1,7 @@
+import { watch } from 'vue';
+import { watch } from 'vue';
+import { watch } from 'vue';
+import { watch } from 'vue';
 <template>
   <div>
     <section>
@@ -93,7 +97,7 @@ export default {
   },
   data() {
     return {
-      ImgList:  JSON.parse(JSON.stringify(this.datas)),
+      ImgList:  "",
     };
   },
   methods: {
@@ -111,6 +115,12 @@ export default {
   },
   computed: {
     
+  },
+  watch:{
+    datas(newVal, oldVal){
+      this.ImgList=JSON.parse(JSON.stringify(newVal));
+      
+    }
   },
 
   mounted: function () {

@@ -1,18 +1,23 @@
 <script setup lang="ts">
-import { DoubleRightOutlined } from "@ant-design/icons-vue";
+import { DoubleRightOutlined,ArrowRightOutlined } from "@ant-design/icons-vue";
 </script>
 <template>
   <div style="width: 100%; min-height: 100vh">
     <section>
-      <a-carousel  autoplay :dots="dos">
+
+      <a-carousel  autoplay :dots="dos" style="z-index: 1;">
         <div
           v-for="iteam in DataBase"
           :key="iteam"
           class="background-image"
         >
         
-        <img :src="iteam" style="height:100vh;width:100%;position:absolute;">
-          <header>
+        <img :src="iteam" style="height:100vh;width:100vw;position:absolute;">
+          
+        </div>
+      </a-carousel>
+
+      <header style="position:absolute;width:100%;height:100vh;top:0;">
             <a-row type="flex" style="padding: 4vh 8vw 0 8vw">
               <a-col :flex="2">
                 <router-link to="/Photograph">
@@ -41,11 +46,7 @@ import { DoubleRightOutlined } from "@ant-design/icons-vue";
                 </ul>
               </a-col>
             </a-row>
-          </header>
-        </div>
-      </a-carousel>
-
-      <div class="themeword">
+            <div class="themeword">
         <h2
           style="
             font-family: 'Times New Roman', Times, serif;
@@ -61,10 +62,12 @@ import { DoubleRightOutlined } from "@ant-design/icons-vue";
         </h2>
         <div style="margin: 0 auto; width: fit-content">
           <double-right-outlined
-            :style="{ fontSize: '32px', transform: 'rotate(90deg)' }"
+            :style="{ fontSize: '32px'}"
+            class="roundloop"
           />
         </div>
       </div>
+          </header>
     </section>
 
     <section>
@@ -126,9 +129,12 @@ import { DoubleRightOutlined } from "@ant-design/icons-vue";
               >
                 Emotion
               </h1>
+
               <h4>
-                <router-link to="/" class="e-profile"> profile </router-link>
+                <router-link to="/" class="e-profile"> Profile </router-link>
+                <arrow-right-outlined style="color:whitesmoke;fontSize:1.5rem;transform:translateX(-10px)"/>
               </h4>
+              
             </span>
           </div>
         </div>
@@ -153,7 +159,7 @@ import { DoubleRightOutlined } from "@ant-design/icons-vue";
 import axios from "axios";
 import Photo_random from "../../components/Photo/Photo_random.vue";
 export default {
-  components: { DoubleRightOutlined,Photo_random },
+  components: { DoubleRightOutlined,ArrowRightOutlined,Photo_random },
   setup() {
     return {};
   },
@@ -189,7 +195,26 @@ export default {
 </script>
 
 <style scoped>
+.roundloop{
+  animation:loopanimation;
+  animation-timing-function: ease-in-out; 
+		animation-delay: 0s; 
+		animation-iteration-count: infinite; 
+		animation-duration: 1s; 
+    transform: rotate(90deg); 
+}
+@keyframes loopanimation{
+  0%{
+    transform: rotate(90deg) translateX(-5px); 
+  }
+  50%{
+    transform: rotate(90deg) translateX(10px);
+  }
+  100%{
+    transform:rotate(90deg) translateX(-5px);
+  }
 
+}
 .e-profile {
   color: whitesmoke;
   font-size: 1.5rem;
