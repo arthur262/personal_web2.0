@@ -1,14 +1,10 @@
 {
   "background_image":[
-    "/Photo/_DSC0191.jpg",
-    "/Photo/_DSC0195.jpg",
-    "/Photo/_DSC3902.jpg"
+    "/Photo/A7M2_340.jpg",
+    "/Photo/A7M2_1.jpg"
   ],
   "showup_img":[
-    "/Photo/_DSC0191.jpg",
-    "/Photo/_DSC0195.jpg",
-    "/Photo/_DSC3902.jpg",
-    "public/Photo/A7M2_1.jpg",
-    "public/Photo/A7M2_208.jpg"
+    "/Photo/A7M2_340.jpg",
+    "/Photo/A7M2_1.jpg"
   ]
 }

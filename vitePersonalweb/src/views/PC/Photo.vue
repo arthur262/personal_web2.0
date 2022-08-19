@@ -4,13 +4,14 @@ import { DoubleRightOutlined } from "@ant-design/icons-vue";
 <template>
   <div style="width: 100%; min-height: 100vh">
     <section>
-      <a-carousel effect="fade" autoplay dots:false>
+      <a-carousel  autoplay :dots="dos">
         <div
           v-for="iteam in DataBase"
           :key="iteam"
           class="background-image"
-          :style="{ backgroundImage: `url(${iteam})` }"
         >
+        
+        <img :src="iteam" style="height:100vh;width:100%;position:absolute;">
           <header>
             <a-row type="flex" style="padding: 4vh 8vw 0 8vw">
               <a-col :flex="2">
@@ -160,6 +161,7 @@ export default {
     return {
       DataBase: [],
       ForRandom:[],
+      dos:false,
     };
   },
   mounted: function () {
