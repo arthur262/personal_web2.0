@@ -2,10 +2,12 @@
   <div>
     <section>
       <div style="min-height: 100vh; max-width: 160ch; margin: 0 auto">
-        <div style="margin-bottom: 10vh">
-          <a-row :gutter="[{ xs: 0, sm: 8, md: 24, lg: 32 }]">
+        <div >
+        <div v-for=" (item, index)  in ImgList" :key="index" style="margin-bottom: 10vh">
+          <a-row :gutter="[{ xs: 0, sm: 8, md: 24, lg: 32 }]" v-if="index%2==1">
             <a-col :span="14">
-              <div
+              <img
+              :src="item.first"
                 class="example"
                 v-motion
                 :initial="{ opacity: 0, y: 30, scale: 0.7 }"
@@ -16,7 +18,8 @@
               <a-row>
                 <a-col :span="8" />
                 <a-col :span="14">
-                  <div
+                  <img
+                  :src="item.second"
                     class="example_h"
                     v-motion
                     :initial="{ opacity: 0, y: 30, scale: 0.7 }"
@@ -29,7 +32,8 @@
             </a-col>
             <a-col :span="10">
               <div style="height: 15vh" />
-              <div
+              <img
+              :src="item.third"
                 class="example_h"
                 v-motion
                 :initial="{ opacity: 0, y: 30, scale: 0.7 }"
@@ -38,10 +42,12 @@
               />
             </a-col>
           </a-row>
-          <a-row :gutter="[{ xs: 0, sm: 8, md: 24, lg: 32 }]">
+          <a-row :gutter="[{ xs: 0, sm: 8, md: 24, lg: 32 }]" v-if="index%2==0">
+           
             <a-col :span="10">
               <div style="height: 15vh" />
-              <div
+              <img
+              :src="item.third"
                 class="example_h"
                 v-motion
                 :initial="{ opacity: 0, y: 30, scale: 0.7 }"
@@ -49,8 +55,9 @@
                 :delay="200"
               />
             </a-col>
-            <a-col :span="14">
-              <div
+             <a-col :span="14">
+              <img
+              :src="item.first"
                 class="example"
                 v-motion
                 :initial="{ opacity: 0, y: 30, scale: 0.7 }"
@@ -61,7 +68,8 @@
               <a-row>
                 <a-col :span="8" />
                 <a-col :span="14">
-                  <div
+                  <img
+                  :src="item.second"
                     class="example_h"
                     v-motion
                     :initial="{ opacity: 0, y: 30, scale: 0.7 }"
@@ -73,6 +81,7 @@
               </a-row>
             </a-col>
           </a-row>
+          </div>
         </div>
       </div>
     </section>
@@ -91,6 +100,7 @@ export default {
   data() {
     return {
       ImgList: [],
+      showup:0,
     };
   },
   methods: {
@@ -115,11 +125,10 @@ export default {
         var temp: any;
         var structure = { first: "", second: "", third: "" };
 
-        //当前图片是横屏的时候才继续，否则放回末尾
-        do {
-          temp = images.shift();
-        } while (!this.ishorizontal(temp)&&temp!=null);
-
+         temp = images.shift();
+        if (temp != null) {
+          structure.first = temp;
+        }
         temp = images.shift();
         if (temp != null) {
           structure.second = temp;
@@ -130,7 +139,6 @@ export default {
         }
         this.ImgList.push(structure);
       }
-      console.log(this.ImgList);
     },
   },
 
@@ -145,19 +153,15 @@ export default {
   transform: scale(0.8);
 }
 .example {
-  background: url(/Photo/A7M2_208.jpg) no-repeat;
   width: 100%;
   height: 40vh;
-  background-position: center;
-  background-size: cover;
-  cursor: pointer;
+  object-fit: none; 
+  object-position: center;
 }
 .example_h {
-  background: url(/Photo/DSC00514-1.jpg) no-repeat;
   width: 100%;
   height: 60vh;
-  background-position: center;
-  background-size: cover;
-  cursor: pointer;
+  object-fit: none; 
+  object-position: center;
 }
 </style>
