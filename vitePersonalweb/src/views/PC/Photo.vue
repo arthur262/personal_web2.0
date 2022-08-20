@@ -57,6 +57,7 @@ import { DoubleRightOutlined,ArrowRightOutlined } from "@ant-design/icons-vue";
             margin: 0;
           "
           class="animation-container"
+          ref="travel"
         >
           Travel
         </h2>
@@ -172,12 +173,13 @@ export default {
   },
   mounted: function () {
     this.getdata();
+    this.absolutemiddle();
   },
   methods: {
-    menuloc() {
+    absolutemiddle() {
       let lefts =
-        (window.innerWidth - this.$refs.menu.offsetWidth) / 1.95 + "px";
-      this.$refs.menu.style.left = lefts;
+        (window.innerWidth - this.$refs.travel.offsetWidth) / 1.95 + "px";
+      this.$refs.travel.style.left = lefts;
     },
     getdata() {
       axios

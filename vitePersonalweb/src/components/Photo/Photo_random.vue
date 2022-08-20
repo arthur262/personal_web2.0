@@ -1,7 +1,3 @@
-import { watch } from 'vue';
-import { watch } from 'vue';
-import { watch } from 'vue';
-import { watch } from 'vue';
 <template>
   <div>
     <section>
@@ -43,7 +39,6 @@ import { watch } from 'vue';
             </a-col>
           </a-row>
           <a-row :gutter="[{ xs: 0, sm: 8, md: 24, lg: 32 }]">
-            
             <a-col :span="10">
               <div style="height: 15vh" />
               <div
@@ -79,9 +74,7 @@ import { watch } from 'vue';
             </a-col>
           </a-row>
         </div>
-
       </div>
-      
     </section>
   </div>
 </template>
@@ -97,7 +90,7 @@ export default {
   },
   data() {
     return {
-      ImgList:  "",
+      ImgList: [],
     };
   },
   methods: {
@@ -113,19 +106,35 @@ export default {
       }
     },
   },
-  computed: {
-    
-  },
-  watch:{
-    datas(newVal, oldVal){
-      this.ImgList=JSON.parse(JSON.stringify(newVal));
-      
-    }
+  computed: {},
+  watch: {
+    datas(newVal, oldVal) {
+      var images: String[] = Object.values(JSON.parse(JSON.stringify(newVal)));
+
+      for (var i = Math.ceil(images.length / 3); i > 0; i--) {
+        var temp: any;
+        var structure = { first: "", second: "", third: "" };
+
+        //当前图片是横屏的时候才继续，否则放回末尾
+        do {
+          temp = images.shift();
+        } while (!this.ishorizontal(temp)&&temp!=null);
+
+        temp = images.shift();
+        if (temp != null) {
+          structure.second = temp;
+        }
+        temp = images.shift();
+        if (temp != null) {
+          structure.third = temp;
+        }
+        this.ImgList.push(structure);
+      }
+      console.log(this.ImgList);
+    },
   },
 
-  mounted: function () {
-    
-  },
+  mounted: function () {},
 };
 </script>
 
