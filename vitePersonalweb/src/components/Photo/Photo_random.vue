@@ -3,12 +3,14 @@
     <section>
       <div style="min-height: 100vh; max-width: 160ch; margin: 0 auto">
         <div >
-        <div v-for=" (item, index)  in ImgList" :key="index" style="margin-bottom: 10vh">
-          <a-row :gutter="[{ xs: 0, sm: 8, md: 24, lg: 32 }]" v-if="index%2==1">
+        <div v-for=" (item, index)  in ImgList" :key="index" >
+          <a-row :gutter="[{ xs: 0, sm: 8, md: 24, lg: 32 }]" v-if="index%2==0" style="margin-bottom: 10vh">
             <a-col :span="14">
-              <img
+              <a-image
+              v-if="item.first!==''"
               :src="item.first"
-                class="example"
+              :width="600"
+                
                 v-motion
                 :initial="{ opacity: 0, y: 30, scale: 0.7 }"
                 :visible="{ opacity: 1, y: 0, scale: 1 }"
@@ -18,9 +20,11 @@
               <a-row>
                 <a-col :span="8" />
                 <a-col :span="14">
-                  <img
+                  <a-image
+                  v-if="item.second!==''"
                   :src="item.second"
-                    class="example_h"
+                  :width="600"
+                    
                     v-motion
                     :initial="{ opacity: 0, y: 30, scale: 0.7 }"
                     :visible="{ opacity: 1, y: 0, scale: 1 }"
@@ -32,9 +36,10 @@
             </a-col>
             <a-col :span="10">
               <div style="height: 15vh" />
-              <img
+              <a-image
+              v-if="item.third!==''"
               :src="item.third"
-                class="example_h"
+                :width="600"
                 v-motion
                 :initial="{ opacity: 0, y: 30, scale: 0.7 }"
                 :visible="{ opacity: 1, y: 0, scale: 1 }"
@@ -42,13 +47,15 @@
               />
             </a-col>
           </a-row>
-          <a-row :gutter="[{ xs: 0, sm: 8, md: 24, lg: 32 }]" v-if="index%2==0">
+          <a-row :gutter="[{ xs: 0, sm: 8, md: 24, lg: 32 }]" v-if="index%2==1" style="margin-bottom: 10vh">
            
             <a-col :span="10">
               <div style="height: 15vh" />
-              <img
-              :src="item.third"
-                class="example_h"
+              <a-image
+              v-if="item.first!==''"
+              :src="item.first"
+              :width="600"
+                
                 v-motion
                 :initial="{ opacity: 0, y: 30, scale: 0.7 }"
                 :visible="{ opacity: 1, y: 0, scale: 1 }"
@@ -56,9 +63,11 @@
               />
             </a-col>
              <a-col :span="14">
-              <img
-              :src="item.first"
-                class="example"
+              <a-image
+              v-if="item.second!==''"
+              :src="item.second"
+              :width="600"
+                
                 v-motion
                 :initial="{ opacity: 0, y: 30, scale: 0.7 }"
                 :visible="{ opacity: 1, y: 0, scale: 1 }"
@@ -68,9 +77,10 @@
               <a-row>
                 <a-col :span="8" />
                 <a-col :span="14">
-                  <img
-                  :src="item.second"
-                    class="example_h"
+                  <a-image
+                  v-if="item.third!==''"
+                  :src="item.third"
+                    :width="600"
                     v-motion
                     :initial="{ opacity: 0, y: 30, scale: 0.7 }"
                     :visible="{ opacity: 1, y: 0, scale: 1 }"
