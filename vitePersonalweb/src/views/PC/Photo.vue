@@ -100,19 +100,7 @@ import { DoubleRightOutlined,ArrowRightOutlined } from "@ant-design/icons-vue";
         style="min-height: 110vh; background-color: black; position: relative"
       >
         <div
-          style="
-            background: url('/Photo/DSC00528-5.jpg') no-repeat;
-            width: 100%;
-            height: 110vh;
-            background-position: center;
-            background-size: cover;
-            position: absolute;
-            background-attachment: fixed;
-            z-index: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          "
+          class="emotionimage"
         >
           <div style="height: fit-content; width: 80vw">
             <span style="float: right">
@@ -133,7 +121,6 @@ import { DoubleRightOutlined,ArrowRightOutlined } from "@ant-design/icons-vue";
 
               <h4>
                 <router-link to="/" class="e-profile"> Profile </router-link>
-                <arrow-right-outlined style="color:whitesmoke;fontSize:1.5rem;transform:translateX(-10px)"/>
               </h4>
               
             </span>
@@ -197,6 +184,19 @@ export default {
 </script>
 
 <style scoped>
+.emotionimage{
+  background: url('/Photo/DSC00528-5.jpg') no-repeat;
+            width: 100%;
+            height: 110vh;
+            background-position: center;
+            background-size: cover;
+            position: absolute;
+            background-attachment: fixed;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+}
 .roundloop{
   animation:loopanimation;
   animation-timing-function: ease-in-out; 
@@ -218,20 +218,29 @@ export default {
 
 }
 .e-profile {
+  position: relative;
   color: whitesmoke;
   font-size: 1.5rem;
   white-space: nowrap;
   font-family: Crimson Text;
   letter-spacing: 0.133333em;
 }
-.e-profile:hover {
-  font-size: 1.5rem;
-  white-space: nowrap;
-  font-family: Crimson Text;
-  letter-spacing: 0.133333em;
-  color: #8eb8de;
-  transition: 0.4s;
-  margin: 0 0 0.5em 1vw;
+.e-profile:before {
+  position:absolute;
+  width: 0;
+  left: 0;
+  bottom: -0.1rem;
+  content: '';
+  transition: width .5s ease-in-out;
+  -webkit-transition: width .5s ease-in-out;
+   border-bottom:2px solid #8eb8de;
+}
+.e-profile:hover:before{
+  width: 125%;
+  
+}
+.e-profile:hover{
+  color:#8eb8de;
 }
 .videos {
   width: 100%;
