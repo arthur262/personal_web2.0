@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
+
 </script>
 <template>
   <div style="width: 100%; min-height: 100vh;">
@@ -18,12 +19,12 @@ import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
 
       <header style="position: absolute; width: 100%; height: 100vh; top: 0">
         <a-row type="flex" style="padding: 4vh 8vw 0 8vw">
-          <a-col :flex="2">
+          <a-col :flex="6">
             <router-link to="/Photograph">
               <img src="http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/Artsy.png" style="opacity: 0.7" height="120" />
             </router-link>
           </a-col>
-          <a-col :flex="2">
+          <a-col :flex="6">
             <ul id="menu" ref="menu" class="animation-container">
               <li>
                 <router-link to="/Home" class="link"> Home</router-link>
@@ -37,6 +38,9 @@ import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
                 <router-link to="/Student" class="link"> Student</router-link>
               </li>
             </ul>
+          </a-col>
+          <a-col :flex="1">
+          <a-switch v-model:checked="mode" checked-children="Light" un-checked-children="Dark" />
           </a-col>
         </a-row>
         <div class="themeword">
@@ -149,6 +153,7 @@ export default {
       DataBase: [],
       ForRandom: [],
       dos: false,
+      mode: true,
     };
   },
   mounted: function () {
