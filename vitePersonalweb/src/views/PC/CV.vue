@@ -211,7 +211,7 @@ export default {
 .ID {
   height: 24ch;
   width: 24ch;
-  background-image: url("/Photo/personal.jpg");
+  background-image: url("http://arthur2.oss-cn-beijing.aliyuncs.com/5.1.jpg");
   background-size: 24ch;
   margin: auto 3ch auto;
 }
