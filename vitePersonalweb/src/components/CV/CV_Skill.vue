@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="abilitybox box" id="Ability">
-      <a-descriptions bordered title="Language I know So Far" class="text">
-
+    <h3 class="text" style="margin-bottom:10px;">Language I know So Far</h3>
+      <a-descriptions bordered  >
       <!-- DataBase -->
       <a-descriptions-item label="DataBase" style="font-weight: bold">
           <p

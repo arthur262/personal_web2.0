@@ -4,12 +4,12 @@
       <section style="padding-top: 30vh">
         <div v-for="(iteam, index) in datas.Project" :key="index" class="card">
           <!-- card description -->
-          <a-card class="container">
+          <a-card class="container box">
             <a-card-meta>
               <template #description>
                 <span >
-                  <h2 style="float: left">{{ iteam.Title }}</h2>
-                  <p style="margin: 0; float: right">
+                  <h2 style="float: left" class="text">{{ iteam.Title }}</h2>
+                  <p style="margin: 0; float: right"  class="text">
                     <b>{{ iteam.TimeRanges }}</b>
                   </p>
                 </span>
@@ -17,11 +17,12 @@
                 <br />
                 <br />
                 <span>
-                  <h4 style="display: inline">Technical used:</h4>
+                  <h4 style="display: inline" class="text">Technical used:</h4>
                   <p
                     v-for="child in iteam.Technical"
                     :key="child"
                     style="display: inline"
+                     class="text"
                   >
                     {{ child }},
                   </p>
@@ -29,13 +30,13 @@
 
 
                 <span>
-                <h4>
+                <h4 class="text">
                   Github:
-                  <a v-bind:href="iteam.github"> {{ iteam.github }}</a>
+                  <a v-bind:href="iteam.github"  > {{ iteam.github }}</a>
                 </h4>
                 </span>
                 <ul v-for="child in iteam.children" :key="child.id">
-                  <li>{{ child }}</li>
+                  <li  class="text">{{ child }}</li>
                 </ul>
               </template>
             </a-card-meta>

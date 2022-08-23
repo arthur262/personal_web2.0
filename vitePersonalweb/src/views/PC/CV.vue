@@ -1,62 +1,47 @@
 <template>
   <div>
-    <a-layout style="scroll-behavior: smooth;" class="Content">
-      <!-- content-->
-
-      <div style="margin: 0 auto; display: flex">
-        <a-layout-content  style="margin-top: 5vh;display: relative;
-  max-width: 100ch;
-  min-height: 100vh;">
-  <a-row type="flex" >
-  <a-col :flex="6">
-          <ul id="menu" ref="menu" class="animation-container">
-              <li>
-                <router-link to="/Home" class="link "> Home</router-link>
-              </li>
-              <li>
-                <router-link to="/Programmer" class="link "
+    <a-layout style="scroll-behavior: smooth" class="backgroundtheme">
+      <!-- 上半截 -->
+      <header>
+        <a-row type="flex">
+          <a-col :flex="6">
+            <a-menu v-model:selectedKeys="current" mode="horizontal" class="animation-container backgroundtheme">
+              <a-menu-item>
+                <router-link to="/Home" class="link text"> Home</router-link>
+              </a-menu-item>
+              <a-menu-item>
+                <router-link to="/Programmer" class="link text"
                   >Programmer
                 </router-link>
-              </li>
-              <li>
-                <router-link to="/Student" class="link "> Student</router-link>
-              </li>
-            </ul>
-            </a-col>
-            <a-col :flex="2">
-          <a-switch v-model:checked="mode" checked-children="Light" un-checked-children="Dark" />
+              </a-menu-item>
+              <a-menu-item>
+                <router-link to="/Student" class="link text">
+                  Student</router-link
+                >
+              </a-menu-item>
+            </a-menu>
           </a-col>
-          </a-row>
-          
+          <a-col :flex="2">
+            <a-switch
+              v-model:checked="mode"
+              checked-children="Light"
+              un-checked-children="Dark"
+            />
+          </a-col>
+        </a-row>
+      </header>
 
-          <section class="describe_box" id="main">
-            <a-row type="flex">
-              <a-col :flex="8">
-                <div class="ID"></div>
-              </a-col>
-              <a-col :flex="16">
-                <span style="padding: 3vh 2vw; text-align: center">
-                  <h1 style="font-size: 1.5em" class=""><b>YuanZheZhang(Arthur)</b></h1>
-                  <h3 class="" >Phone: CN-{{ DataBase.phone_CN }}</h3>
-                  <h3 class="">
-                    Email :<a
-                      href="mailto:arthur262@outlook.com"
-                      title="Send me the Email"
-                      >{{ DataBase.email }}</a
-                    >
-                  </h3>
-                  <h3 class="text">
-                    GitHub:
-                    <a
-                      href="https://github.com/arthur262"
-                      title="Github link"
-                      >{{ DataBase.github }}</a
-                    >
-                  </h3>
-                </span>
-              </a-col>
-            </a-row>
-            <br />
+      <div style="margin: 0 auto; display: flex">
+        <!-- 内容 -->
+        <a-layout-content
+          style="
+            margin-top: 5vh;
+            display: relative;
+            max-width: 100ch;
+            min-height: 100vh;
+          "
+        >
+          <section class="describe_box box" id="main">
             <Educationcontent :datas="DataBase" />
           </section>
 
@@ -80,7 +65,7 @@
       <!-- Project -->
       <Transition name="fademount">
         <div v-bind:style="background" ref="backtarget">
-            <Project :datas="DataBase" id="project" :mode="mode"/>
+          <Project :datas="DataBase" id="project" :mode="mode" />
         </div>
       </Transition>
     </a-layout>
@@ -147,7 +132,6 @@ export default {
         backgroundColor: "rgba(36,36,36,1)",
       },
       DataBase: {},
-      mode:true,
     };
   },
   mounted: function () {
@@ -173,8 +157,8 @@ export default {
     document.documentElement.setAttribute("theme", theme);
   },
   methods: {
-    watchbackground(element, el2:number): void {
-      if(this.backtargetIsVisible){
+    watchbackground(element, el2: number): void {
+      if (this.backtargetIsVisible) {
         console.log(element.offsetTop);
       }
     },
@@ -206,7 +190,23 @@ export default {
 </script>
 
 <style scoped>
+.animation-container {
+  list-style: none;
+  display: flex;
+  width: fit-content;
+}
 
+.link {
+  font-size: 1.5rem;
+  margin: 0 1vw;
+  white-space: nowrap;
+  font-family: Crimson Text;
+  letter-spacing: 0.133333em;
+}
+.link:hover {
+  color: rgba(245, 245, 245, 0.5);
+  transition: color 1s;
+}
 
 .fademount-enter-active {
   animation: upswing 0.5s linear;
@@ -230,26 +230,5 @@ export default {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   border-radius: 1.5ch;
   padding: 4ch;
-}
-
-.ID {
-  height: 24ch;
-  width: 24ch;
-  background-image: url("http://arthur2.oss-cn-beijing.aliyuncs.com/Student/Personal.jpg");
-  background-size: 24ch;
-  margin: auto 3ch auto;
-}
-#components-back-top-demo-custom .ant-back-top-inner {
-  height: 60px;
-  width: 60px;
-  line-height: 60px;
-  border-radius: 50%;
-  background-color: rgba(127, 146, 99, 1);
-  color: whitesmoke;
-  text-align: center;
-  font-size: 20px;
-}
-#components-back-top-demo-custom .ant-back-top {
-  bottom: 100px;
 }
 </style>

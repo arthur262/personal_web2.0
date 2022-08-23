@@ -12,19 +12,17 @@
 
 <style >
 .text {
-  color: var(--textColor) !important;
-  transition:color .3s ease-in-out;
+  color: var(--textColor)!important;
+  transition:color .3s ease-in-out !important;
 }
 .backgroundtheme{
-  background-color: var(--wholeBackground);
-  transition:background-color 0.5s ease-in-out;
+  background-color: var(--wholeBackground) !important;
+  transition:background-color 0.5s ease-in-out !important;
 }
 .box{
-  background-color: var(--boxColor);
-  transition:background-color .3s ease-in-out;
+  background-color: var(--boxColor) !important;
+  transition:background-color .3s ease-in-out !important;
 }
-
-
 
 
 #app {
