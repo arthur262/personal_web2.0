@@ -11,6 +11,22 @@
 </template>
 
 <style >
+.text {
+  color: var(--textColor) !important;
+  transition:color .3s ease-in-out;
+}
+.backgroundtheme{
+  background-color: var(--wholeBackground);
+  transition:background-color 0.5s ease-in-out;
+}
+.box{
+  background-color: var(--boxColor);
+  transition:background-color .3s ease-in-out;
+}
+
+
+
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -24,14 +40,10 @@
 body {
   place-items:  normal start ;
   display:block ;
-  height: fit-content !important;
 }
 :root{
    padding: 0;
   margin: 0;
-  --Background: #f0f2f5;
-  --word:rgba (24,24,24,1);
-  --box:rgba (245,245,245,0.7); 
 }
 
 </style>

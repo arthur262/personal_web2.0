@@ -1,5 +1,3 @@
-
-
 <template>
   <div>
     <a-layout style="scroll-behavior: smooth;" class="Content">
@@ -13,20 +11,20 @@
   <a-col :flex="6">
           <ul id="menu" ref="menu" class="animation-container">
               <li>
-                <router-link to="/Home" class="link text"> Home</router-link>
+                <router-link to="/Home" class="link "> Home</router-link>
               </li>
               <li>
-                <router-link to="/Programmer" class="link text"
+                <router-link to="/Programmer" class="link "
                   >Programmer
                 </router-link>
               </li>
               <li>
-                <router-link to="/Student" class="link text"> Student</router-link>
+                <router-link to="/Student" class="link "> Student</router-link>
               </li>
             </ul>
             </a-col>
             <a-col :flex="2">
-          <a-switch v-model:checked="theme" checked-children="Light" un-checked-children="Dark" @click="darkThemeSwitch"/>
+          <a-switch v-model:checked="mode" checked-children="Light" un-checked-children="Dark" />
           </a-col>
           </a-row>
           
@@ -38,9 +36,9 @@
               </a-col>
               <a-col :flex="16">
                 <span style="padding: 3vh 2vw; text-align: center">
-                  <h1 style="font-size: 1.5em" class="text"><b>YuanZheZhang(Arthur)</b></h1>
-                  <h3 class="text" >Phone: CN-{{ DataBase.phone_CN }}</h3>
-                  <h3 class="text">
+                  <h1 style="font-size: 1.5em" class=""><b>YuanZheZhang(Arthur)</b></h1>
+                  <h3 class="" >Phone: CN-{{ DataBase.phone_CN }}</h3>
+                  <h3 class="">
                     Email :<a
                       href="mailto:arthur262@outlook.com"
                       title="Send me the Email"
@@ -59,12 +57,12 @@
               </a-col>
             </a-row>
             <br />
-            <Educationcontent :datas="DataBase" :mode="mode"/>
+            <Educationcontent :datas="DataBase" />
           </section>
 
           <section style="margin-top: 5vh" ref="target">
             <Transition name="fademount">
-              <Skills :datas="DataBase" v-show="targetIsVisible" :mode="mode" id="skill" />
+              <Skills :datas="DataBase" v-show="targetIsVisible" id="skill" />
             </Transition>
           </section>
         </a-layout-content>
@@ -86,11 +84,6 @@
         </div>
       </Transition>
     </a-layout>
-    <div id="components-back-top-demo-custom">
-    <a-back-top>
-      <div class="ant-back-top-inner">UP</div>
-    </a-back-top>
-  </div>
   </div>
 </template>
 
@@ -102,18 +95,20 @@ import Project from "../../components/CV/CV_Project.vue";
 
 import { useIntersectionObserver } from "@vueuse/core";
 import { onMounted, ref } from "vue";
-
-import themeChanger from "../../assets/api/darkmode";
+import { changeLight, changeDark } from "../../assets/api/themechanger";
 
 export default {
   components: { Skills, Educationcontent, Project },
   setup() {
     const target = ref(null);
-    const backtarget=ref(null);
+    const backtarget = ref(null);
 
-    const backtargetIsVisible=ref(false);
+    const backtargetIsVisible = ref(false);
     const targetIsVisible = ref(false);
-    var viewheight=document.documentElement.clientHeight || document.body.clientHeight;
+
+    const mode = ref<boolean>(true);
+    var viewheight =
+      document.documentElement.clientHeight || document.body.clientHeight;
 
     useIntersectionObserver(
       target,
@@ -129,13 +124,14 @@ export default {
       },
       { threshold: 0.1 }
     );
-    
+
     const targetOffset = ref<number | undefined>(undefined);
     onMounted(() => {
       targetOffset.value = window.innerHeight / 2;
     });
 
     return {
+      mode,
       target,
       targetIsVisible,
       targetOffset,
@@ -151,30 +147,36 @@ export default {
         backgroundColor: "rgba(36,36,36,1)",
       },
       DataBase: {},
-      theme:true,
-      mode:null,
+      mode:true,
     };
   },
   mounted: function () {
     this.getdata();
   },
   // 监听project元素是否进入视图
-  watch:{
-    viewheight:function(newData,oldData){
-      if(this.backtargetIsVisible==true){
-
+  watch: {
+    viewheight: function (newData, oldData) {
+      if (this.backtargetIsVisible == true) {
       }
-    }
+    },
+    mode: function (newData, oldData) {
+      if (newData) {
+        changeLight();
+      } else {
+        changeDark();
+      }
+    },
+  },
+  created() {
+    //let theme = localStorage.getItem('theme') ? JSON.parse(localStorage.getItem('theme')) : 'light'
+    let theme = "light";
+    document.documentElement.setAttribute("theme", theme);
   },
   methods: {
-    darkThemeSwitch() {
-      this.mode._darkThemeSwitch();
-    },
     watchbackground(element, el2:number): void {
       if(this.backtargetIsVisible){
         console.log(element.offsetTop);
       }
-      
     },
     getdata() {
       // axios
@@ -199,21 +201,13 @@ export default {
           console.log(error);
         });
     },
-    
-  },
-   created() {
-    this.mode = new themeChanger();
   },
 };
 </script>
 
 <style scoped>
-.text{
-  color:var(--word);
-}
-.Content {
-  background-color:var(--Background);
-}
+
+
 .fademount-enter-active {
   animation: upswing 0.5s linear;
 }
@@ -237,13 +231,7 @@ export default {
   border-radius: 1.5ch;
   padding: 4ch;
 }
-.link {
-  font-size: 1.5rem;
-  margin: 0 1vw;
-  white-space: nowrap;
-  font-family: Crimson Text;
-  letter-spacing: 0.133333em;
-}
+
 .ID {
   height: 24ch;
   width: 24ch;
@@ -257,21 +245,11 @@ export default {
   line-height: 60px;
   border-radius: 50%;
   background-color: rgba(127, 146, 99, 1);
+  color: whitesmoke;
   text-align: center;
   font-size: 20px;
 }
 #components-back-top-demo-custom .ant-back-top {
   bottom: 100px;
-}
-#menu {
-  list-style: none;
-  display: flex;
-  width: fit-content;
-  float: left;
-  z-index: 10;
-}
-#menu :hover a {
-  color: rgba(245, 245, 245, 0.5);
-  transition: 1s;
 }
 </style>

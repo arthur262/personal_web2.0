@@ -47,7 +47,7 @@
         <kinesis-element :strength="12">
         <a-col  :xs="{ order: 1 }" :sm="{ order: 1 }" :md="{ order: 1 }" :lg="{ order: 2 }">
           <div class="selfshoots">
-          <img width="400" src="http://arthur2.oss-cn-beijing.aliyuncs.com/Photo/5.1.jpg"  style="border-radius:1.5ch"/>
+          <img width="400" src="/public/Photo/5.1.jpg"  style="border-radius:1.5ch"/>
           </div>
         </a-col>
         </kinesis-element>

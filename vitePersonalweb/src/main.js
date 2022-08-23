@@ -6,6 +6,7 @@ import Antd from "ant-design-vue";
 import "ant-design-vue/dist/antd.css";
 import VueKinesis from "vue-kinesis";
 import { MotionPlugin } from "@vueuse/motion";
+import "./assets/css/global.css";
 
 createApp(App)
   .use(router)

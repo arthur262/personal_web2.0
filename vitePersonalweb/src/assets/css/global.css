@@ -1,0 +1,11 @@
+:root[theme='dark'] {
+  --wholeBackground: rgb(36, 36, 36);
+  --textColor: #F5F5F5;
+  --boxColor:#181818;
+}
+
+:root[theme='light'] {
+  --wholeBackground: #f0f2f5;
+  --textColor: #181818;
+  --boxColor: #F5F5F5;
+}

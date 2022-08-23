@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="abilitybox" id="Ability">
-      <a-descriptions bordered title="Language I know So Far">
+    <div class="abilitybox box" id="Ability">
+      <a-descriptions bordered title="Language I know So Far" class="text">
 
       <!-- DataBase -->
       <a-descriptions-item label="DataBase" style="font-weight: bold">
           <p
-            class="w1"
+            class="text"
             v-for="iteam in datas.DataBase"
             :key="iteam.id"
           >
@@ -17,7 +17,7 @@
         <!-- UI -->
         <a-descriptions-item label="UI" style="font-weight: bold">
           <p 
-          class="w1" 
+          class="text" 
           v-for="iteam in datas.UI" 
           :key="iteam.id"
           >
@@ -28,7 +28,7 @@
         <!-- Framework -->
         <a-descriptions-item label="Framework"  style="font-weight: bold">
           <p
-            class="w1"
+            class="text"
             v-for="iteam in datas.Framework"
             :key="iteam.id"
           >
@@ -38,10 +38,10 @@
 
         <!-- Languages -->
         <a-descriptions-item label="Languages" >
-          <p class="w1" v-for="iteam in datas.Front_language" :key="iteam.id">
+          <p class="text" v-for="iteam in datas.Front_language" :key="iteam.id">
             {{ iteam }}
           </p>
-          <p class="w1" v-for="iteam in datas.Back_language" :key="iteam.id">
+          <p class="text" v-for="iteam in datas.Back_language" :key="iteam.id">
             {{ iteam }}
           </p>
           <br/>
@@ -51,9 +51,9 @@
     </div>
     <div v-if="false" class="detail">
       <ul v-for="iteam in datas.Techlist" :key="iteam.id">
-        <h3>{{ iteam.title }}</h3>
+        <h3 class="text">{{ iteam.title }}</h3>
         <ul>
-          <li v-for="iteamson in iteam.children" :key="iteamson.id">
+          <li v-for="iteamson in iteam.children" :key="iteamson.id" class="text">
             {{ iteamson.description }}
           </li>
         </ul>
@@ -63,7 +63,7 @@
   </div>
 </template>
 
-<script >
+<script lang="ts">
 
 export default {
   setup() { 
@@ -90,7 +90,6 @@ export default {
   width: inherit;
   border-radius: 1.5ch;
   margin: 4ch auto 4ch;
-  background: whitesmoke;
 }
 .abilitybox h1, h2, h3, h4, h5, h6, p{
   margin: 0 ;
