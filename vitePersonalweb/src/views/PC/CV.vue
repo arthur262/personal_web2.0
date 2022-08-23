@@ -1,4 +1,5 @@
 
+
 <template>
   <div>
     <a-layout style="scroll-behavior: smooth;" class="Content">
@@ -12,20 +13,20 @@
   <a-col :flex="6">
           <ul id="menu" ref="menu" class="animation-container">
               <li>
-                <router-link to="/Home" class="link "> Home</router-link>
+                <router-link to="/Home" class="link text"> Home</router-link>
               </li>
               <li>
-                <router-link to="/Programmer" class="link "
+                <router-link to="/Programmer" class="link text"
                   >Programmer
                 </router-link>
               </li>
               <li>
-                <router-link to="/Student" class="link "> Student</router-link>
+                <router-link to="/Student" class="link text"> Student</router-link>
               </li>
             </ul>
             </a-col>
             <a-col :flex="2">
-          <a-switch v-model:checked="mode" checked-children="Light" un-checked-children="Dark" />
+          <a-switch v-model:checked="theme" checked-children="Light" un-checked-children="Dark" @click="darkThemeSwitch"/>
           </a-col>
           </a-row>
           
@@ -37,16 +38,16 @@
               </a-col>
               <a-col :flex="16">
                 <span style="padding: 3vh 2vw; text-align: center">
-                  <h1 style="font-size: 1.5em" class=""><b>YuanZheZhang(Arthur)</b></h1>
-                  <h3 class="" >Phone: CN-{{ DataBase.phone_CN }}</h3>
-                  <h3 class="">
+                  <h1 style="font-size: 1.5em" class="text"><b>YuanZheZhang(Arthur)</b></h1>
+                  <h3 class="text" >Phone: CN-{{ DataBase.phone_CN }}</h3>
+                  <h3 class="text">
                     Email :<a
                       href="mailto:arthur262@outlook.com"
                       title="Send me the Email"
                       >{{ DataBase.email }}</a
                     >
                   </h3>
-                  <h3 class="">
+                  <h3 class="text">
                     GitHub:
                     <a
                       href="https://github.com/arthur262"
@@ -98,10 +99,11 @@ import axios from "axios";
 import Educationcontent from "../../components/CV/CV_Edu_Back.vue";
 import Skills from "../../components/CV/CV_Skill.vue";
 import Project from "../../components/CV/CV_Project.vue";
-import "../../assets/css/light.less";
 
 import { useIntersectionObserver } from "@vueuse/core";
 import { onMounted, ref } from "vue";
+
+import themeChanger from "../../assets/api/darkmode";
 
 export default {
   components: { Skills, Educationcontent, Project },
@@ -149,7 +151,8 @@ export default {
         backgroundColor: "rgba(36,36,36,1)",
       },
       DataBase: {},
-      mode:true,
+      theme:true,
+      mode:null,
     };
   },
   mounted: function () {
@@ -164,6 +167,9 @@ export default {
     }
   },
   methods: {
+    darkThemeSwitch() {
+      this.mode._darkThemeSwitch();
+    },
     watchbackground(element, el2:number): void {
       if(this.backtargetIsVisible){
         console.log(element.offsetTop);
@@ -193,13 +199,21 @@ export default {
           console.log(error);
         });
     },
+    
+  },
+   created() {
+    this.mode = new themeChanger();
   },
 };
 </script>
 
 <style scoped>
-
-
+.text{
+  color:var(--word);
+}
+.Content {
+  background-color:var(--Background);
+}
 .fademount-enter-active {
   animation: upswing 0.5s linear;
 }

@@ -29,7 +29,9 @@ body {
 :root{
    padding: 0;
   margin: 0;
-  background-color:whitesmoke;
-  
+  --Background: #f0f2f5;
+  --word:rgba (24,24,24,1);
+  --box:rgba (245,245,245,0.7); 
 }
+
 </style>
