@@ -3,7 +3,7 @@
     <a-layout style="scroll-behavior: smooth" class="backgroundtheme">
       <!-- 上半截 -->
       <header>
-        <a-row type="flex">
+        <a-row type="flex" style="margin:0 auto;width:fit-content;">
           <a-col :flex="6">
             <a-menu v-model:selectedKeys="current" mode="horizontal" class="animation-container backgroundtheme">
               <a-menu-item>
@@ -15,14 +15,15 @@
                 </router-link>
               </a-menu-item>
               <a-menu-item>
-                <router-link to="/Student" class="link text">
-                  Student</router-link
+                <router-link to="/Photograph" class="link text">
+                  Photograph</router-link
                 >
               </a-menu-item>
             </a-menu>
           </a-col>
           <a-col :flex="2">
             <a-switch
+            style="position: fixed;-webkit-transform: translateY(100%);"
               v-model:checked="mode"
               checked-children="Light"
               un-checked-children="Dark"
@@ -194,6 +195,7 @@ export default {
   list-style: none;
   display: flex;
   width: fit-content;
+  line-height: 4.5em;
 }
 
 .link {
