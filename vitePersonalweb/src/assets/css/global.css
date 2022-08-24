@@ -2,10 +2,12 @@
   --wholeBackground: rgb(36, 36, 36);
   --textColor: #F5F5F5;
   --boxColor:#181818;
+  --divider:rgba(245, 245, 245, 0.2);
 }
 
 :root[theme='light'] {
   --wholeBackground: #f0f2f5;
   --textColor: #181818;
   --boxColor: #F5F5F5;
+  --divider:rgba(0, 0, 0, 0.06);
 }

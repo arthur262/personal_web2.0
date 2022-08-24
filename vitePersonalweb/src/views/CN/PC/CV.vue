@@ -2,32 +2,49 @@
   <div>
     <a-layout style="scroll-behavior: smooth" class="backgroundtheme">
       <!-- 上半截 -->
-      <header>
-        <a-row type="flex" style="margin:0 auto;width:fit-content;">
+      <header class="menu">
+        <a-row type="flex">
           <a-col :flex="6">
-            <a-menu v-model:selectedKeys="current" mode="horizontal" class="animation-container backgroundtheme">
-              <a-menu-item>
+            <ul class="animation-container backgroundtheme">
+              <li>
                 <router-link to="/Home" class="link text"> Home</router-link>
-              </a-menu-item>
-              <a-menu-item>
+              </li>
+              <li>
                 <router-link to="/Programmer" class="link text"
                   >Programmer
                 </router-link>
-              </a-menu-item>
-              <a-menu-item>
+              </li>
+              <li>
                 <router-link to="/Photograph" class="link text">
                   Photograph</router-link
                 >
-              </a-menu-item>
-            </a-menu>
+              </li>
+            </ul>
           </a-col>
-          <a-col :flex="2">
+          <!-- menu右侧工具区 -->
+          <a-col :flex="2" style="display:flex;">
+          <h3 class="text"> Theme:
             <a-switch
-            style="position: fixed;-webkit-transform: translateY(100%);"
               v-model:checked="mode"
               checked-children="Light"
               un-checked-children="Dark"
             />
+            </h3>
+            <a-dropdown >
+              <a class="ant-dropdown-link" @click.prevent style="margin-left:10px;">
+                language selection
+              </a>
+              <template #overlay>
+                <a-menu>
+                  <a-menu-item>
+                    <a href="javascript:;">中文</a>
+                  </a-menu-item>
+                  <a-menu-item>
+                    <a href="javascript:;">English</a>
+                  </a-menu-item>
+                </a-menu>
+              </template>
+            </a-dropdown>
           </a-col>
         </a-row>
       </header>
@@ -36,7 +53,7 @@
         <!-- 内容 -->
         <a-layout-content
           style="
-            margin-top: 5vh;
+            margin-top: 1vh;
             display: relative;
             max-width: 100ch;
             min-height: 100vh;
@@ -87,11 +104,7 @@ export default {
   components: { Skills, Educationcontent, Project },
   setup() {
     const target = ref(null);
-    const backtarget = ref(null);
-
-    const backtargetIsVisible = ref(false);
     const targetIsVisible = ref(false);
-
     const mode = ref<boolean>(true);
     var viewheight =
       document.documentElement.clientHeight || document.body.clientHeight;
@@ -103,15 +116,8 @@ export default {
       },
       { threshold: 0.1 }
     );
-    useIntersectionObserver(
-      backtarget,
-      ([{ isIntersecting }], observerElement) => {
-        backtargetIsVisible.value = isIntersecting;
-      },
-      { threshold: 0.1 }
-    );
 
-    const targetOffset = ref<number | undefined>(undefined);
+    const targetOffset = ref<number>(undefined);
     onMounted(() => {
       targetOffset.value = window.innerHeight / 2;
     });
@@ -121,8 +127,6 @@ export default {
       target,
       targetIsVisible,
       targetOffset,
-      backtarget,
-      backtargetIsVisible,
       viewheight,
     };
   },
@@ -191,11 +195,17 @@ export default {
 </script>
 
 <style scoped>
+.menu {
+  width: 80%;
+  margin: 0 auto;
+  line-height: 5em;
+  justify-content: center;
+}
 .animation-container {
   list-style: none;
   display: flex;
-  width: fit-content;
-  line-height: 4.5em;
+  align-self: center;
+  margin: 0 !important;
 }
 
 .link {
@@ -219,7 +229,7 @@ export default {
 
 @keyframes upswing {
   0% {
-    transform: translateY(-5%);
+    transform: translateY(5%);
     opacity: 0;
   }
   100% {
@@ -232,5 +242,6 @@ export default {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   border-radius: 1.5ch;
   padding: 4ch;
+  animation: upswing 0.5s linear;
 }
 </style>

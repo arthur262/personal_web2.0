@@ -5,7 +5,14 @@ import vue from "@vitejs/plugin-vue";
 export default defineConfig({
   plugins: [vue()],
   publicpath: "/",
-  srcpath: "@",
+  resolve: {
+    alias: [
+      {
+        find: "@",
+        replacement: resolve(__dirname, "./src"),
+      },
+    ],
+  },
   css: {
     preprocessorOptions: {
       less: {

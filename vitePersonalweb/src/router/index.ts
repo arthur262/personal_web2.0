@@ -9,27 +9,22 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/Home",
     name: "Home",
-    component: () => import("../views/PC/HomePage.vue"),
-  },
-  {
-    path: "/Home_M",
-    name: "Home_Mobile",
-    component: () => import("../views/Mobile/HomePage.vue"),
+    component: () => import("../views/ENG/PC/HomePage.vue"),
   },
   {
     path:"/Photograph",
     name: "Photograph",
-    component: () => import("../views/PC/Photo.vue"),
+    component: () => import("../views/ENG/PC/Photo.vue"),
   },
   {
     path:"/Student",
     name: "Student",
-    component: () => import("../views/PC/CV.vue"),
+    component: () => import("../views/ENG/PC/CV.vue"),
   },
   {
     path:"/Programmer",
     name: "Programmer",
-    component: () => import("../views/PC/Programmer.vue"),
+    component: () => import("../views/ENG/PC/Programmer.vue"),
   },
 ];
 

@@ -40,7 +40,7 @@
         <li v-if="iteam.CGPA > 0" class="text">GPA: {{ iteam.CGPA }}</li>
         <li class="text">{{ iteam.Education_content }}</li>
       </ul>
-      <a-divider />
+      <a-divider style="border-top:1px solid var(--divider)"/>
     </span>
   </div>
 </template>
