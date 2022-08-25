@@ -2,52 +2,47 @@
   <div>
     <a-layout style="scroll-behavior: smooth" class="backgroundtheme">
       <!-- 上半截 -->
-      <header class="menu">
+      <a-affix :offset-top="0">
+      <header class="menu_background">
+      <div class="menu">
         <a-row type="flex">
           <a-col :flex="6">
-            <ul class="animation-container backgroundtheme">
+            <ul class="animation-container">
               <li>
-                <router-link to="/Home" class="link text"> Home</router-link>
+                <router-link to="/Home_EN" class="text link"> Home</router-link>
               </li>
               <li>
-                <router-link to="/Programmer" class="link text"
+                <router-link to="/Programmer_EN" class="text link"
                   >Programmer
                 </router-link>
               </li>
               <li>
-                <router-link to="/Photograph" class="link text">
+                <router-link to="/Photograph_EN" class="text link">
                   Photograph</router-link
                 >
               </li>
             </ul>
           </a-col>
           <!-- menu右侧工具区 -->
-          <a-col :flex="2" style="display:flex;">
-          <h3 class="text"> Theme:
-            <a-switch
-              v-model:checked="mode"
-              checked-children="Light"
-              un-checked-children="Dark"
-            />
-            </h3>
-            <a-dropdown >
-              <a class="ant-dropdown-link" @click.prevent style="margin-left:10px;">
-                language selection
-              </a>
-              <template #overlay>
-                <a-menu>
-                  <a-menu-item>
-                    <a href="javascript:;">中文</a>
-                  </a-menu-item>
-                  <a-menu-item>
-                    <a href="javascript:;">English</a>
-                  </a-menu-item>
-                </a-menu>
-              </template>
-            </a-dropdown>
+          <a-col :flex="2" >
+          <SystemTool/>
           </a-col>
         </a-row>
+        </div>
       </header>
+      </a-affix>
+       <!-- affix -->
+       <a-affix :offset-top="100">
+        <a-anchor
+          :showInkInFixed="true"
+          style="position: absolute;
+    right: 20px;"
+        >
+          <a-anchor-link href="#main" title="Education" />
+          <a-anchor-link href="#skill" title="Skills" />
+          <a-anchor-link href="#project" title="Project" />
+        </a-anchor>
+        </a-affix>
 
       <div style="margin: 0 auto; display: flex">
         <!-- 内容 -->
@@ -69,21 +64,12 @@
             </Transition>
           </section>
         </a-layout-content>
-        <!-- affix -->
-        <a-anchor
-          :target-offset="targetOffset"
-          :showInkInFixed="true"
-          style="margin: 15vh 0 0 1vw"
-        >
-          <a-anchor-link href="#main" title="Education" />
-          <a-anchor-link href="#skill" title="Skills" />
-          <a-anchor-link href="#project" title="Project" />
-        </a-anchor>
+       
       </div>
       <!-- Project -->
       <Transition name="fademount">
         <div v-bind:style="background" ref="backtarget">
-          <Project :datas="DataBase" id="project" :mode="mode" />
+          <Project :datas="DataBase" id="project"  />
         </div>
       </Transition>
     </a-layout>
@@ -92,20 +78,19 @@
 
 <script lang="ts">
 import axios from "axios";
-import Educationcontent from "@/components/CV/CV_Edu_Back.vue";
-import Skills from "@/components/CV/CV_Skill.vue";
-import Project from "@/components/CV/CV_Project.vue";
-
+import Educationcontent from "/src/components/CV/CV_Edu_Back.vue";
+import Skills from "/src/components/CV/CV_Skill.vue";
+import Project from "/src/components/CV/CV_Project.vue";
+import SystemTool from "/src/components/System/menu_tool.vue";
 import { useIntersectionObserver } from "@vueuse/core";
-import { onMounted, ref } from "vue";
-import { changeLight, changeDark } from "@/assets/api/themechanger";
+import {  ref } from "vue";
+
 
 export default {
-  components: { Skills, Educationcontent, Project },
+  components: { SystemTool,Skills, Educationcontent, Project },
   setup() {
     const target = ref(null);
     const targetIsVisible = ref(false);
-    const mode = ref<boolean>(true);
     var viewheight =
       document.documentElement.clientHeight || document.body.clientHeight;
 
@@ -117,16 +102,10 @@ export default {
       { threshold: 0.1 }
     );
 
-    const targetOffset = ref<number>(undefined);
-    onMounted(() => {
-      targetOffset.value = window.innerHeight / 2;
-    });
 
     return {
-      mode,
       target,
       targetIsVisible,
-      targetOffset,
       viewheight,
     };
   },
@@ -148,19 +127,9 @@ export default {
       if (this.backtargetIsVisible == true) {
       }
     },
-    mode: function (newData, oldData) {
-      if (newData) {
-        changeLight();
-      } else {
-        changeDark();
-      }
-    },
+    
   },
-  created() {
-    //let theme = localStorage.getItem('theme') ? JSON.parse(localStorage.getItem('theme')) : 'light'
-    let theme = "light";
-    document.documentElement.setAttribute("theme", theme);
-  },
+
   methods: {
     watchbackground(element, el2: number): void {
       if (this.backtargetIsVisible) {
@@ -195,12 +164,18 @@ export default {
 </script>
 
 <style scoped>
+.menu_background{
+  width: 100%;
+    background:var(--box);
+    backdrop-filter: blur(20px);
+}
 .menu {
   width: 80%;
   margin: 0 auto;
   line-height: 5em;
   justify-content: center;
 }
+
 .animation-container {
   list-style: none;
   display: flex;
@@ -211,12 +186,13 @@ export default {
 .link {
   font-size: 1.5rem;
   margin: 0 1vw;
+  font-weight: 900;
   white-space: nowrap;
   font-family: Crimson Text;
   letter-spacing: 0.133333em;
 }
-.link:hover {
-  color: rgba(245, 245, 245, 0.5);
+.link:hover{
+  color:rgba(127, 146, 99, 1);
   transition: color 1s;
 }
 

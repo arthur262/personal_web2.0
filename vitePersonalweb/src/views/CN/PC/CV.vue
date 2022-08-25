@@ -92,13 +92,13 @@
 
 <script lang="ts">
 import axios from "axios";
-import Educationcontent from "../../components/CV/CV_Edu_Back.vue";
-import Skills from "../../components/CV/CV_Skill.vue";
-import Project from "../../components/CV/CV_Project.vue";
+import Educationcontent from "components/CV/CV_Edu_Back.vue";
+import Skills from "components/CV/CV_Skill.vue";
+import Project from "components/CV/CV_Project.vue";
 
 import { useIntersectionObserver } from "@vueuse/core";
 import { onMounted, ref } from "vue";
-import { changeLight, changeDark } from "../../assets/api/themechanger";
+import { changeLight, changeDark } from "assets/api/themechanger";
 
 export default {
   components: { Skills, Educationcontent, Project },
