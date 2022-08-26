@@ -5,13 +5,13 @@ import vue from "@vitejs/plugin-vue";
 export default defineConfig({
   plugins: [vue()],
   publicpath: "/",
-  resolve: {
-    alias: [
-      {
-        find: "@",
-        replacement: resolve(__dirname, "./src"),
-      },
-    ],
+  base: "./",
+  chainWebpack: (config) => {
+    config.resolve.alias
+      .set("@", resolve("/src"))
+      .set("assets", resolve("src/assets"))
+      .set("components", resolve("src/components"))
+      .set("views", resolve("src/views"));
   },
   css: {
     preprocessorOptions: {
