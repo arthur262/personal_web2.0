@@ -13,12 +13,12 @@
               </li>
               <li>
                 <router-link to="/Programmer_CN" class="text link"
-                  >程序员
+                  >未来头秃程序员
                 </router-link>
               </li>
               <li>
                 <router-link to="/Photograph_CN" class="text link">
-                  摄影菜鸟</router-link
+                  野生摄影菜鸟</router-link
                 >
               </li>
             </ul>
@@ -163,6 +163,11 @@ export default {
 </script>
 
 <style scoped>
+.menu_background{
+  width: 100%;
+    background:var(--box);
+    backdrop-filter: blur(20px);
+}
 .menu {
   width: 80%;
   margin: 0 auto;

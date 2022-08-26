@@ -15,11 +15,11 @@
       </a>
       <template #overlay>
         <a-menu class="backgroundtheme">
-          <a-menu-item>
-            <router-link :to="this.path+'CN'" class="text">中文</router-link>
+          <a-menu-item >
+            <router-link :to="this.path+'CN'" class="text" >中文</router-link>
           </a-menu-item>
-          <a-menu-item>
-            <router-link :to="this.path+'EN'" class="text">English</router-link>
+          <a-menu-item >
+            <router-link :to="this.path+'EN'" class="text" >English</router-link>
           </a-menu-item>
         </a-menu>
       </template>
@@ -55,11 +55,12 @@
 
 <script lang="ts">
 import { ref } from "vue";
+import {language_selector} from "/src/assets/api/language_detech";
 import { changeLight, changeDark } from "/src/assets/api/themechanger";
 export default {
   setup() {
     const mode = ref<boolean>(
-      JSON.parse(localStorage.getItem("theme")) == "light" ? true : false
+      JSON.parse(localStorage.theme) == "light" ? true : false
     );
     return {
       mode,
@@ -71,6 +72,8 @@ export default {
       language:"",
     };
   },
+  method() {
+  },
   watch: {
     mode: function (newData, oldData) {
       if (newData) {
@@ -81,6 +84,7 @@ export default {
     },
   },
   mounted() {
+    language_selector();
     this.path=this.$route.path;
     let temp = this.path.substr(0, this.path.length - 2);
     this.language=this.path.substr( this.path.length - 2,this.path.length);

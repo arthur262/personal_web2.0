@@ -2,6 +2,7 @@
 
 <template>
   <div class="container">
+  <Systemtool class="tool-position"/>
   <kinesis-container>
   <kinesis-element :strength="8">
     <div class="plasticback">
@@ -11,16 +12,16 @@
           <div class="Wordcontainer">
             <ul class="menu">
               <li>
-                <router-link to="/Programmer_CN" class="link middle">程序员
+                <router-link to="/Programmer_CN" class="link middle">未来头秃程序员
                 </router-link>
               </li>
               <li>
                 <router-link to="/Student_CN" class="link middle" >
-                  生活学习</router-link>
+                  学习渣渣</router-link>
               </li>
               <li>
                 <router-link to="/Photograph_CN" class="link middle" >
-                  摄影菜鸟</router-link>
+                  野生摄影菜鸟</router-link>
               </li>
             </ul>
             <!-- 图标区 -->
@@ -51,7 +52,6 @@
           </div>
         </a-col>
         </kinesis-element>
-       
       </a-row>
     </div>
     </kinesis-element>
@@ -59,6 +59,7 @@
   </div>
 </template>
 <script lang="ts">
+import Systemtool from "/src/components/System/menu_tool.vue";
 import {
   GithubOutlined,
   LinkedinOutlined,
@@ -69,6 +70,7 @@ export default {
     GithubOutlined,
     LinkedinOutlined,
     WechatOutlined,
+    Systemtool,
   },
   mounted(){
     if (this._isMobile()) {
@@ -86,6 +88,11 @@ export default {
 </script>
 
 <style scoped>
+.tool-position{
+  position: absolute;
+  top:2vh;
+  right:2vw;
+}
 .container {
   width: 100%;
 background-image: url("http://arthur2.oss-cn-beijing.aliyuncs.com/DSC00368-HDR-2(1).jpg");

@@ -1,5 +1,6 @@
 <template>
   <div>
+  <span v-if="this.language == 'EN'">
     <div class="abilitybox box" id="Ability">
     <h3 class="text" style="margin-bottom:10px;">Language I know So Far</h3>
       <a-descriptions bordered  >
@@ -49,17 +50,59 @@
       </a-descriptions>
 
     </div>
-    <div v-if="false" class="detail">
-      <ul v-for="iteam in datas.Techlist" :key="iteam.id">
-        <h3 class="text">{{ iteam.title }}</h3>
-        <ul>
-          <li v-for="iteamson in iteam.children" :key="iteamson.id" class="text">
-            {{ iteamson.description }}
-          </li>
-        </ul>
-      </ul>
+    </span>
+    <span v-else-if="this.language == 'CN'">
+    <div class="abilitybox box" id="Ability">
+    <h3 class="text" style="margin-bottom:10px;font-weight:800;">机器语言</h3>
+      <a-descriptions bordered  >
+      <!-- DataBase -->
+      <a-descriptions-item label="数据库" style="font-weight: bold">
+          <p
+            class="text"
+            v-for="iteam in datas.DataBase"
+            :key="iteam.id"
+          >
+            {{ iteam }}
+          </p>
+        </a-descriptions-item>
+
+        <!-- UI -->
+        <a-descriptions-item label="UI框架" style="font-weight: bold">
+          <p 
+          class="text" 
+          v-for="iteam in datas.UI" 
+          :key="iteam.id"
+          >
+            {{ iteam }}
+          </p>
+        </a-descriptions-item>
+        
+        <!-- Framework -->
+        <a-descriptions-item label="框架"  style="font-weight: bold">
+          <p
+            class="text"
+            v-for="iteam in datas.Framework"
+            :key="iteam.id"
+          >
+            {{ iteam }}
+          </p>
+        </a-descriptions-item>
+
+        <!-- Languages -->
+        <a-descriptions-item label="前后端语言" >
+          <p class="text" v-for="iteam in datas.Front_language" :key="iteam.id">
+            {{ iteam }}
+          </p>
+          <p class="text" v-for="iteam in datas.Back_language" :key="iteam.id">
+            {{ iteam }}
+          </p>
+          <br/>
+        </a-descriptions-item>
+      </a-descriptions>
+
     </div>
-    <!--  Project Box    -->
+    </span>
+   
   </div>
 </template>
 
@@ -71,10 +114,11 @@ export default {
   props:{datas:Object},
   data() {
     return {
+      language:'',
     };
   },
   mounted: function () {
-    
+    this.language= localStorage.language;
   },
   components: {
     //barsoutlined,

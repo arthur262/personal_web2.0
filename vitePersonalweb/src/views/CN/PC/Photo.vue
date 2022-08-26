@@ -30,11 +30,11 @@ import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
               </li>
               <li>
                 <router-link to="/Programmer_CN" class="link"
-                  >程序员
+                  >未来头秃程序员
                 </router-link>
               </li>
               <li>
-                <router-link to="/Student_CN" class="link">学习生活</router-link>
+                <router-link to="/Student_CN" class="link">学习渣渣</router-link>
               </li>
             </ul>
             <!-- 右侧工具区 -->

@@ -7,8 +7,7 @@
       "Bachelor": "计算机软件本科",
       "School": "Dalhousie university, 哈利法克斯, NS省,加拿大",
       "School_Date": "2019.09-2023.0.6",
-      "Education_content": "课程包括算法、数据库系统、网络、软件开发、计算机系统和前端和后端Web开发",
-      "CGPA": 3.33
+      "Education_content": "课程包括算法、数据库系统、网络、软件开发、计算机系统和前端和后端Web开发"
     },
     {
       "Bachelor": "高中",
@@ -33,7 +32,7 @@
       "github": "https://github.com/CSCIX691DAL/asw",
       "Technical": ["React","Material UI","Ant design","NextJS","Firebase","bootstrap","date-fns","echarts","react-spring","react-hook-form"],
       "children": [
-        "使用Next.js, React,Material UI, Spring React建立一个动画个人网站。作为团队的核心成员,我负责搭建整个网站的框架,以及网站背后的数据库和简单的node后端校验与增删改查。",
+        "使用Next.js, React,Material UI, Spring React建立一个动画个人网站。作为团队的核心成员,我负责搭建整个网站的框架,以及网站背后的数据库和主页的编写和所有动效的搭建",
         "同时，在完成自己的部分构建后，帮助没有跟上进度的同学理解和编写代码。重构了之前团队的几乎所有核心代码，包括用户管理系统的创建，主要负责主页和成就页面的搭建。添加了页面中所有的动画元素"
       ]
     },

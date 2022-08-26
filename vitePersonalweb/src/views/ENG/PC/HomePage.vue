@@ -2,6 +2,7 @@
 
 <template>
   <div class="container">
+   <Systemtool class="tool-position"/>
   <kinesis-container>
   <kinesis-element :strength="8">
     <div class="plasticback">
@@ -40,8 +41,11 @@
                       <wechat-outlined :style="{ fontSize: '32px' }" />
                     </a-col>
                   </a-row>
+                  
                 </div>
+               
           </div>
+          
         </a-col>
         <!-- 右侧图片区 -->
         <kinesis-element :strength="12">
@@ -59,6 +63,7 @@
   </div>
 </template>
 <script lang="ts">
+import Systemtool from "/src/components/System/menu_tool.vue";
 import {
   GithubOutlined,
   LinkedinOutlined,
@@ -69,6 +74,7 @@ export default {
     GithubOutlined,
     LinkedinOutlined,
     WechatOutlined,
+    Systemtool,
   },
   mounted(){
     if (this._isMobile()) {
@@ -86,6 +92,11 @@ export default {
 </script>
 
 <style scoped>
+.tool-position{
+  position: absolute;
+  top:2vh;
+  right:2vw;
+}
 .container {
   width: 100%;
 background-image: url("http://arthur2.oss-cn-beijing.aliyuncs.com/DSC00368-HDR-2(1).jpg");
