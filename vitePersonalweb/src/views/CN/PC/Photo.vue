@@ -2,7 +2,7 @@
 import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
 </script>
 <template>
-  <div style="width: 100%; min-height: 100vh;">
+  <div style="width: 100%; min-height: 100vh;" class="backgroundtheme">
   <audio src="http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/Y2Mate.is%20-%20%E8%BF%99%E4%B8%96%E7%95%8C%E9%82%A3%E4%B9%88%E5%A4%9A%E4%BA%BA%20-%20%E8%8E%AB%E6%96%87%E8%94%9A%20%E7%94%B5%E5%BD%B1%E3%80%8A%E6%88%91%E8%A6%81%E6%88%91%E4%BB%AC%E5%9C%A8%E4%B8%80%E8%B5%B7%E3%80%8B%E4%B8%BB%E9%A2%98%E6%9B%B2%E3%80%90%E5%8A%A8%E6%80%81%E6%AD%8C%E8%AF%8DMusic%20Lyrics%E3%80%91-i5L_etk6Tzo-160k-1660290728197.aac">
   </audio>
   
@@ -17,27 +17,32 @@ import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
       </a-carousel>
 
       <header style="position: absolute; width: 100%; height: 100vh; top: 0">
-        <a-row type="flex" style="padding: 4vh 8vw 0 8vw">
+        <a-row type="flex" style="padding: 4vh 1vw 0 8vw">
           <a-col :flex="2">
-            <router-link to="/Photograph">
+            <router-link to="/Photograph_EN">
               <img src="http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/Artsy.png" style="opacity: 0.7" height="120" />
             </router-link>
           </a-col>
           <a-col :flex="2">
             <ul id="menu" ref="menu" class="animation-container">
               <li>
-                <router-link to="/Home" class="link"> Home</router-link>
+                <router-link to="/Home_CN" class="link"> 主页</router-link>
               </li>
               <li>
-                <router-link to="/Programmer" class="link"
-                  >Programmer
+                <router-link to="/Programmer_CN" class="link"
+                  >程序员
                 </router-link>
               </li>
               <li>
-                <router-link to="/Student" class="link"> Student</router-link>
+                <router-link to="/Student_CN" class="link">学习生活</router-link>
               </li>
             </ul>
+            <!-- 右侧工具区 -->
+            
           </a-col>
+          <a-col :flex="1"><SystemTool style="margin-top:10px"/></a-col>
+          
+         
         </a-row>
         <div class="themeword">
           <h2
@@ -137,9 +142,12 @@ import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
 <script lang="ts">
 import { ref } from 'vue';
 import axios from "axios";
-import Photo_random from "../../components/Photo/Photo_random.vue";
+import Photo_random from "/src/components/Photo/Photo_random.vue";
+import SystemTool from "/src/components/System/menu_tool.vue";
+
+
 export default {
-  components: { DoubleRightOutlined, ArrowRightOutlined, Photo_random },
+  components: { DoubleRightOutlined, ArrowRightOutlined, Photo_random,SystemTool },
   setup() {
     const bottom = ref<number>(10);
     return {bottom};

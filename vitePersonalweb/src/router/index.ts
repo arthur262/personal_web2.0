@@ -34,22 +34,22 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/Home_CN",
     name: "Home_C",
-    component: () => import("../views/ENG/PC/HomePage.vue"),
+    component: () => import("../views/CN/PC/HomePage.vue"),
   },
   {
     path:"/Photograph_CN",
     name: "Photograph_C",
-    component: () => import("../views/ENG/PC/Photo.vue"),
+    component: () => import("../views/CN/PC/Photo.vue"),
   },
   {
     path:"/Student_CN",
     name: "Student_C",
-    component: () => import("../views/ENG/PC/CV.vue"),
+    component: () => import("../views/CN/PC/CV.vue"),
   },
   {
     path:"/Programmer_EN",
     name: "Programmer_C",
-    component: () => import("../views/ENG/PC/Programmer.vue"),
+    component: () => import("../views/CN/PC/Programmer.vue"),
   },
 ];
 

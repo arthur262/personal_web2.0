@@ -1,6 +1,6 @@
 <template>
-  <div style="display: flex">
-  {{path}}
+  <div >
+  <div v-if="this.language=='EN'" style="display: flex">
     <h3 class="text">
       Theme:
       <a-switch
@@ -16,14 +16,40 @@
       <template #overlay>
         <a-menu class="backgroundtheme">
           <a-menu-item>
-            <router-link to="/Student_CN" class="text">中文</router-link>
+            <router-link :to="this.path+'CN'" class="text">中文</router-link>
           </a-menu-item>
           <a-menu-item>
-            <router-link to="/Student_EN" class="text">English</router-link>
+            <router-link :to="this.path+'EN'" class="text">English</router-link>
           </a-menu-item>
         </a-menu>
       </template>
     </a-dropdown>
+    </div>
+    <div v-else style="display: flex">
+    <h3 class="text">
+      主题:
+      <a-switch
+        v-model:checked="mode"
+        checked-children="亮"
+        un-checked-children="暗"
+      />
+    </h3>
+    <a-dropdown>
+      <a class="ant-dropdown-link" @click.prevent style="margin-left: 10px">
+      选择语言
+      </a>
+      <template #overlay>
+        <a-menu class="backgroundtheme">
+          <a-menu-item>
+            <router-link :to="this.path+'CN'" class="text">中文</router-link>
+          </a-menu-item>
+          <a-menu-item>
+            <router-link :to="this.path+'EN'" class="text">English</router-link>
+          </a-menu-item>
+        </a-menu>
+      </template>
+    </a-dropdown>
+    </div>
   </div>
 </template>
 
@@ -39,10 +65,11 @@ export default {
       mode,
     };
   },
-  data(){
-    return{
-        path:'',
-    }
+  data() {
+    return {
+      path: "",
+      language:"",
+    };
   },
   watch: {
     mode: function (newData, oldData) {
@@ -53,10 +80,11 @@ export default {
       }
     },
   },
-  mounted(){
-        var temp:String=""+this.$route.path;
-        this.path = temp.substr(0,this.path.length-2);
-        console.log(this.path);
+  mounted() {
+    this.path=this.$route.path;
+    let temp = this.path.substr(0, this.path.length - 2);
+    this.language=this.path.substr( this.path.length - 2,this.path.length);
+    this.path=temp;
   },
   created() {
     let theme = localStorage.getItem("theme")

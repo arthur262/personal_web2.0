@@ -11,16 +11,16 @@
           <div class="Wordcontainer">
             <ul class="menu">
               <li>
-                <router-link to="/Programmer" class="link middle">Programmer
+                <router-link to="/Programmer_CN" class="link middle">程序员
                 </router-link>
               </li>
               <li>
-                <router-link to="/Student" class="link middle" >
-                  Student</router-link>
+                <router-link to="/Student_CN" class="link middle" >
+                  生活学习</router-link>
               </li>
               <li>
-                <router-link to="/Photograph" class="link middle" >
-                  Photographer</router-link>
+                <router-link to="/Photograph_CN" class="link middle" >
+                  摄影菜鸟</router-link>
               </li>
             </ul>
             <!-- 图标区 -->
@@ -47,7 +47,7 @@
         <kinesis-element :strength="12">
         <a-col  :xs="{ order: 1 }" :sm="{ order: 1 }" :md="{ order: 1 }" :lg="{ order: 2 }">
           <div class="selfshoots">
-          <img width="400" src="/public/Photo/5.1.jpg"  style="border-radius:1.5ch"/>
+          <img width="400" src="http://arthur2.oss-cn-beijing.aliyuncs.com/System/5.1.jpg"  style="border-radius:1.5ch"/>
           </div>
         </a-col>
         </kinesis-element>
