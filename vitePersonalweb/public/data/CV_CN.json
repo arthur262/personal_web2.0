@@ -1,0 +1,65 @@
+{
+  "phone_CN": "13957510004",
+  "email": "arthur262@outlook.com",
+  "github": "https://github.com/arthur262",
+  "Education": [
+    {
+      "Bachelor": "计算机软件本科",
+      "School": "Dalhousie university, 哈利法克斯, NS省,加拿大",
+      "School_Date": "2019.09-2023.0.6",
+      "Education_content": "课程包括算法、数据库系统、网络、软件开发、计算机系统和前端和后端Web开发",
+      "CGPA": 3.33
+    },
+    {
+      "Bachelor": "高中",
+      "School": "Rockridge Secondary School, 西温哥华,BC,加拿大",
+      "School_Date": "2016.09-2019.06",
+      "Education_content": "Rockridge Secondary School 为11年级和12年级提供一系列的Advanced Placement (AP)课程。所有8-10年级的学生都参加了IB中学课程。",
+      "CGPA": 0
+    }
+
+  ],
+  "Front_language": ["HTML", "CSS", "Node.js", "JavaScript", "TypeScript","PHP"],
+  "Back_language": ["R", "C", "Python", "Java", "C++"],
+  "DataBase": ["MySQL,MongDB"],
+  "Framework": ["Vue3.0", "React18"],
+  "UI":["Ant design","Element UI","Material UI","Bootstrap React"],
+
+  "Project": [
+    {
+      "picture": ["http://arthur2.oss-cn-beijing.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-08-09%20%E4%B8%8B%E5%8D%887.37.45.png","http://arthur2.oss-cn-beijing.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-08-12%20%E4%B8%8B%E5%8D%883.25.06.png","http://arthur2.oss-cn-beijing.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-08-12%20%E4%B8%8B%E5%8D%883.25.42.png"],
+      "Title": "Mohammad Etemad 个人网页",
+      "TimeRanges": "2022.04-2022.06.15",
+      "github": "https://github.com/CSCIX691DAL/asw",
+      "Technical": ["React","Material UI","Ant design","NextJS","Firebase","bootstrap","date-fns","echarts","react-spring","react-hook-form"],
+      "children": [
+        "使用Next.js, React,Material UI, Spring React建立一个动画个人网站。作为团队的核心成员,我负责搭建整个网站的框架,以及网站背后的数据库和简单的node后端校验与增删改查。",
+        "同时，在完成自己的部分构建后，帮助没有跟上进度的同学理解和编写代码。重构了之前团队的几乎所有核心代码，包括用户管理系统的创建，主要负责主页和成就页面的搭建。添加了页面中所有的动画元素"
+      ]
+    },
+    {
+      "picture": ["http://arthur2.oss-cn-beijing.aliyuncs.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-08-11%20184903(1).png","http://arthur2.oss-cn-beijing.aliyuncs.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-08-11%20185415.png"],
+      "Title": "Personal Web Project1.0 ",
+      "TimeRanges": "2021.10-2021.11",
+      "github": "https://github.com/arthur262/personal_web.git",
+      "Technical": ["Vue2.0","Element UI","Ant design","better-scroll","axios"],
+      "children": [
+        "自学vue2.0,使用Vue和ant-design帮助自己建立一个个人照片展示网站以及自己的CV,实现了常规图片网站的动效。但是由于内容太少,所以在2022年的8月重新写了整个2.0的网站,也就是当前显示的网页",
+        "实现技术:前后端分离,使用Axios通信,在Dal服务器中以MongoDB为数据库,使用.json作为数据交换"
+      ]
+    },
+    {
+      "picture": ["http://arthur2.oss-cn-beijing.aliyuncs.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-08-13%20210219.png","http://arthur2.oss-cn-beijing.aliyuncs.com/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-08-13%20210350.png"],
+      "Title": "58 (Second Hand Sale website)",
+      "TimeRanges": "April.2022-May.2022",
+      "github": "https://github.com/arthur262/58.git",
+      "Technical": ["Vue2.0","Element Plus","Alicloud OSS","Next.js","axios"],
+      "children": [
+        "使用Vue和Element ui构建前台显示的基本结构, 使用express-js进行后端返回数据,用MongDB和阿里云的OSS进行json数据和图片压缩。我扮演开发人员和设计师的角色。对于照片的上传也经过base64压缩和校验后使用了阿里云的流式上传.相比于个人网页首次使用了node后端进行数据压缩和传输 ",
+        "未来规划使用短信验证码服务。同时感谢我同学帮忙写的菜单功能,能让我更专注在后端的技术"
+      ]
+    }
+    
+    
+  ]
+}

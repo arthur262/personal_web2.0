@@ -45,7 +45,7 @@
       "Technical": ["Vue2.0","Element UI","Ant design","better-scroll","axios"],
       "children": [
         "Ongoing outside class project with three other peers, using Vue and ant-design to Help myself to build a personal Photo show web as well as self CV, In the blueprint I will have a background for uploading images",
-        "Implementation technology: front and rear end separation, Axios to communicate and My SQL as the database in Dal server, and .json with switch package."
+        "Implementation technology: front and rear end separation, Axios to communicate and MongDB as the database in Dal server, and .json with switch package."
       ]
     },
     {
