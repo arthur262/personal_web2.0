@@ -1,4 +1,4 @@
-<script setup>
+<script  lang="ts" setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 
@@ -7,8 +7,18 @@
 <template>
   <div>
     <router-view />
+     <musicbar />
   </div>
 </template>
+<script lang="ts">
+import musicbar from "/src/components/System/musicbar.vue";
+export default {
+  components: {
+    musicbar,
+  },
+  }
+</script>
+
 
 <style >
 .text {

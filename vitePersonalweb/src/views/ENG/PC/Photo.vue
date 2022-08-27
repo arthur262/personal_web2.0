@@ -186,7 +186,7 @@ export default {
 
 <style scoped>
 .emotionimage {
-  background: url("http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/DSC00528-5.jpg")
+  background: url("/Photo/2f15e8bf58afc597b49da57c086aee0.jpg")
     no-repeat;
   width: 100%;
   height: 110vh;

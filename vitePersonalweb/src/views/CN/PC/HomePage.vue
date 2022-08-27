@@ -1,73 +1,79 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="container">
-    <Systemtool class="tool-position" />
-    <kinesis-container>
-      <kinesis-element :strength="8">
-        <div class="plasticback">
-          <kinesis-element :strength="12">
-            <!-- 图片区 -->
-            <div class="selfshoots">
-              <img
-                width="400"
-                src="public/Photo/2f15e8bf58afc597b49da57c086aee0.jpg"
-                style="border-radius: 1.5ch"
-              />
-            </div>
-          </kinesis-element>
-          <!-- 菜单 -->
-          <div class="Wordcontainer">
-            <ul class="menu">
-              <li>
-                <router-link to="/Programmer_CN" class="link middle"
-                  >未来头秃程序员
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/Student_CN" class="link middle">
-                  学习渣渣</router-link
-                >
-              </li>
-              <li>
-                <router-link to="/Photograph_CN" class="link middle">
-                  野生摄影菜鸟</router-link
-                >
-              </li>
-            </ul>
-            <!-- 图标区 -->
-            <div class="mediacontact">
-              <a-row justify="center" :gutter="32">
-                <a-col :flex="8">
-                  <a href="https://github.com/arthur262">
-                    <github-outlined :style="{ fontSize: '32px' }" />
-                  </a>
-                </a-col>
-                <a-col :flex="8">
-                  <a
-                    href="https://www.linkedin.com/in/yuanzhe-zhang-522940226/"
+  <div>
+    <div class="container">
+      <Systemtool class="tool-position" />
+      <kinesis-container>
+        <kinesis-element :strength="8">
+          <div class="plasticback">
+            <kinesis-element :strength="12">
+              <!-- 图片区 -->
+              <div class="selfshoots">
+                <img
+                  width="400"
+                  src="public/Photo/2f15e8bf58afc597b49da57c086aee0.jpg"
+                  style="border-radius: 1.5ch"
+                />
+              </div>
+            </kinesis-element>
+            <!-- 菜单 -->
+            <div class="Wordcontainer">
+              <ul class="menu">
+                <li>
+                  <router-link to="/Programmer_CN" class="link middle"
+                    >未来头秃程序员
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/Student_CN" class="link middle">
+                    学习渣渣</router-link
                   >
-                    <linkedin-outlined :style="{ fontSize: '32px' }" />
-                  </a>
-                </a-col>
-                <a-col :flex="8">
-                  <wechat-outlined :style="{ fontSize: '32px' }" />
-                </a-col>
-              </a-row>
+                </li>
+                <li>
+                  <router-link to="/Photograph_CN" class="link middle">
+                    野生摄影菜鸟</router-link
+                  >
+                </li>
+              </ul>
+              <!-- 图标区 -->
+              <div class="mediacontact">
+                <a-row justify="center" :gutter="32">
+                  <a-col :flex="8">
+                    <a href="https://github.com/arthur262">
+                      <github-outlined :style="{ fontSize: '32px' }" />
+                    </a>
+                  </a-col>
+                  <a-col :flex="8">
+                    <a
+                      href="https://www.linkedin.com/in/yuanzhe-zhang-522940226/"
+                    >
+                      <linkedin-outlined :style="{ fontSize: '32px' }" />
+                    </a>
+                  </a-col>
+                  <a-col :flex="8">
+                    <wechat-outlined :style="{ fontSize: '32px' }" />
+                  </a-col>
+                </a-row>
+              </div>
             </div>
           </div>
-        </div>
-      </kinesis-element>
-    </kinesis-container>
+        </kinesis-element>
+      </kinesis-container>
+     
+    </div>
+    
   </div>
 </template>
 <script lang="ts">
 import Systemtool from "/src/components/System/menu_tool.vue";
+
 import {
   GithubOutlined,
   LinkedinOutlined,
   WechatOutlined,
 } from "@ant-design/icons-vue";
+
 export default {
   components: {
     GithubOutlined,
@@ -99,12 +105,10 @@ export default {
 }
 .container {
   width: 100%;
-  background-image: url("/public/Photo/_DSC3555.jpg");
+  background-image: url("/Photo/_DSC3555.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
-  display: grid;
-  align-items: center;
   background-position: center;
   overflow: hidden;
 }
@@ -121,8 +125,9 @@ export default {
   background-color: rgba(245, 245, 245, 0.1);
   padding: 3ch;
   backdrop-filter: blur(5px);
-  position: relative;
-  left:15vw;
+  position: absolute ;
+  right: 6vw;
+  top:18vh;
   width: fit-content;
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
