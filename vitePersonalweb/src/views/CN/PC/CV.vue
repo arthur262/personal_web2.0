@@ -188,6 +188,7 @@ export default {
   white-space: nowrap;
   font-family: Crimson Text;
   letter-spacing: 0.133333em;
+  -webkit-text-stroke:1px var(--boxColor);
 }
 .link:hover {
   color: rgba(245, 245, 245, 0.5);
