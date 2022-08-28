@@ -38,6 +38,7 @@
 body {
   place-items:  normal start ;
   display:block ;
+  height: fit-content!important;
 }
 :root{
    padding: 0;

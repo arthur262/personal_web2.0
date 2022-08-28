@@ -47,7 +47,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("../views/CN/PC/CV.vue"),
   },
   {
-    path:"/Programmer_EN",
+    path:"/Programmer_CN",
     name: "Programmer_C",
     component: () => import("../views/CN/PC/Programmer.vue"),
   },

@@ -11,7 +11,7 @@
             <div class="selfshoots">
               <img
                 width="400"
-                src="public/Photo/2f15e8bf58afc597b49da57c086aee0.jpg"
+                src="/Photo/2f15e8bf58afc597b49da57c086aee0.jpg"
                 style="border-radius: 1.5ch"
               />
             </div>
@@ -63,6 +63,7 @@
 </template>
 <script lang="ts">
 import Systemtool from "/src/components/System/menu_tool.vue";
+
 import {
   GithubOutlined,
   LinkedinOutlined,
@@ -75,10 +76,16 @@ export default {
     WechatOutlined,
     Systemtool,
   },
+  data(){
+    return{
+      url:"",
+    }
+  },
   mounted() {
     if (this._isMobile()) {
       this.$router.replace("/Home_M");
     }
+   
   },
   methods: {
     _isMobile() {
@@ -99,7 +106,7 @@ export default {
 }
 .container {
   width: 100%;
-  background-image: url("/public/Photo/_DSC3555.jpg");
+  background-image: url("/Photo/_DSC3555.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
