@@ -1,7 +1,7 @@
-<script lang="ts" setup></script>
+
 <template>
   <div>
-    <div class="ball">
+    <div class="ball" @click="details()">
       <div class="coverImage"></div>
       <div class="avroRecord"></div>
       <div class="audio_detail">
@@ -15,14 +15,52 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import api from "/src/assets/api/music.ts";
+
+import router from '../../router/index';
 export default defineComponent( {
   setup() {
     const value1 = ref<number>(30);
-
     return {
       value1,
     };
   },
+
+  data() {return{
+    before:0,
+
+    url:'',
+    name:'',
+    currentId:-1,
+    coverImgUrl:'',
+  }},
+  created() {},
+  watch: {},
+  mounted: function () {
+    //get the playlist
+    // api.playlist_trayFn(this.before) .then(res => {
+    //       const data = res.data
+    //       if (data.code === 200) {
+    //         let fulldata=data.playlists;
+    //         this.setupcurrent(fulldata[1]);
+    //         this.before=fulldata[9].updateTime;
+    //       }
+    //     });
+      
+  },
+   methods:{
+    setupcurrent(el:any){
+      console.log(el)
+      // api.hotSearchListFn(33894312).then(res=>{
+      //   console.log(res.data);
+      // })
+
+      //https://music.163.com/song/media/outer/url?id=5347651276.mp3
+    },
+    details() {
+      router.replace({ path: '/Music_CN' });
+    }
+  }
 });
 </script>
 

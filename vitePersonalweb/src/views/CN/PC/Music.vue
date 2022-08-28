@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import { ref } from "vue";
-import api from "/src/assets/api/music.ts";
+import api from "/src/assets/api/music";
 export default {
   setup() {
     return {};

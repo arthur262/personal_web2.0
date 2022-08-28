@@ -51,6 +51,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "Programmer_C",
     component: () => import("../views/CN/PC/Programmer.vue"),
   },
+  {
+    path: "/Music_CN",
+    name: "MUsic_C",
+    component: () => import("../views/CN/PC/Music.vue"),
+  },
 ];
 
 const router = createRouter({
