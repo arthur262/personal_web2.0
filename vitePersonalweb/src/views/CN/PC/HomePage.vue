@@ -11,7 +11,7 @@
             <div class="selfshoots">
               <img
                 width="400"
-                src="/Photo/2f15e8bf58afc597b49da57c086aee0.jpg"
+                src="public/Photo/2f15e8bf58afc597b49da57c086aee0.jpg"
                 style="border-radius: 1.5ch"
               />
             </div>
@@ -69,6 +69,7 @@ import {
   LinkedinOutlined,
   WechatOutlined,
 } from "@ant-design/icons-vue";
+
 export default {
   components: {
     GithubOutlined,
@@ -110,8 +111,6 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
-  display: grid;
-  align-items: center;
   background-position: center;
   overflow: hidden;
 }
@@ -128,8 +127,9 @@ export default {
   background-color: rgba(245, 245, 245, 0.1);
   padding: 3ch;
   backdrop-filter: blur(5px);
-  position: relative;
-  left:15vw;
+  position: absolute ;
+  right: 6vw;
+  top:18vh;
   width: fit-content;
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.2);

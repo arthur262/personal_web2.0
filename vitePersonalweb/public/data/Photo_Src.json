@@ -1,12 +1,12 @@
 {
   "background_image":[
-    "/public/Photo/A7M2 (324).jpg",
+    "/Photo/A7M2 (324).jpg",
     "http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/A7M2_1.jpg"
   ],
   "showup_img":[
    "http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/_DSC4921.jpg",
-   "http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/_DSC4944.jpg",
-   "http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/_DSC4956.jpg",
+   "",
+   "/Photo/_DSC3851.jpg",
    "http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/_DSC4991.jpg",
    "http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/_DSC4964.jpg",
    "http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/_DSC4999.jpg"
