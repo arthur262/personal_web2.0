@@ -22,17 +22,17 @@
               <ul class="menu">
                 <li>
                   <router-link to="/Programmer_CN" class="link middle"
-                    >未来头秃程序员
+                    >As Programmer
                   </router-link>
                 </li>
                 <li>
                   <router-link to="/Student_CN" class="link middle">
-                    学习渣渣</router-link
+                    As Student</router-link
                   >
                 </li>
                 <li>
                   <router-link to="/Photograph_CN" class="link middle">
-                    野生摄影菜鸟</router-link
+                    As Photography</router-link
                   >
                 </li>
               </ul>
