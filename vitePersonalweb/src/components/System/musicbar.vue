@@ -4,15 +4,33 @@
     <div class="ball">
       <div class="coverImage"></div>
       <div class="avroRecord"></div>
+      <div class="audio_detail">
+      <h3 class="text">歌词</h3>
+      <a-progress v-model:percent="value1" />
+      </div>
     </div>
+    
   </div>
 </template>
 
 <script lang="ts">
-export default {};
+import { defineComponent, ref } from 'vue';
+export default defineComponent( {
+  setup() {
+    const value1 = ref<number>(30);
+
+    return {
+      value1,
+    };
+  },
+});
 </script>
 
 <style scoped>
+.code-box-demo .ant-slider {
+  margin-bottom: 16px;
+  
+}
 .ball {
   position: fixed;
   bottom: 5vh;
@@ -27,7 +45,7 @@ export default {};
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 2px;
-  border: 3px solid var(--box);
+  border: 1px solid var(--boxColor);
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
 }
 .avroRecord {
@@ -50,5 +68,16 @@ export default {};
   to {
     -webkit-transform: rotate(360deg)  ;
   }
+}
+.audio_detail{
+  position: fixed;
+  background-color: var(--boxColor);
+  transform:translateX(10%);
+  opacity:.7;
+  height: 5vw;
+    padding:.5vw 2vw .5vw 6vw;
+  width:20vw;
+  z-index:8;
+  border-radius: 5.5ch;
 }
 </style>
