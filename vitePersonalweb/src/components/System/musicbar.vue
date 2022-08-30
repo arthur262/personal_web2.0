@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+  import {format} from "/src/assets/api/common_api";
+  const value1 = ref<number>(0);
+</script>
 <template>
   <div>
     <div class="ball" @click="details()">
@@ -60,7 +64,7 @@
             <a-slider id="test" v-model:value="value1" />
           </a-col>
           <a-col :flex="2"
-            ><p class="text">{{ totalTime - time }}</p></a-col
+            ><p class="text">-{{ format( totalTime - time) }}</p></a-col
           >
         </a-row>
         <audio :muted="mute" :src="url" ref="audiosrc" />
@@ -77,13 +81,9 @@ import { defineComponent, ref } from "vue";
 import api from "/src/assets/api/music.ts";
 import axios from "axios";
 import router from "../../router/index";
+
+
 export default defineComponent({
-  setup() {
-    const value1 = ref<number>(0);
-    return {
-      value1,
-    };
-  },
 
   data() {
     return {
@@ -99,7 +99,7 @@ export default defineComponent({
       currentId: -1,
       //解释当前歌曲播放到几秒了
       time: -1,
-      totalTime: -1,
+      totalTime: 0,
       coverImgUrl: "",
       mute: true,
       lyrics: [],
@@ -117,7 +117,7 @@ export default defineComponent({
         if (res.status == 200) {
           this.currentId = res.data.data[0].id;
           this.url = res.data.data[0].url;
-          this.totalTime = res.data.data[0].time;
+          this.totalTime =res.data.data[0].time ;
         }
       });
       api.hitSearchDetail(el.id).then((res) => {
