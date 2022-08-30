@@ -9,15 +9,19 @@
 
       <div class="audio_detail">
         <a-row type="flex">
-          <a-col :flex="2"><p class="text" style="margin-bottom: 0;">{{name}}:</p>  </a-col>
+          <a-col :flex="2"
+            ><p class="text" style="margin-bottom: 0">{{ name }}:</p>
+          </a-col>
           <a-col :flex="10">
-        <h3 class="text" style="margin-bottom: 0; text-align: center">歌词</h3>
-        </a-col>
+            <h3 class="text" style="margin-bottom: 0; text-align: center">
+              歌词
+            </h3>
+          </a-col>
         </a-row>
         <!-- 自定义播放器 -->
-        <a-row type="flex" v-if="false">
+        <a-row type="flex" class="SetPlayerFacingAngle" >
           <a-col :flex="2">
-            <span v-show="play">
+            <span v-show="play" @click="playaudio()">
               <svg
                 t="1661873927759"
                 class="icon text"
@@ -27,7 +31,6 @@
                 p-id="2370"
                 width="28"
                 height="28"
-                
               >
                 <path
                   d="M128 138.666667c0-47.232 33.322667-66.666667 74.176-43.562667l663.146667 374.954667c40.96 23.168 40.853333 60.8 0 83.882666L202.176 928.896C161.216 952.064 128 932.565333 128 885.333333v-746.666666z"
@@ -35,7 +38,7 @@
                   p-id="2371"
                 ></path>
               </svg> </span
-            ><span v-show="!play"
+            ><span v-show="!play" @click="playaudio()"
               ><svg
                 t="1661873956808"
                 class="icon text"
@@ -56,23 +59,27 @@
           <a-col :flex="8">
             <a-slider id="test" v-model:value="value1" />
           </a-col>
-          <a-col :flex="2"><p class="text">{{totalTime-time}}</p></a-col>
+          <a-col :flex="2"
+            ><p class="text">{{ totalTime - time }}</p></a-col
+          >
         </a-row>
-        <audio :muted="mute" :src="url" controls></audio>
+        <audio :muted="mute" :src="url" ref="audiosrc" />
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+
+
+//https://www.jb51.net/article/195512.htm
 import { defineComponent, ref } from "vue";
 import api from "/src/assets/api/music.ts";
 import axios from "axios";
-
 import router from "../../router/index";
 export default defineComponent({
   setup() {
-    const value1 = ref<number>(30);
+    const value1 = ref<number>(0);
     return {
       value1,
     };
@@ -127,6 +134,16 @@ export default defineComponent({
         }
       });
     },
+    playaudio() {
+      var audio = this.$refs.audiosrc;
+      if(audio.pause){
+      audio.play();
+      }else{
+        audio.pause;
+      }
+      this.play = !this.play;
+    },
+
 
     swiAudioFrmList() {
       //还没开始
@@ -172,8 +189,9 @@ export default defineComponent({
 .code-box-demo .ant-slider {
   margin-bottom: 16px;
 }
-.custom_audoPlay {
-  display: flex;
+.SetPlayerFacingAngle{
+  align-items: center;
+
 }
 .ball {
   position: fixed;
@@ -224,7 +242,7 @@ export default defineComponent({
   height: 5vw;
   background-color: var(--boxColor);
   padding: 0.5vw 2vw 0.5vw 6vw;
-  width: 35vw;
+  width: 28vw;
   height: fit-content;
   z-index: 8;
   border-radius: 1.5ch;
