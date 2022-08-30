@@ -11,7 +11,7 @@
             <div class="selfshoots">
               <img
                 width="400"
-                src="public/Photo/2f15e8bf58afc597b49da57c086aee0.jpg"
+                src="/Photo/2f15e8bf58afc597b49da57c086aee0.jpg"
                 style="border-radius: 1.5ch"
               />
             </div>
