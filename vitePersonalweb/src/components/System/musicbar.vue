@@ -64,7 +64,7 @@
             <a-slider id="test" v-model:value="value1" />
           </a-col>
           <a-col :flex="2"
-            ><p class="text">-{{ format( totalTime - time) }}</p></a-col
+            ><p class="text">{{time}}</p></a-col
           >
         </a-row>
         <audio :muted="mute" :src="url" ref="audiosrc" />
@@ -134,12 +134,19 @@ export default defineComponent({
         }
       });
     },
+
+    //处理开始播放和暂停
     playaudio() {
       var audio = this.$refs.audiosrc;
-      if(audio.pause){
+      if(audio.paused==true){
+        this.mute = false;
+        audio.load();
       audio.play();
+      audio.volume = 0.5;
+      this.time=audio.currentTime;
       }else{
-        audio.pause;
+        audio.pause();
+        this.time=audio.currentTime;
       }
       this.play = !this.play;
     },
