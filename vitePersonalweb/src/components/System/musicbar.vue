@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  import {format} from "/src/assets/api/common_api";
-  const value1 = ref<number>(0);
+import { format } from "/src/assets/api/common_api";
+const value1 = ref<number>(0);
 </script>
 <template>
   <div>
@@ -23,7 +23,7 @@
           </a-col>
         </a-row>
         <!-- 自定义播放器 -->
-        <a-row type="flex" class="SetPlayerFacingAngle" >
+        <a-row type="flex" class="SetPlayerFacingAngle">
           <a-col :flex="2">
             <span v-show="play" @click="playaudio()">
               <svg
@@ -64,7 +64,7 @@
             <a-slider id="test" v-model:value="value1" />
           </a-col>
           <a-col :flex="2"
-            ><p class="text">{{time}}</p></a-col
+            ><p class="text">{{ left_time }}</p></a-col
           >
         </a-row>
         <audio :muted="mute" :src="url" ref="audiosrc" />
@@ -74,17 +74,15 @@
 </template>
 
 <script lang="ts">
-
-
-//https://www.jb51.net/article/195512.htm
+/*
+* https://www.jb51.net/article/195512.htm
+* 这是关于计时器的原帖,思路来源.  
+*/
 import { defineComponent, ref } from "vue";
 import api from "/src/assets/api/music.ts";
 import axios from "axios";
 import router from "../../router/index";
-
-
 export default defineComponent({
-
   data() {
     return {
       //用于储存循环的歌单
@@ -99,6 +97,7 @@ export default defineComponent({
       currentId: -1,
       //解释当前歌曲播放到几秒了
       time: -1,
+      left_time: 0,
       totalTime: 0,
       coverImgUrl: "",
       mute: true,
@@ -106,9 +105,13 @@ export default defineComponent({
     };
   },
   created() {},
-  watch: {},
+  watch: {
+  },
   mounted: function () {
     this.getdata();
+
+    this.timer=setInterval(this.updateTime, 500);
+
   },
   methods: {
     //根据当前的歌曲id获取歌曲全部信息
@@ -117,7 +120,7 @@ export default defineComponent({
         if (res.status == 200) {
           this.currentId = res.data.data[0].id;
           this.url = res.data.data[0].url;
-          this.totalTime =res.data.data[0].time ;
+          this.totalTime = res.data.data[0].time;
         }
       });
       api.hitSearchDetail(el.id).then((res) => {
@@ -131,26 +134,37 @@ export default defineComponent({
         if (res.status == 200) {
           let lyrics_temp = "" + res.data.lrc.lyric;
           this.lyrics = lyrics_temp.split("\n");
+          // console.log(this.lyrics);
         }
       });
+
+      //初始化音频的时间和音量和加载资源
+      var audio = this.$refs.audiosrc;
+      audio.load();
+      this.time = 0;
+      audio.volume = 0.5;
+    },
+
+    //每500ms 更新一次时间戳
+    updateTime(){
+      var audio = this.$refs.audiosrc;
+      let temp=Math.floor(audio.currentTime)*1000;
+      this.time = temp;
+      this.left_time = format(this.totalTime - temp);
+      console.log(this.totalTime-temp);
     },
 
     //处理开始播放和暂停
     playaudio() {
       var audio = this.$refs.audiosrc;
-      if(audio.paused==true){
+      if (audio.paused == true) {
         this.mute = false;
-        audio.load();
-      audio.play();
-      audio.volume = 0.5;
-      this.time=audio.currentTime;
-      }else{
+        audio.play();
+      } else {
         audio.pause();
-        this.time=audio.currentTime;
       }
       this.play = !this.play;
     },
-
 
     swiAudioFrmList() {
       //还没开始
@@ -186,9 +200,12 @@ export default defineComponent({
         });
     },
 
-    //跳转到专业的
+    //跳转到专业的页面
     details() {},
   },
+   beforeDestroy() {
+      clearInterval(this.timer);
+    }
 });
 </script>
 
@@ -196,9 +213,8 @@ export default defineComponent({
 .code-box-demo .ant-slider {
   margin-bottom: 16px;
 }
-.SetPlayerFacingAngle{
+.SetPlayerFacingAngle {
   align-items: center;
-
 }
 .ball {
   position: fixed;
