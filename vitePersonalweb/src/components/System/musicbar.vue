@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { format } from "/src/assets/api/common_api";
+import { format,anlylyrics } from "/src/assets/api/common_api";
 const value1 = ref<number>(0);
 </script>
 <template>
@@ -82,6 +82,7 @@ import { defineComponent, ref } from "vue";
 import api from "/src/assets/api/music.ts";
 import axios from "axios";
 import router from "../../router/index";
+
 export default defineComponent({
   data() {
     return {
@@ -110,7 +111,7 @@ export default defineComponent({
   mounted: function () {
     this.getdata();
 
-    this.timer=setInterval(this.updateTime, 500);
+    // this.timer=setInterval(this.updateTime, 500);
 
   },
   methods: {
@@ -133,8 +134,8 @@ export default defineComponent({
       api.lyricFn(el.id).then((res) => {
         if (res.status == 200) {
           let lyrics_temp = "" + res.data.lrc.lyric;
-          this.lyrics = lyrics_temp.split("\n");
-          // console.log(this.lyrics);
+          this.lyrics = anlylyrics(lyrics_temp.split("\n"));
+          console.log(this.lyrics);
         }
       });
 
