@@ -13,13 +13,16 @@ const value1 = ref<number>(0);
 
       <div class="audio_detail">
         <a-row type="flex">
+          <!-- 显示歌的名字 -->
           <a-col :flex="2"
             ><p class="text" style="margin-bottom: 0; font-weight: bold">
               {{ name }}:
             </p>
           </a-col>
+          <!-- 展示歌词 -->
           <a-col :flex="10">
-            <p class="text" style="margin-bottom: 0; text-align: center">
+          
+            <p class="text" style="margin-bottom: 0; text-align: center;overflow:hidden;width:inherit;">
               {{ lyrics_line }}
             </p>
           </a-col>
@@ -68,6 +71,24 @@ const value1 = ref<number>(0);
           <a-col :flex="2"
             ><p class="text">-{{ left_time }}</p></a-col
           >
+          <span @click="swiAudioFrmList()">
+            <svg
+              t="1662057991555"
+              class="icon"
+              viewBox="0 0 1024 1024"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              p-id="2369"
+              width="28"
+              height="28"
+            >
+              <path
+                d="M810.666667 512a52.92 52.92 0 0 1-25.78 45.666667l-618.666667 373.28a53.333333 53.333333 0 0 1-80.886667-45.666667V138.72a53.333333 53.333333 0 0 1 80.886667-45.666667l618.666667 373.28A52.92 52.92 0 0 1 810.666667 512z m128 405.333333V106.666667a21.333333 21.333333 0 0 0-42.666667 0v810.666666a21.333333 21.333333 0 0 0 42.666667 0z"
+                fill="#5C5C66"
+                p-id="2370"
+              ></path>
+            </svg>
+          </span>
         </a-row>
         <audio :muted="mute" :src="url" ref="audiosrc" />
       </div>
@@ -116,9 +137,9 @@ export default defineComponent({
   created() {},
   watch: {
     value1(newValue, oldValue) {
-      if (newValue != oldValue+1) {
+      if (newValue != oldValue + 1) {
         this.user_control_percentage = true;
-        this.time=((newValue/100)*this.totalTime)/1000;
+        this.time = ((newValue / 100) * this.totalTime) / 1000;
         var audio = this.$refs.audiosrc;
         audio.currentTime = this.time;
       }
@@ -129,9 +150,11 @@ export default defineComponent({
     this.getdata();
     this.timer = setInterval(this.updateTime, 500);
     this.timer2 = setInterval(this.matchlyrics, 500);
+    this.timer3 = setInterval(this.siwtchsongAlart, 500);
   },
   methods: {
     //根据当前的歌曲id获取歌曲全部信息
+
     setupcurrent(el: any) {
       api.hotSearchListFn(el.id).then((res) => {
         if (res.status == 200) {
@@ -165,14 +188,15 @@ export default defineComponent({
     updateTime() {
       //如果用户当前正在挪动进度条就不更新
       if (!this.user_control_percentage) {
+        //检查如果当前的音乐已经播放完，那就切换
+
         var audio = this.$refs.audiosrc;
         let temp = Math.floor(audio.currentTime) * 1000;
-          this.time = temp;
-          this.value1 = Math.floor(
+        this.time = temp;
+        this.value1 = Math.floor(
           ((this.totalTime - (this.totalTime - temp)) / this.totalTime) * 100
         );
         this.left_time = format(this.totalTime - temp);
-        
       }
     },
     //每500ms 更新一次歌词
@@ -203,11 +227,22 @@ export default defineComponent({
       this.play = !this.play;
     },
 
+    siwtchsongAlart() {
+      if (Math.floor(this.time / 1000) >= Math.floor(this.totalTime / 1000)) {
+        this.swiAudioFrmList();
+      }
+    },
+
     swiAudioFrmList() {
       //还没开始
       if (this.current_index < 0) {
         this.current_index = 0;
         this.setupcurrent(this.DataBase[this.current_index]);
+      } else {
+        let temp=this.current_index;
+        this.current_index = (temp++) % this.DataBase.length;
+        this.setupcurrent(this.DataBase[temp]);
+        this.play = false;
       }
     },
 
