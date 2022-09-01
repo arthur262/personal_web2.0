@@ -116,10 +116,13 @@ export default defineComponent({
   created() {},
   watch: {
     value1(newValue, oldValue) {
-      if (newValue != oldValue) {
+      if (newValue != oldValue+1) {
         this.user_control_percentage = true;
         this.time=newValue/100*this.totalTime;
+        var audio = this.$refs.audiosrc;
+        audio.currentTime = this.time;
       }
+      this.user_control_percentage = false;
     },
   },
   mounted: function () {
@@ -164,15 +167,10 @@ export default defineComponent({
       if (!this.user_control_percentage) {
         var audio = this.$refs.audiosrc;
         let temp = Math.floor(audio.currentTime) * 1000;
-
-        if(temp<=this.time){
-          audio.currentTime = this.time;
-        }else{
           this.time = temp;
           this.value1 = Math.floor(
           ((this.totalTime - (this.totalTime - temp)) / this.totalTime) * 100
         );
-        }
         this.left_time = format(this.totalTime - temp);
         
       }
