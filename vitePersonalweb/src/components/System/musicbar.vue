@@ -14,7 +14,9 @@ const value1 = ref<number>(0);
       <div class="audio_detail">
         <a-row type="flex">
           <a-col :flex="2"
-            ><p class="text" style="margin-bottom: 0;font-weight:bold;">{{ name }}:</p>
+            ><p class="text" style="margin-bottom: 0; font-weight: bold">
+              {{ name }}:
+            </p>
           </a-col>
           <a-col :flex="10">
             <p class="text" style="margin-bottom: 0; text-align: center">
@@ -90,9 +92,12 @@ export default defineComponent({
       DataBase: "",
       //当前歌曲在歌单中的序列
       current_index: -1,
+      //用于控制当前歌曲是否是播放的
       play: true,
       //所有歌词
       lyrics: [],
+      //控制一个用户挪动百分比线的行为(相当于一个挪动锁)
+      user_control_percentage: false,
 
       //用来储存当前所放的歌曲的信息
       url: "",
@@ -109,11 +114,18 @@ export default defineComponent({
     };
   },
   created() {},
-  watch: {},
+  watch: {
+    value1(newValue, oldValue) {
+      if (newValue != oldValue) {
+        this.user_control_percentage = true;
+        this.time=newValue/100*this.totalTime;
+      }
+    },
+  },
   mounted: function () {
     this.getdata();
-    this.timer = setInterval(this.updateTime,500);
-    this.timer2 = setInterval(this.matchlyrics,500);
+    this.timer = setInterval(this.updateTime, 500);
+    this.timer2 = setInterval(this.matchlyrics, 500);
   },
   methods: {
     //根据当前的歌曲id获取歌曲全部信息
@@ -148,20 +160,35 @@ export default defineComponent({
 
     //每500ms 更新一次时间戳
     updateTime() {
-      var audio = this.$refs.audiosrc;
-      let temp = Math.floor(audio.currentTime) * 1000;
-      this.time = temp;
-      this.left_time = format(this.totalTime - temp);
-      this.value1=Math.floor((this.totalTime-(this.totalTime - temp))/this.totalTime*100);
+      //如果用户当前正在挪动进度条就不更新
+      if (!this.user_control_percentage) {
+        var audio = this.$refs.audiosrc;
+        let temp = Math.floor(audio.currentTime) * 1000;
+
+        if(temp<=this.time){
+          audio.currentTime = this.time;
+        }else{
+          this.time = temp;
+          this.value1 = Math.floor(
+          ((this.totalTime - (this.totalTime - temp)) / this.totalTime) * 100
+        );
+        }
+        this.left_time = format(this.totalTime - temp);
+        
+      }
     },
+    //每500ms 更新一次歌词
     matchlyrics() {
-      for (var i = 0; i < this.lyrics.length; i++) {
-        if (
-          this.lyrics[i].time <= this.time &&
-          this.lyrics[i + 1].time >= this.time
-        ) {
-          this.lyrics_line = this.lyrics[i].word;
-          break;
+      //如果用户当前正在挪动进度条就不更新
+      if (!this.user_control_percentage) {
+        for (var i = 0; i < this.lyrics.length; i++) {
+          if (
+            this.lyrics[i].time <= this.time &&
+            this.lyrics[i + 1].time >= this.time
+          ) {
+            this.lyrics_line = this.lyrics[i].word;
+            break;
+          }
         }
       }
     },
