@@ -16,7 +16,13 @@ function format(seconds: number) {
 			seconds -= 60000 * min;
 			let sec:any = Math.floor(seconds / 1000) >= 10 ? Math.floor(seconds / 1000) : '0' + Math.floor(seconds / 1000);
 			seconds -= 1000 * sec;
-			return min + ':' + sec ;
+			return min + ':' + sec; 
+}
+//将分:秒反向转换到毫秒
+function back_format(seconds: string) {
+  var temp=seconds.split(":");
+  var Millseconds=temp[1].split(".");
+  return Number(temp[0])*60000+ Number(Millseconds[0])*1000+Number(Millseconds[1])%10;
 }
 
 
@@ -28,18 +34,20 @@ function anlylyrics(...el:Array<any>){
     word:string,
   }
   let el2:Array<any>=el[0];
-  const gettime=/\d+\W\d+/;
+  const gettime=/\d+\W\d+\W\d+/;
   const getword=/](\D+)/;
+  // console.log(back_format(gettime.exec(el2[0])[0]));
 
   for (let i=0; i<el2.length-1; i++){
     var temp:string=el2[i];
     let result:data={
-      time:gettime.exec(temp)[0],
-      word:getword.exec(temp)[0]
+      //将时间重新转回以毫秒%10的进制
+      time:""+back_format(gettime.exec(temp)[0]),
+      word:getword.exec(temp)[1]
     }
     el2[i]=result;
   }
   return el2;
 }
 
-export { format, threadhold,anlylyrics };
+export { format, threadhold,anlylyrics,back_format };

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { format,anlylyrics } from "/src/assets/api/common_api";
+import { format, anlylyrics } from "/src/assets/api/common_api";
 const value1 = ref<number>(0);
 </script>
 <template>
@@ -14,12 +14,12 @@ const value1 = ref<number>(0);
       <div class="audio_detail">
         <a-row type="flex">
           <a-col :flex="2"
-            ><p class="text" style="margin-bottom: 0">{{ name }}:</p>
+            ><p class="text" style="margin-bottom: 0;font-weight:bold;">{{ name }}:</p>
           </a-col>
           <a-col :flex="10">
-            <h3 class="text" style="margin-bottom: 0; text-align: center">
-              歌词
-            </h3>
+            <p class="text" style="margin-bottom: 0; text-align: center">
+              {{ lyrics_line }}
+            </p>
           </a-col>
         </a-row>
         <!-- 自定义播放器 -->
@@ -64,7 +64,7 @@ const value1 = ref<number>(0);
             <a-slider id="test" v-model:value="value1" />
           </a-col>
           <a-col :flex="2"
-            ><p class="text">{{ left_time }}</p></a-col
+            ><p class="text">-{{ left_time }}</p></a-col
           >
         </a-row>
         <audio :muted="mute" :src="url" ref="audiosrc" />
@@ -75,9 +75,9 @@ const value1 = ref<number>(0);
 
 <script lang="ts">
 /*
-* https://www.jb51.net/article/195512.htm
-* 这是关于计时器的原帖,思路来源.  
-*/
+ * https://www.jb51.net/article/195512.htm
+ * 这是关于计时器的原帖,思路来源.
+ */
 import { defineComponent, ref } from "vue";
 import api from "/src/assets/api/music.ts";
 import axios from "axios";
@@ -91,28 +91,29 @@ export default defineComponent({
       //当前歌曲在歌单中的序列
       current_index: -1,
       play: true,
+      //所有歌词
+      lyrics: [],
 
       //用来储存当前所放的歌曲的信息
       url: "",
       name: "",
       currentId: -1,
+      //当前歌词的第几行
+      lyrics_line: "",
       //解释当前歌曲播放到几秒了
       time: -1,
       left_time: 0,
       totalTime: 0,
       coverImgUrl: "",
       mute: true,
-      lyrics: [],
     };
   },
   created() {},
-  watch: {
-  },
+  watch: {},
   mounted: function () {
     this.getdata();
-
-    // this.timer=setInterval(this.updateTime, 500);
-
+    this.timer = setInterval(this.updateTime,500);
+    this.timer2 = setInterval(this.matchlyrics,500);
   },
   methods: {
     //根据当前的歌曲id获取歌曲全部信息
@@ -135,7 +136,6 @@ export default defineComponent({
         if (res.status == 200) {
           let lyrics_temp = "" + res.data.lrc.lyric;
           this.lyrics = anlylyrics(lyrics_temp.split("\n"));
-          console.log(this.lyrics);
         }
       });
 
@@ -147,12 +147,23 @@ export default defineComponent({
     },
 
     //每500ms 更新一次时间戳
-    updateTime(){
+    updateTime() {
       var audio = this.$refs.audiosrc;
-      let temp=Math.floor(audio.currentTime)*1000;
+      let temp = Math.floor(audio.currentTime) * 1000;
       this.time = temp;
       this.left_time = format(this.totalTime - temp);
-      console.log(this.totalTime-temp);
+      this.value1=Math.floor((this.totalTime-(this.totalTime - temp))/this.totalTime*100);
+    },
+    matchlyrics() {
+      for (var i = 0; i < this.lyrics.length; i++) {
+        if (
+          this.lyrics[i].time <= this.time &&
+          this.lyrics[i + 1].time >= this.time
+        ) {
+          this.lyrics_line = this.lyrics[i].word;
+          break;
+        }
+      }
     },
 
     //处理开始播放和暂停
@@ -204,9 +215,10 @@ export default defineComponent({
     //跳转到专业的页面
     details() {},
   },
-   beforeDestroy() {
-      clearInterval(this.timer);
-    }
+  beforeDestroy() {
+    clearInterval(this.timer);
+    clearInterval(this.timer2);
+  },
 });
 </script>
 
@@ -266,7 +278,7 @@ export default defineComponent({
   height: 5vw;
   background-color: var(--boxColor);
   padding: 0.5vw 2vw 0.5vw 6vw;
-  width: 28vw;
+  width: 30vw;
   height: fit-content;
   z-index: 8;
   border-radius: 1.5ch;
