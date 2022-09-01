@@ -118,7 +118,7 @@ export default defineComponent({
     value1(newValue, oldValue) {
       if (newValue != oldValue+1) {
         this.user_control_percentage = true;
-        this.time=newValue/100*this.totalTime;
+        this.time=((newValue/100)*this.totalTime)/1000;
         var audio = this.$refs.audiosrc;
         audio.currentTime = this.time;
       }
