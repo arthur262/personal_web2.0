@@ -21,8 +21,15 @@ const value1 = ref<number>(0);
           </a-col>
           <!-- 展示歌词 -->
           <a-col :flex="10">
-          
-            <p class="text" style="margin-bottom: 0; text-align: center;overflow:hidden;width:inherit;">
+            <p
+              class="text"
+              style="
+                margin-bottom: 0;
+                text-align: center;
+                overflow: hidden;
+                width: inherit;
+              "
+            >
               {{ lyrics_line }}
             </p>
           </a-col>
@@ -30,7 +37,7 @@ const value1 = ref<number>(0);
         <!-- 自定义播放器 -->
         <a-row type="flex" class="SetPlayerFacingAngle">
           <a-col :flex="2">
-            <span v-show="play" @click="playaudio()">
+            <span v-if="play" @click="playaudio()">
               <svg
                 t="1661873927759"
                 class="icon text"
@@ -47,7 +54,7 @@ const value1 = ref<number>(0);
                   p-id="2371"
                 ></path>
               </svg> </span
-            ><span v-show="!play" @click="playaudio()"
+            ><span v-else @click="playaudio()"
               ><svg
                 t="1661873956808"
                 class="icon text"
@@ -117,7 +124,6 @@ export default defineComponent({
       play: true,
       //所有歌词
       lyrics: [],
-      //控制一个用户挪动百分比线的行为(相当于一个挪动锁)
       user_control_percentage: false,
 
       //用来储存当前所放的歌曲的信息
@@ -137,13 +143,7 @@ export default defineComponent({
   created() {},
   watch: {
     value1(newValue, oldValue) {
-      if (newValue != oldValue + 1) {
-        this.user_control_percentage = true;
-        this.time = ((newValue / 100) * this.totalTime) / 1000;
-        var audio = this.$refs.audiosrc;
-        audio.currentTime = this.time;
-      }
-      this.user_control_percentage = false;
+      this.updateTime(newValue);
     },
   },
   mounted: function () {
@@ -176,27 +176,26 @@ export default defineComponent({
           this.lyrics = anlylyrics(lyrics_temp.split("\n"));
         }
       });
-
       //初始化音频的时间和音量和加载资源
       var audio = this.$refs.audiosrc;
       audio.load();
       this.time = 0;
       audio.volume = 0.5;
+      
     },
 
     //每500ms 更新一次时间戳
-    updateTime() {
-      //如果用户当前正在挪动进度条就不更新
-      if (!this.user_control_percentage) {
-        //检查如果当前的音乐已经播放完，那就切换
-
-        var audio = this.$refs.audiosrc;
-        let temp = Math.floor(audio.currentTime) * 1000;
-        this.time = temp;
-        this.value1 = Math.floor(
-          ((this.totalTime - (this.totalTime - temp)) / this.totalTime) * 100
-        );
+    updateTime(el?: number) {
+      var audio = this.$refs.audiosrc;
+      if (!el) {
+        let temp = audio.currentTime * 1000;
+        this.time = Math.floor(temp);
+        this.value1 = Math.floor((temp / this.totalTime) * 100);
         this.left_time = format(this.totalTime - temp);
+      } else {
+        this.time = ((el / 100) * this.totalTime) / 1000;
+        audio.currentTime = this.time;
+        
       }
     },
     //每500ms 更新一次歌词
@@ -226,7 +225,7 @@ export default defineComponent({
       }
       this.play = !this.play;
     },
-
+    //检测是否需要更换歌单
     siwtchsongAlart() {
       if (Math.floor(this.time / 1000) >= Math.floor(this.totalTime / 1000)) {
         this.swiAudioFrmList();
@@ -239,10 +238,9 @@ export default defineComponent({
         this.current_index = 0;
         this.setupcurrent(this.DataBase[this.current_index]);
       } else {
-        let temp=this.current_index;
-        this.current_index = (temp++) % this.DataBase.length;
+        let temp:number = this.current_index;
+        this.current_index = (temp+1) % this.DataBase.length;
         this.setupcurrent(this.DataBase[temp]);
-        this.play = false;
       }
     },
 
