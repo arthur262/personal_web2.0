@@ -8,7 +8,8 @@ const value1 = ref<number>(0);
       <div
         class="coverImage"
         :style="'background-image: url(' + coverImgUrl + ')'"
-         @mouseenter="setSortHover"
+        @mouseenter="setSortHover"
+        @mouseleave="leaveSortHover"
       />
       <div class="avroRecord" />
 
@@ -16,7 +17,10 @@ const value1 = ref<number>(0);
         <a-row type="flex">
           <!-- 显示歌的名字 -->
           <a-col :flex="2"
-            ><p class="text" style="margin-bottom: 0; font-weight: bold;overflow: hidden;">
+            ><p
+              class="text"
+              style="margin-bottom: 0; font-weight: bold; overflow: hidden"
+            >
               {{ name }}:
             </p>
           </a-col>
@@ -144,7 +148,9 @@ export default defineComponent({
   created() {},
   watch: {
     value1(newValue, oldValue) {
-      this.updateTime(newValue);
+      if (newValue != oldValue + 1) {
+        this.updateTime(newValue);
+      }
     },
   },
   mounted: function () {
@@ -178,10 +184,10 @@ export default defineComponent({
       });
       //初始化音频的时间和音量和加载资源
       var audio = this.$refs.audiosrc;
+
       audio.load();
       this.time = 0;
       audio.volume = 0.5;
-      
     },
 
     //每500ms 更新一次时间戳
@@ -189,13 +195,12 @@ export default defineComponent({
       var audio = this.$refs.audiosrc;
       if (!el) {
         let temp = audio.currentTime * 1000;
-        this.time = Math.floor(temp);
+        this.time = temp;
         this.value1 = Math.floor((temp / this.totalTime) * 100);
         this.left_time = format(this.totalTime - temp);
       } else {
         this.time = ((el / 100) * this.totalTime) / 1000;
         audio.currentTime = this.time;
-        
       }
     },
     //每500ms 更新一次歌词
@@ -238,9 +243,9 @@ export default defineComponent({
         this.current_index = 0;
         this.setupcurrent(this.DataBase[this.current_index]);
       } else {
-        let temp:number = this.current_index;
-        this.current_index = (temp+1) % this.DataBase.length;
-        this.setupcurrent(this.DataBase[temp]);
+        let temp: number = this.current_index;
+        this.current_index = (temp + 1) % this.DataBase.length;
+        this.setupcurrent(this.DataBase[temp], true);
       }
     },
 
@@ -273,11 +278,21 @@ export default defineComponent({
     //跳转到专业的页面
     details() {},
 
-    setSortHover(){
-      this.$refs.DIYauio.style.width=30+"vw";
-      this.$refs.DIYauio.style.opacity=0.7;
-
+    setSortHover() {
+      this.$refs.DIYauio.style.width = 30 + "vw";
+      this.$refs.DIYauio.style.opacity = 0.7;
     },
+    leaveSortHover(){
+      setTimeout((()=>{
+        this.$refs.DIYauio.style.width = 0 + "vw";
+      
+      }),2000)
+      setTimeout((()=>{
+        this.$refs.DIYauio.style.opacity = 0.7;
+      
+      }),3000)
+      
+    }
   },
   beforeDestroy() {
     clearInterval(this.timer);
@@ -303,8 +318,8 @@ export default defineComponent({
 }
 
 .coverImage {
-  height: 5vw;
-  width: 5vw;
+  height: 6vw;
+  width: 6vw;
   z-index: 10;
 
   background-repeat: no-repeat;
@@ -315,8 +330,8 @@ export default defineComponent({
 }
 
 .avroRecord {
-  height: 5vw;
-  width: 5vw;
+  height: 6vw;
+  width: 6vw;
   z-index: 9;
   position: absolute;
   left: 50%;
@@ -338,15 +353,14 @@ export default defineComponent({
 
 .audio_detail {
   position: fixed;
-  transform: translateX(10%);
+  transform: translateX(20%);
   opacity: 0;
-  height: 5vw;
+  height: 6vw;
+  padding: 0.5vw 2vw 0.5vw 4vw;
+  
   background-color: var(--boxColor);
-  padding: 0.5vw 2vw 0.5vw 6vw;
-  width: 0vw;
-  height: fit-content;
   z-index: 8;
   border-radius: 1.5ch;
-  transition:width 1s ease-in-out;
+  transition: width 1s ease-in-out;
 }
 </style>

@@ -4,6 +4,8 @@
   <div>
     <div class="container">
       <Systemtool class="tool-position" />
+      <div class="content">
+      <div style="float:right">
       <kinesis-container>
         <kinesis-element :strength="8">
           <div class="plasticback">
@@ -18,6 +20,7 @@
               </div>
             </kinesis-element>
             <!-- 菜单 -->
+            <kinesis-element :strength="8">
             <div class="Wordcontainer">
               <ul class="menu">
                 <li>
@@ -57,9 +60,12 @@
                 </a-row>
               </div>
             </div>
+            </kinesis-element>
           </div>
         </kinesis-element>
       </kinesis-container>
+      </div>
+    </div>
      
     </div>
     
@@ -95,6 +101,13 @@ export default {
 </script>
 
 <style scoped>
+.content{
+  height:fit-content;
+  padding: 0 5vw ;
+  display:table-cell; 
+     vertical-align:middle;
+
+}
 .tool-position {
   position: absolute;
   top: 2vh;
@@ -105,16 +118,18 @@ export default {
   background-image: url("/Photo/_DSC3555.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  display:table;
   min-height: 100vh;
   background-position: center;
   overflow: hidden;
 }
 
+
 .mediacontact {
-  padding: 1ch;
   border-radius: 2.5ch;
   width: fit-content;
   margin: 1.5vh auto;
+  padding: 1ch;
   background-color: rgba(245, 245, 245, 0.5);
 }
 
@@ -122,9 +137,6 @@ export default {
   background-color: rgba(245, 245, 245, 0.1);
   padding: 3ch;
   backdrop-filter: blur(5px);
-  position: absolute ;
-  right: 6vw;
-  top:18vh;
   width: fit-content;
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -158,7 +170,7 @@ export default {
 /*  set up text */
 .link {
   color: rgba(245, 245, 245, 0.7);
-  font-size: 3.5em;
+  font-size: 3.3em;
   font-family: "Helvetica";
   font-weight: bold;
 }
@@ -170,32 +182,34 @@ ul {
 a {
   color: black;
 }
-
+.menu{
+  padding:0;
+}
 /* control each text */
 .menu :nth-child(1):hover a {
   color: #dca7a7;
-  margin: 0 0.4vw 0 1.2vw;
+  margin: 0 0.4vw 0 1vh;
   transition: 0.4s;
   text-decoration: underline;
 }
 
 .menu :nth-child(2):hover a {
   color: rgba(127, 146, 99, 1);
-  margin: 0 0.4vw 0 1.2vw;
+  margin: 0 0.4vw 0 1vh;
   transition: 0.4s;
   text-decoration: underline;
 }
 
 .menu :nth-child(3):hover a {
   color: #8eb8de;
-  margin: 0 0.4vw 0 1.2vw;
+  margin: 0 0.4vw 0 1vh;
   transition: 0.4s;
   text-decoration: underline;
 }
 
 /* control all text*/
 .middle {
-  margin: 0 0.8vw;
+  
   text-transform: uppercase;
   font-family: "Executive-Medium";
 }

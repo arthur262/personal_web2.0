@@ -3,6 +3,8 @@
 <template>
   <div class="container">
     <Systemtool class="tool-position" />
+    <div class="content">
+      <div style="float:right">
     <kinesis-container>
       <kinesis-element :strength="8">
         <div class="plasticback">
@@ -17,6 +19,7 @@
             </div>
           </kinesis-element>
           <!-- 菜单 -->
+          <kinesis-element :strength="8">
           <div class="Wordcontainer">
             <ul class="menu">
               <li>
@@ -56,9 +59,12 @@
               </a-row>
             </div>
           </div>
+          </kinesis-element>
         </div>
       </kinesis-element>
     </kinesis-container>
+    </div>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -100,6 +106,13 @@ export default {
 </script>
 
 <style scoped>
+.content{
+  height:fit-content;
+  padding: 0 5vw ;
+  display:table-cell; 
+     vertical-align:middle;
+
+}
 .tool-position {
   position: absolute;
   top: 2vh;
@@ -110,6 +123,7 @@ export default {
   background-image: url("/Photo/_DSC3555.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  display:table;
   min-height: 100vh;
   background-position: center;
   overflow: hidden;
@@ -127,9 +141,6 @@ export default {
   background-color: rgba(245, 245, 245, 0.1);
   padding: 3ch;
   backdrop-filter: blur(5px);
-  position: absolute ;
-  right: 6vw;
-  top:18vh;
   width: fit-content;
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
