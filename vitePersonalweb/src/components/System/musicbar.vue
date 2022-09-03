@@ -8,14 +8,15 @@ const value1 = ref<number>(0);
       <div
         class="coverImage"
         :style="'background-image: url(' + coverImgUrl + ')'"
+         @mouseenter="setSortHover"
       />
       <div class="avroRecord" />
 
-      <div class="audio_detail">
+      <div class="audio_detail" ref="DIYauio">
         <a-row type="flex">
           <!-- 显示歌的名字 -->
           <a-col :flex="2"
-            ><p class="text" style="margin-bottom: 0; font-weight: bold">
+            ><p class="text" style="margin-bottom: 0; font-weight: bold;overflow: hidden;">
               {{ name }}:
             </p>
           </a-col>
@@ -154,7 +155,6 @@ export default defineComponent({
   },
   methods: {
     //根据当前的歌曲id获取歌曲全部信息
-
     setupcurrent(el: any) {
       api.hotSearchListFn(el.id).then((res) => {
         if (res.status == 200) {
@@ -272,10 +272,17 @@ export default defineComponent({
 
     //跳转到专业的页面
     details() {},
+
+    setSortHover(){
+      this.$refs.DIYauio.style.width=30+"vw";
+      this.$refs.DIYauio.style.opacity=0.7;
+
+    },
   },
   beforeDestroy() {
     clearInterval(this.timer);
     clearInterval(this.timer2);
+    clearInterval(this.timer3);
   },
 });
 </script>
@@ -332,13 +339,14 @@ export default defineComponent({
 .audio_detail {
   position: fixed;
   transform: translateX(10%);
-  opacity: 0.7;
+  opacity: 0;
   height: 5vw;
   background-color: var(--boxColor);
   padding: 0.5vw 2vw 0.5vw 6vw;
-  width: 30vw;
+  width: 0vw;
   height: fit-content;
   z-index: 8;
   border-radius: 1.5ch;
+  transition:width 1s ease-in-out;
 }
 </style>
