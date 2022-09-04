@@ -2,7 +2,10 @@
 
 <template>
   <div>
-    <div class="container">
+
+    <div class="container" 
+    :style="'background-image: url(' +dark_Img + ')'"
+    >
       <Systemtool class="tool-position" />
       <div class="content">
       <div style="float:right">
@@ -14,7 +17,7 @@
               <div class="selfshoots">
                 <img
                   width="400"
-                  src="public/Photo/2f15e8bf58afc597b49da57c086aee0.jpg"
+                  src="/Photo/2f15e8bf58afc597b49da57c086aee0.jpg"
                   style="border-radius: 1.5ch"
                 />
               </div>
@@ -24,18 +27,18 @@
             <div class="Wordcontainer">
               <ul class="menu">
                 <li>
-                  <router-link to="/Programmer_CN" class="link middle"
+                  <router-link to="/Programmer_EN" class="link middle"
                     >As Programmer
                   </router-link>
                 </li>
                 <li>
-                  <router-link to="/Student_CN" class="link middle">
+                  <router-link to="/Student_EN" class="link middle">
                     As Student</router-link
                   >
                 </li>
                 <li>
-                  <router-link to="/Photograph_CN" class="link middle">
-                    As Photography</router-link
+                  <router-link to="/Photograph_EN" class="link middle">
+                    Photograph</router-link
                   >
                 </li>
               </ul>
@@ -73,6 +76,7 @@
 </template>
 <script lang="ts">
 import Systemtool from "/src/components/System/menu_tool.vue";
+import axios from "axios";
 import {
   GithubOutlined,
   LinkedinOutlined,
@@ -85,12 +89,33 @@ export default {
     WechatOutlined,
     Systemtool,
   },
+  data(){
+    return {
+      light_Img:'',
+      dark_Img:'',
+      theme:'',
+    }
+  },
   mounted(){
     if (this._isMobile()) {
       this.$router.replace('/Home_M');
     }
+    this.getdata();
+
   },
   methods: {
+    getdata() {
+      axios
+        .get("/data/Photo_Src.json")
+        .then((response) => {
+          this.light_Img= response.data.Homebackground.light;
+          this.dark_Img=response.data.Homebackground.dark;
+
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
     _isMobile() {
       let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
       return flag;
@@ -115,12 +140,10 @@ export default {
 }
 .container {
   width: 100%;
-  background-image: url("/Photo/_DSC3555.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display:table;
   min-height: 100vh;
-  background-position: center;
   overflow: hidden;
 }
 

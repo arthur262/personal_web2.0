@@ -54,7 +54,7 @@ import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
               font-style: italic;
               margin: 0;
             "
-            class="animation-container"
+            class="animation-container text"
             ref="travel"
           >
             Travel
@@ -112,11 +112,11 @@ import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
                   letter-spacing: 0.233333em;
                 "
               >
-                Emotion
+                ABOUT ME
               </h1>
 
               <h4>
-                <router-link to="/" class="e-profile"> Profile </router-link>
+                <router-link to="/" class="e-profile"> Contact me </router-link>
               </h4>
             </span>
           </div>

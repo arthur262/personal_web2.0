@@ -64,7 +64,7 @@
               v-if="index % 2 == 0"
               style="margin-bottom: 10vh"
             >
-              <a-col :span="14">
+             <a-col :span="14">
                 <div
                   v-motion
                   :initial="{ opacity: 0, y: 30, scale: 0.7 }"
@@ -79,8 +79,8 @@
                 </div>
                 <div style="height: 5vh" />
                 <a-row>
-                  <a-col :span="8" />
-                  <a-col :span="14">
+                  <a-col :span="4" />
+                  <a-col :span="20">
                     <div
                       v-motion
                       :initial="{ opacity: 0, y: 30, scale: 0.7 }"
@@ -98,23 +98,20 @@
                 </a-row>
               </a-col>
               <a-col :span="10">
-                <a-row>
-                  <a-col :span="2" />
-                  <a-col :span="22">
-                    <div
-                      v-motion
-                      :initial="{ opacity: 0, y: 30, scale: 0.7 }"
-                      :visible="{ opacity: 1, y: 0, scale: 1 }"
-                      :delay="200"
-                    >
+                <div style="height: 15vh" />
+                <div
+                  v-motion
+                  :initial="{ opacity: 0, y: 30, scale: 0.7 }"
+                  :visible="{ opacity: 1, y: 0, scale: 1 }"
+                  :delay="200"
+                >
+
                       <a-image
                         v-if="item.third !== ''"
                         :src="item.third"
                         :width="600"
                       />
-                    </div>
-                  </a-col>
-                </a-row>
+                      </div>
               </a-col>
             </a-row>
             <a-row

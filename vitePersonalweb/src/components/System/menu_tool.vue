@@ -10,7 +10,7 @@
       />
     </h3>
     <a-dropdown>
-      <a class="ant-dropdown-link" @click.prevent style="margin-left: 10px">
+      <a class="ant-dropdown-link text" @click.prevent style="margin-left: 10px">
         language selection
       </a>
       <template #overlay>

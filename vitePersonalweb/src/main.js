@@ -8,6 +8,9 @@ import VueKinesis from "vue-kinesis";
 import { MotionPlugin } from "@vueuse/motion";
 import "./assets/css/global.css";
 
+
+
+
 createApp(App)
   .use(router)
   .use(VueKinesis)

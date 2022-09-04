@@ -16,22 +16,21 @@ const value1 = ref<number>(0);
       <div class="audio_detail" ref="DIYauio">
         <a-row type="flex">
           <!-- 显示歌的名字 -->
-          <a-col :flex="2"
+          <a-col :flex="2" style="overflow: hidden"
             ><p
               class="text"
-              style="margin-bottom: 0; font-weight: bold; overflow: hidden"
+              style="margin-bottom: 0; font-weight: bold; "
             >
               {{ name }}:
             </p>
           </a-col>
           <!-- 展示歌词 -->
-          <a-col :flex="10">
+          <a-col :flex="10" style="overflow: hidden">
             <p
               class="text"
               style="
                 margin-bottom: 0;
                 text-align: center;
-                overflow: hidden;
                 width: inherit;
               "
             >
@@ -288,8 +287,7 @@ export default defineComponent({
       
       }),2000)
       setTimeout((()=>{
-        this.$refs.DIYauio.style.opacity = 0.7;
-      
+        this.$refs.DIYauio.style.opacity = 0;
       }),3000)
       
     }
@@ -353,10 +351,10 @@ export default defineComponent({
 
 .audio_detail {
   position: fixed;
-  transform: translateX(20%);
+  transform: translateX(10%);
   opacity: 0;
   height: 6vw;
-  padding: 0.5vw 2vw 0.5vw 4vw;
+  padding: 0.5vw 2vw 0.5vw 6vw;
   
   background-color: var(--boxColor);
   z-index: 8;
