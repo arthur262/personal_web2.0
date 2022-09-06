@@ -1,27 +1,31 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="container">
-    <Systemtool class="tool-position" />
-    <div class="content">
+  <div>
+
+    <div class="container" 
+    :style="'background-image: url(' +dark_Img + ')'"
+    >
+      <Systemtool class="tool-position" />
+      <div class="content">
       <div style="float:right">
-    <kinesis-container>
-      <kinesis-element :strength="8">
-        <div class="plasticback">
-          <kinesis-element :strength="12">
-            <!-- 图片区 -->
-            <div class="selfshoots">
-              <img
-                width="400"
-                src="/Photo/2f15e8bf58afc597b49da57c086aee0.jpg"
-                style="border-radius: 1.5ch"
-              />
-            </div>
-          </kinesis-element>
-          <!-- 菜单 -->
-          <kinesis-element :strength="8">
-          <div class="Wordcontainer">
-            <ul class="menu">
+      <kinesis-container>
+        <kinesis-element :strength="8">
+          <div class="plasticback">
+            <kinesis-element :strength="12">
+              <!-- 图片区 -->
+              <div class="selfshoots">
+                <img
+                  width="400"
+                  src="/Photo/2f15e8bf58afc597b49da57c086aee0.jpg"
+                  style="border-radius: 1.5ch"
+                />
+              </div>
+            </kinesis-element>
+            <!-- 菜单 -->
+            <kinesis-element :strength="8">
+            <div class="Wordcontainer">
+             <ul class="menu">
               <li>
                 <router-link to="/Programmer_CN" class="link middle"
                   >未来头秃程序员
@@ -38,44 +42,46 @@
                 >
               </li>
             </ul>
-            <!-- 图标区 -->
-            <div class="mediacontact">
-              <a-row justify="center" :gutter="32">
-                <a-col :flex="8">
-                  <a href="https://github.com/arthur262">
-                    <github-outlined :style="{ fontSize: '32px' }" />
-                  </a>
-                </a-col>
-                <a-col :flex="8">
-                  <a
-                    href="https://www.linkedin.com/in/yuanzhe-zhang-522940226/"
-                  >
-                    <linkedin-outlined :style="{ fontSize: '32px' }" />
-                  </a>
-                </a-col>
-                <a-col :flex="8">
-                  <wechat-outlined :style="{ fontSize: '32px' }" />
-                </a-col>
-              </a-row>
+              <!-- 图标区 -->
+              <div class="mediacontact">
+                <a-row justify="center" :gutter="32">
+                  <a-col :flex="8">
+                    <a href="https://github.com/arthur262">
+                      <github-outlined :style="{ fontSize: '32px' }" />
+                    </a>
+                  </a-col>
+                  <a-col :flex="8">
+                    <a
+                      href="https://www.linkedin.com/in/yuanzhe-zhang-522940226/"
+                    >
+                      <linkedin-outlined :style="{ fontSize: '32px' }" />
+                    </a>
+                  </a-col>
+                  <a-col :flex="8">
+                    <wechat-outlined :style="{ fontSize: '32px' }" />
+                  </a-col>
+                </a-row>
+              </div>
             </div>
+            </kinesis-element>
           </div>
-          </kinesis-element>
-        </div>
-      </kinesis-element>
-    </kinesis-container>
+        </kinesis-element>
+      </kinesis-container>
+      </div>
     </div>
+     
     </div>
+    
   </div>
 </template>
 <script lang="ts">
 import Systemtool from "/src/components/System/menu_tool.vue";
-
+import axios from "axios";
 import {
   GithubOutlined,
   LinkedinOutlined,
   WechatOutlined,
 } from "@ant-design/icons-vue";
-
 export default {
   components: {
     GithubOutlined,
@@ -84,23 +90,37 @@ export default {
     Systemtool,
   },
   data(){
-    return{
-      url:"",
+    return {
+      light_Img:'',
+      dark_Img:'',
+      theme:'',
     }
   },
-  mounted() {
+  mounted(){
     if (this._isMobile()) {
-      this.$router.replace("/Home_M");
+      this.$router.replace('/Home_M');
     }
-   
+    this.getdata();
+
   },
   methods: {
-    _isMobile() {
-      let flag = navigator.userAgent.match(
-        /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
-      );
-      return flag;
+    getdata() {
+      axios
+        .get("/data/Photo_Src.json")
+        .then((response) => {
+          this.light_Img= response.data.Homebackground.light;
+          this.dark_Img=response.data.Homebackground.dark;
+
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     },
+    _isMobile() {
+      let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+      return flag;
+    }
+
   },
 };
 </script>

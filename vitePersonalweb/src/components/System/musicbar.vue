@@ -13,14 +13,16 @@ const value1 = ref<number>(0);
       />
       <div class="avroRecord" />
 
-      <div class="audio_detail" ref="DIYauio">
+      <div
+        class="audio_detail"
+        ref="DIYauio"
+        @mouseenter="setSortHover"
+        @mouseleave="leaveSortHover"
+      >
         <a-row type="flex">
           <!-- 显示歌的名字 -->
           <a-col :flex="2" style="overflow: hidden"
-            ><p
-              class="text"
-              style="margin-bottom: 0; font-weight: bold; "
-            >
+            ><p class="text" style="margin-bottom: 0; font-weight: bold">
               {{ name }}:
             </p>
           </a-col>
@@ -28,11 +30,7 @@ const value1 = ref<number>(0);
           <a-col :flex="10" style="overflow: hidden">
             <p
               class="text"
-              style="
-                margin-bottom: 0;
-                text-align: center;
-                width: inherit;
-              "
+              style="margin-bottom: 0; text-align: center; width: inherit"
             >
               {{ lyrics_line }}
             </p>
@@ -142,6 +140,9 @@ export default defineComponent({
       totalTime: 0,
       coverImgUrl: "",
       mute: true,
+
+      //检测鼠标是否是悬停到了detail的组件上
+      focus: 0,
     };
   },
   created() {},
@@ -278,19 +279,27 @@ export default defineComponent({
     details() {},
 
     setSortHover() {
-      this.$refs.DIYauio.style.width = 30 + "vw";
-      this.$refs.DIYauio.style.opacity = 0.7;
+      if (this.focus == 0) {
+        this.$refs.DIYauio.style.width = 30 + "vw";
+        this.$refs.DIYauio.style.opacity = 0.7;
+      }
+      this.focus++;
+      console.log(this.focus);
     },
-    leaveSortHover(){
-      setTimeout((()=>{
-        this.$refs.DIYauio.style.width = 0 + "vw";
+    leaveSortHover() {
+      if (this.focus > 0) {
+      } else {
+        setTimeout(() => {
+          this.$refs.DIYauio.style.width = 0 + "vw";
+        }, 2000);
+        setTimeout(() => {
+          this.$refs.DIYauio.style.opacity = 0;
+        }, 3000);
+        console.log(this.focus);
+      }
+      this.focus--;
       
-      }),2000)
-      setTimeout((()=>{
-        this.$refs.DIYauio.style.opacity = 0;
-      }),3000)
-      
-    }
+    },
   },
   beforeDestroy() {
     clearInterval(this.timer);
@@ -310,7 +319,7 @@ export default defineComponent({
 .ball {
   position: fixed;
   bottom: 5vh;
-  left: 4vw;
+  left: 2vw;
   display: flex;
   height: fit-content;
 }
@@ -355,7 +364,7 @@ export default defineComponent({
   opacity: 0;
   height: 6vw;
   padding: 0.5vw 2vw 0.5vw 6vw;
-  
+
   background-color: var(--boxColor);
   z-index: 8;
   border-radius: 1.5ch;

@@ -1,7 +1,8 @@
 <template>
   <div >
-  <div v-if="this.language=='EN'" style="display: flex">
-    <h3 class="text">
+  <div v-if="this.language=='EN'" style="display: flex;align-items: center;" >
+    
+    <h3 class="text " style="margin:0;">
       Theme:
       <a-switch
         v-model:checked="mode"
@@ -9,17 +10,22 @@
         un-checked-children="Dark"
       />
     </h3>
+    
     <a-dropdown>
-      <a class="ant-dropdown-link text" @click.prevent style="margin-left: 10px">
+      <a class="ant-dropdown-link text " @click.prevent style="margin-left: 10px;">
         language selection
       </a>
       <template #overlay>
         <a-menu class="backgroundtheme">
           <a-menu-item >
-            <router-link :to="this.path+'CN'" class="text" >中文</router-link>
+            <div style="display: flex;align-items: center;height:100%">
+            <router-link :to="this.path+'CN'" class="text " >中文</router-link>
+            </div>
           </a-menu-item>
           <a-menu-item >
-            <router-link :to="this.path+'EN'" class="text" >English</router-link>
+            <div style="display: flex;align-items: center;height:100%">
+            <router-link :to="this.path+'EN'" class="text " >English</router-link>
+            </div>
           </a-menu-item>
         </a-menu>
       </template>
@@ -35,7 +41,7 @@
       />
     </h3>
     <a-dropdown>
-      <a class="ant-dropdown-link" @click.prevent style="margin-left: 10px">
+      <a class="ant-dropdown-link text" @click.prevent style="margin-left: 10px">
       选择语言
       </a>
       <template #overlay>
@@ -99,4 +105,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+  .line{
+    line-height:1.5em;
+  }
+</style>
