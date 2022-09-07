@@ -74,7 +74,7 @@
                   <a-image
                     v-if="item.first !== ''"
                     :src="item.first"
-                    :width="600"
+                    :width="500"
                   />
                 </div>
                 <div style="height: 5vh" />

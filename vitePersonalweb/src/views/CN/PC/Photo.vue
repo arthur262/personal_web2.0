@@ -116,7 +116,7 @@ import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
               </h1>
 
               <h4>
-                <router-link to="/" class="e-profile"> Profile </router-link>
+                <router-link to="/Contact_CN" class="e-profile"> Profile </router-link>
               </h4>
             </span>
           </div>

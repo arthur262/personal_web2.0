@@ -28,6 +28,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "Programmer_E",
     component: () => import("../views/ENG/PC/Programmer.vue"),
   },
+  {
+    path:"/Contact_EN",
+    name: "Contact_E",
+    component: () => import("../views/ENG/PC/Contact.vue"),
+  },
 
 
   //中文
@@ -55,6 +60,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/Music_CN",
     name: "MUsic_C",
     component: () => import("../views/CN/PC/Music.vue"),
+  },
+  {
+    path:"/Contact_CN",
+    name: "Contact_C",
+    component: () => import("../views/CN/PC/Contact.vue"),
   },
 ];
 

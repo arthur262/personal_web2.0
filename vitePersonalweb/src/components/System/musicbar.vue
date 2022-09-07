@@ -283,6 +283,7 @@ export default defineComponent({
         this.$refs.DIYauio.style.width = 50 + "ch";
         this.$refs.DIYauio.style.opacity = 0.7;
       }
+      console.log(this.focus);
       this.focus++;
     },
     //当鼠标移动到detail的时候由于延迟所以会保持1的状态，由于延迟所以需要先进行减的操作
