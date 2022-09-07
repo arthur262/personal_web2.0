@@ -20,13 +20,13 @@ const value1 = ref<number>(0);
         @mouseleave="leaveSortHover"
       >
         <a-row type="flex">
-          <!-- 显示歌的名字 -->
+          <!-- show name of the song -->
           <a-col :flex="2" style="overflow: hidden"
             ><p class="text" style="margin-bottom: 0; font-weight: bold">
               {{ name }}:
             </p>
           </a-col>
-          <!-- 展示歌词 -->
+          <!-- show lyrics -->
           <a-col :flex="10" style="overflow: hidden">
             <p
               class="text"
@@ -36,7 +36,7 @@ const value1 = ref<number>(0);
             </p>
           </a-col>
         </a-row>
-        <!-- 自定义播放器 -->
+        <!-- DIY audio -->
         <a-row type="flex" class="SetPlayerFacingAngle">
           <a-col :flex="2">
             <span v-if="play" @click="playaudio()">
@@ -108,7 +108,7 @@ const value1 = ref<number>(0);
 <script lang="ts">
 /*
  * https://www.jb51.net/article/195512.htm
- * 这是关于计时器的原帖,思路来源.
+ * This is the original post about the timer.
  */
 import { defineComponent, ref } from "vue";
 import api from "/src/assets/api/music.ts";
@@ -118,30 +118,30 @@ import router from "../../router/index";
 export default defineComponent({
   data() {
     return {
-      //用于储存循环的歌单
+      //Used to store the playlist for the loop
       DataBase: "",
-      //当前歌曲在歌单中的序列
+      //The sequence of the current song in the playlist
       current_index: -1,
-      //用于控制当前歌曲是否是播放的
+      //Controls whether the current song is played
       play: true,
-      //所有歌词
+      //all lyrics
       lyrics: [],
       user_control_percentage: false,
 
-      //用来储存当前所放的歌曲的信息
+      //Used to store information about the currently playing song
       url: "",
       name: "",
       currentId: -1,
-      //当前歌词的第几行
+      //The line of the current lyric
       lyrics_line: "",
-      //解释当前歌曲播放到几秒了
+      //Explain how many seconds the current song has played
       time: -1,
       left_time: 0,
       totalTime: 0,
       coverImgUrl: "",
       mute: true,
 
-      //检测鼠标是否是悬停到了detail的组件上
+      //Detects if the mouse is hovering over the component of the detail
       focus: 0,
     };
   },
@@ -160,7 +160,7 @@ export default defineComponent({
     this.timer3 = setInterval(this.siwtchsongAlart, 500);
   },
   methods: {
-    //根据当前的歌曲id获取歌曲全部信息
+    //Gets all song information based on the current song ID
     setupcurrent(el: any) {
       api.hotSearchListFn(el.id).then((res) => {
         if (res.status == 200) {
@@ -182,7 +182,7 @@ export default defineComponent({
           this.lyrics = anlylyrics(lyrics_temp.split("\n"));
         }
       });
-      //初始化音频的时间和音量和加载资源
+      //Initialize audio timing and volume and load resources
       var audio = this.$refs.audiosrc;
 
       audio.load();
@@ -190,7 +190,7 @@ export default defineComponent({
       audio.volume = 0.5;
     },
 
-    //每500ms 更新一次时间戳
+    //The timestamp is updated every 500ms
     updateTime(el?: number) {
       var audio = this.$refs.audiosrc;
       if (!el) {
@@ -203,9 +203,9 @@ export default defineComponent({
         audio.currentTime = this.time;
       }
     },
-    //每500ms 更新一次歌词
+    //The lyrics are updated every 500ms
     matchlyrics() {
-      //如果用户当前正在挪动进度条就不更新
+      //Does not update if the user is currently moving the progress bar
       if (!this.user_control_percentage) {
         for (var i = 0; i < this.lyrics.length; i++) {
           if (
@@ -219,7 +219,7 @@ export default defineComponent({
       }
     },
 
-    //处理开始播放和暂停
+    //deal with play and stop
     playaudio() {
       var audio = this.$refs.audiosrc;
       if (audio.paused == true) {
@@ -230,7 +230,7 @@ export default defineComponent({
       }
       this.play = !this.play;
     },
-    //检测是否需要更换歌单
+    //Check whether the playlist needs to be replaced
     siwtchsongAlart() {
       if (Math.floor(this.time / 1000) >= Math.floor(this.totalTime / 1000)) {
         this.swiAudioFrmList();
@@ -238,7 +238,6 @@ export default defineComponent({
     },
 
     swiAudioFrmList() {
-      //还没开始
       if (this.current_index < 0) {
         this.current_index = 0;
         this.setupcurrent(this.DataBase[this.current_index]);
@@ -249,7 +248,7 @@ export default defineComponent({
       }
     },
 
-    //获取我喜欢的歌的歌单
+    //Get a playlist of my favorite songs
     getdata() {
       // axios
       //   .get(
@@ -275,7 +274,7 @@ export default defineComponent({
         });
     },
 
-    //跳转到专业的页面
+    //Go to the professional page
     details() {},
 
     setSortHover() {
@@ -286,7 +285,7 @@ export default defineComponent({
       console.log(this.focus);
       this.focus++;
     },
-    //当鼠标移动到detail的时候由于延迟所以会保持1的状态，由于延迟所以需要先进行减的操作
+    //When I move the mouse over the detail it's going to stay at 1 because of the delay, so I have to subtract first because of the delay
     leaveSortHover() {
       setTimeout(() => {
         this.focus--;

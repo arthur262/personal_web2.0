@@ -3,7 +3,6 @@ const formState = reactive({
   username: "",
   password: "",
   introduction: "",
-  remember: true,
 });
 const onFinish = (values: any) => {
   console.log("Success:", values);
@@ -16,6 +15,7 @@ const onFinishFailed = (errorInfo: any) => {
 
 <template>
   <div style="width: 100%; min-height: 100vh" class="backgroundtheme">
+    <!-- menu -->
     <section>
       <a-row type="flex" style="padding: 1.5vh 0 0 8vw">
         <a-col :flex="2">
@@ -49,11 +49,12 @@ const onFinishFailed = (errorInfo: any) => {
       </a-row>
     </section>
     <div style="height: 2vh; width: 100%" />
+    <!-- 给自己发邮件 -->
     <section>
       <a-row type="flex" style="max-width: 80%; margin: 0 auto">
         <a-col :flex="2">
-          <div class="box container shadow">
-            <!-- 给自己发邮件 -->
+          <div class="text container shadow">
+            
             <a-form
               :model="formState"
               name="basic"
@@ -69,6 +70,7 @@ const onFinishFailed = (errorInfo: any) => {
               <a-form-item
                 label="First Name"
                 name="NAME"
+                class="text"
                 :rules="[
                   { required: true, message: 'Please input your First Name!' },
                 ]"

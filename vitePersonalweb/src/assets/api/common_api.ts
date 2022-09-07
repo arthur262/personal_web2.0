@@ -10,7 +10,7 @@ function threadhold(callback: Function, delay: number): Function {
     }, delay);
   };
 }
-//将毫秒数据转为 分:秒到格式
+//Convert millisecond  to minute,seconds; 
 function format(seconds: number) {
   let min:any = Math.floor(seconds / 60000) >= 10 ? Math.floor(seconds / 60000) : '0' + Math.floor(seconds / 60000);
 			seconds -= 60000 * min;
@@ -18,7 +18,7 @@ function format(seconds: number) {
 			seconds -= 1000 * sec;
 			return min + ':' + sec; 
 }
-//将分:秒反向转换到毫秒
+//Reverse converts minutes,seconds to milliseconds
 function back_format(seconds: string) {
   var temp=seconds.split(":");
   var Millseconds=temp[1].split(".");
@@ -27,7 +27,7 @@ function back_format(seconds: string) {
 
 
 
-//将歌词从sting转化为时间和歌词对应的格式
+//Convert the lyrics from STING to the format corresponding to the time and lyrics
 function anlylyrics(...el:Array<any>){
   interface data{
     time:string, 
@@ -41,7 +41,7 @@ function anlylyrics(...el:Array<any>){
   for (let i=0; i<el2.length-1; i++){
     var temp:string=el2[i];
     let result:data={
-      //将时间重新转回以毫秒%10的进制
+      //Returns the time to %10 milliseconds
       time:""+back_format(gettime.exec(temp)[0]),
       word:getword.exec(temp)[1]
     }

@@ -7,7 +7,7 @@
 <template>
   <div>
     <router-view />
-     <!-- <musicbar /> -->
+     <musicbar />
   </div>
 </template>
 <script lang="ts">
