@@ -53,24 +53,43 @@ const onFinishFailed = (errorInfo: any) => {
     <section>
       <a-row type="flex" style="max-width: 80%; margin: 0 auto">
         <a-col :flex="2">
-          <div class="text container shadow">
+          <div class="container shadow" style="margin-bottom:5vh">
+            <a-row justify="center" :gutter="32">
+                  <a-col :flex="8">
+                    <a href="https://github.com/arthur262">
+                      <github-outlined :style="{ fontSize: '32px' }" />
+                    </a>
+                  </a-col>
+                  <a-col :flex="8">
+                    <a
+                      href="https://www.linkedin.com/in/yuanzhe-zhang-522940226/"
+                    >
+                      <linkedin-outlined :style="{ fontSize: '32px' }" />
+                    </a>
+                  </a-col>
+                  <a-col :flex="8">
+                    <wechat-outlined :style="{ fontSize: '32px' }" />
+                  </a-col>
+                </a-row>
+          </div>
+          <div class="container shadow">
             
             <a-form
               :model="formState"
               name="basic"
               
               layout="vertical"
-              :label-col="{ span: 5 }"
-              :wrapper-col="{ span: 15 }"
+              :label-col="{ span: 100 }"
+              :wrapper-col="{ span: 100 }"
               autocomplete="off"
               @finish="onFinish"
               @finishFailed="onFinishFailed"
-              style="max-width:40vw; margin: 0 auto;"
+              style="max-width:30vw; width:fit-content;margin: 0 auto; "
             >
               <a-form-item
                 label="First Name"
                 name="NAME"
-                class="text"
+                style="width:20vw; "
                 :rules="[
                   { required: true, message: 'Please input your First Name!' },
                 ]"
@@ -80,6 +99,7 @@ const onFinishFailed = (errorInfo: any) => {
               <a-form-item
                 label="email"
                 name="YOUR EMAIL"
+                style="width:20vw; "
                 :rules="[
                   { required: true, message: 'Please input your Email!' },
                 ]"
@@ -90,6 +110,7 @@ const onFinishFailed = (errorInfo: any) => {
               <a-form-item
                 label="Subject"
                 name="MESSAGES"
+                style="width:20vw; "
                 :rules="[
                   { required: true, message: 'Please input your MESSAGES!' },
                 ]"
@@ -100,6 +121,7 @@ const onFinishFailed = (errorInfo: any) => {
               <a-form-item
                 name="introduction"
                 label="ADDTIONAL DETAILS"
+                style="width:20vw; "
               >
                 <a-textarea v-model:value="formState.introduction" />
               </a-form-item>
@@ -118,6 +140,12 @@ const onFinishFailed = (errorInfo: any) => {
 
 <script lang="ts">
 import SystemTool from "/src/components/System/menu_tool.vue";
+import {
+  GithubOutlined,
+  LinkedinOutlined,
+  WechatOutlined,
+} from "@ant-design/icons-vue";
+
 import { reactive } from "vue";
 
 interface FormState {
@@ -126,15 +154,20 @@ interface FormState {
   remember: boolean;
 }
 export default {
-  components: { SystemTool },
+  components: { SystemTool,GithubOutlined,
+  LinkedinOutlined,
+  WechatOutlined, },
 };
 </script>
 
 <style scoped>
+
 .container {
   border-radius: 1.5ch;
   padding: 2ch 0 2ch 2ch;
   height: fit-content;
+  max-width: 30vw;
+  background-color: whitesmoke;
 }
 #menu {
   list-style: none;
