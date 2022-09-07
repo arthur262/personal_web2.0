@@ -7,7 +7,7 @@
 <template>
   <div>
     <router-view />
-     <musicbar />
+     <!-- <musicbar /> -->
   </div>
 </template>
 <script lang="ts">
@@ -32,6 +32,9 @@ export default {
 .box{
   background-color: var(--boxColor) !important;
   transition:background-color .3s ease-in-out !important;
+}
+.shadow{
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
 
 
