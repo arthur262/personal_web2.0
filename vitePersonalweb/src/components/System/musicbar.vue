@@ -280,25 +280,23 @@ export default defineComponent({
 
     setSortHover() {
       if (this.focus == 0) {
-        this.$refs.DIYauio.style.width = 30 + "vw";
+        this.$refs.DIYauio.style.width = 50 + "ch";
         this.$refs.DIYauio.style.opacity = 0.7;
       }
       this.focus++;
-      console.log(this.focus);
     },
+    //当鼠标移动到detail的时候由于延迟所以会保持1的状态，由于延迟所以需要先进行减的操作
     leaveSortHover() {
-      if (this.focus > 0) {
-      } else {
-        setTimeout(() => {
-          this.$refs.DIYauio.style.width = 0 + "vw";
-        }, 2000);
-        setTimeout(() => {
-          this.$refs.DIYauio.style.opacity = 0;
-        }, 3000);
-        console.log(this.focus);
-      }
-      this.focus--;
-      
+      setTimeout(() => {
+        this.focus--;
+        if (this.focus > 0) {
+        } else {
+          this.$refs.DIYauio.style.width = 0 + "ch";
+          setTimeout(() => {
+            this.$refs.DIYauio.style.opacity = 0;
+          }, 1000);
+        }
+      }, 2000);
     },
   },
   beforeDestroy() {
@@ -325,8 +323,8 @@ export default defineComponent({
 }
 
 .coverImage {
-  height: 6vw;
-  width: 6vw;
+  height: 10ch;
+  width: 10ch;
   z-index: 10;
 
   background-repeat: no-repeat;
@@ -337,8 +335,8 @@ export default defineComponent({
 }
 
 .avroRecord {
-  height: 6vw;
-  width: 6vw;
+  height: 10ch;
+  width: 10ch;
   z-index: 9;
   position: absolute;
   left: 50%;
@@ -362,8 +360,8 @@ export default defineComponent({
   position: fixed;
   transform: translateX(10%);
   opacity: 0;
-  height: 6vw;
-  padding: 0.5vw 2vw 0.5vw 6vw;
+  height: 10ch;
+  padding: 1.5ch 2ch 1.5ch 12ch;
 
   background-color: var(--boxColor);
   z-index: 8;

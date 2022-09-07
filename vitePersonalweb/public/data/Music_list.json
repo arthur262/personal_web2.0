@@ -1,10 +1,6 @@
 {
-    "list":[
-        
-        {"id":421423806,"name":"小半"},
-        {"id":38592976,"name":"Dream It possible"}
-        
-        
-
-    ]
+  "list": [
+    { "id": 38592976, "name": "Dream It possible" },
+    { "id": 421423806, "name": "小半" }
+  ]
 }
