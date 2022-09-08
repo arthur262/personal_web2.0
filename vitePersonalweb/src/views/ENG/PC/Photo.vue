@@ -247,6 +247,7 @@ export default {
 }
 .videos {
   width: 100%;
+  object-fit: contain;
 }
 #menu {
   list-style: none;
