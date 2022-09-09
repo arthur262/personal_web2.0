@@ -53,6 +53,10 @@ body {
   display:block ;
   height: fit-content!important;
 }
+ul {
+  list-style: none;
+  padding: 0;
+}
 :root{
    padding: 0;
   margin: 0;
