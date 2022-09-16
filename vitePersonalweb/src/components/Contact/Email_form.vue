@@ -14,8 +14,8 @@ const onFinishFailed = (errorInfo: any) => {
 </script>
 
 <template>
-  <div class="container shadow">
-    <h2 style="font-size: 40px">Meet Me</h2>
+  <div class="container">
+    <h2 style="font-size: 30px">Meet Me</h2>
     <a-form
       :model="formState"
       name="basic"
@@ -81,11 +81,9 @@ export default {};
 <style
 scoped>
 .container {
-  border-radius: 1.5ch;
-  padding: 2ch 0 2ch 2ch;
+  padding:1vh ;
   height: fit-content;
-  background-color: whitesmoke;
   width: fit-content;
-  padding: 3ch;
+  margin: 0 auto;
 }
 </style>

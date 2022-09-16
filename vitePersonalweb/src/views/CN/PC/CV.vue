@@ -182,13 +182,12 @@ export default {
 }
 
 .link {
-  font-size: 1.5rem;
+ font-size: 1.5rem;
   margin: 0 1vw;
   font-weight: 900;
   white-space: nowrap;
   font-family: Crimson Text;
   letter-spacing: 0.133333em;
-  -webkit-text-stroke:1px var(--boxColor);
 }
 .link:hover {
   color: rgba(245, 245, 245, 0.5);

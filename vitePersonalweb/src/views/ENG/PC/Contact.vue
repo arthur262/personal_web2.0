@@ -2,7 +2,7 @@
 <template>
   <div style="width: 100%; min-height: 100vh" class="backgroundtheme">
     <!-- menu -->
-    <section>
+    <section class="backimg">
       <a-row type="flex" style="padding: 1.5vh 0 0 8vw">
         <a-col :flex="2">
           <router-link to="/Contact_EN">
@@ -34,18 +34,17 @@
         <a-col :flex="2"><SystemTool style="margin-top: 10px" /></a-col>
       </a-row>
     </section>
-    <!-- 给自己发邮件 -->
+
     <section>
-      <a-row type="flex" style="max-width: 80%; margin: 0 auto; height: 80%">
+      <a-row type="flex">
         <a-col :flex="2">
-        
-          <Map/>
-          
+          <information/>
         </a-col>
-        <a-col :flex="3">
-
-        <Contact/>
-
+        <a-col :flex="2">
+          <Map />
+        </a-col>
+        <a-col :flex="2">
+          <Contact />
         </a-col>
       </a-row>
     </section>
@@ -54,24 +53,28 @@
 
 <script lang="ts">
 import SystemTool from "/src/components/System/menu_tool.vue";
+import information from "/src/components/Contact/Information.vue";
 import Map from "/src/components/Contact/map.vue";
 import Contact from "/src/components/Contact/Email_form.vue";
-
-
-
-
 
 export default {
   components: {
     SystemTool,
     Contact,
     Map,
+    information,
   },
 };
 </script>
 
 <style scoped>
-
+  .backimg{
+    background-image: url("/Photo/A7M2(68).jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height:70vh;
+  }
 #menu {
   list-style: none;
   display: flex;
@@ -105,5 +108,4 @@ export default {
   color: rgba(245, 245, 245, 0.5);
   transition: 1s;
 }
-
 </style>
