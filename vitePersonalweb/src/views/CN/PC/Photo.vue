@@ -17,33 +17,7 @@ import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
       </a-carousel>
 
       <header style="position: absolute; width: 100%; height: 100vh; top: 0">
-        <a-row type="flex" style="padding: 4vh 1vw 0 8vw">
-          <a-col :flex="2">
-            <router-link to="/Photograph_EN">
-              <img src="http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/Artsy.png" style="opacity: 0.7" height="120" />
-            </router-link>
-          </a-col>
-          <a-col :flex="2">
-            <ul id="menu" ref="menu" class="animation-container">
-              <li>
-                <router-link to="/Home_CN" class="link"> 主页</router-link>
-              </li>
-              <li>
-                <router-link to="/Programmer_CN" class="link"
-                  >未来头秃程序员
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/Student_CN" class="link">学习渣渣</router-link>
-              </li>
-            </ul>
-            <!-- 右侧工具区 -->
-            
-          </a-col>
-          <a-col :flex="1"><SystemTool style="margin-top:10px"/></a-col>
-          
-         
-        </a-row>
+        <Nav/>
         <div class="themeword">
           <h2
             style="
@@ -54,7 +28,7 @@ import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
               font-style: italic;
               margin: 0;
             "
-            class="animation-container"
+            class="animation-container text"
             ref="travel"
           >
             Travel
@@ -112,11 +86,11 @@ import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
                   letter-spacing: 0.233333em;
                 "
               >
-                Emotion
+                ABOUT ME
               </h1>
 
               <h4>
-                <router-link to="/Contact_CN" class="e-profile"> Profile </router-link>
+                <router-link to="/Contact_EN" class="e-profile"> Contact me </router-link>
               </h4>
             </span>
           </div>
@@ -144,10 +118,11 @@ import { ref } from 'vue';
 import axios from "axios";
 import Photo_random from "/src/components/Photo/Photo_random.vue";
 import SystemTool from "/src/components/System/menu_tool.vue";
+import Nav from "/src/components/System/menu.vue";
 
 
 export default {
-  components: { DoubleRightOutlined, ArrowRightOutlined, Photo_random,SystemTool },
+  components: { DoubleRightOutlined,Nav, ArrowRightOutlined, Photo_random,SystemTool },
   setup() {
     const bottom = ref<number>(10);
     return {bottom};
@@ -186,7 +161,7 @@ export default {
 
 <style scoped>
 .emotionimage {
-  background: url("http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/DSC00528-5.jpg")
+  background: url("/Photo/2f15e8bf58afc597b49da57c086aee0.jpg")
     no-repeat;
   width: 100%;
   height: 110vh;

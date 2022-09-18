@@ -1,34 +1,10 @@
 <template>
   <div>
-        <a-layout style="scroll-behavior: smooth" class="backgroundtheme">
+    <a-layout style="scroll-behavior: smooth" class="backgroundtheme">
       <!-- 上半截 -->
       <a-affix :offset-top="0">
       <header class="menu_background">
-      <div class="menu">
-        <a-row type="flex">
-          <a-col :flex="6">
-            <ul class="animation-container">
-              <li>
-                <router-link to="/Home_CN" class="text link"> 主页</router-link>
-              </li>
-              <li>
-                <router-link to="/Programmer_CN" class="text link"
-                  >未来头秃程序员
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/Photograph_CN" class="text link">
-                  野生摄影菜鸟</router-link
-                >
-              </li>
-            </ul>
-          </a-col>
-          <!-- menu右侧工具区 -->
-          <a-col :flex="2" >
-          <SystemTool/>
-          </a-col>
-        </a-row>
-        </div>
+      <Nav/>
       </header>
       </a-affix>
        <!-- affix -->
@@ -81,12 +57,14 @@ import axios from "axios";
 import Educationcontent from "/src/components/CV/CV_Edu_Back.vue";
 import Skills from "/src/components/CV/CV_Skill.vue";
 import Project from "/src/components/CV/CV_Project.vue";
-import SystemTool from "/src/components/System/menu_tool.vue";
+
+import Nav from "/src/components/System/menu.vue";
 import { useIntersectionObserver } from "@vueuse/core";
 import {  ref } from "vue";
 
+
 export default {
-  components: { SystemTool,Skills, Educationcontent, Project },
+  components: { Nav,Skills, Educationcontent, Project },
   setup() {
     const target = ref(null);
     const targetIsVisible = ref(false);
@@ -150,7 +128,7 @@ export default {
       //     console.log(error);
       //   });
       axios
-        .get("/data/CV_CN.json")
+        .get("/data/CV_EN.json")
         .then((response) => {
           this.DataBase = response.data;
         })
@@ -174,6 +152,7 @@ export default {
   line-height: 5em;
   justify-content: center;
 }
+
 .animation-container {
   list-style: none;
   display: flex;
@@ -182,15 +161,15 @@ export default {
 }
 
 .link {
- font-size: 1.5rem;
+  font-size: 1.5rem;
   margin: 0 1vw;
   font-weight: 900;
   white-space: nowrap;
   font-family: Crimson Text;
   letter-spacing: 0.133333em;
 }
-.link:hover {
-  color: rgba(245, 245, 245, 0.5);
+.link:hover{
+  color:rgba(127, 146, 99, 1);
   transition: color 1s;
 }
 

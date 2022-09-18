@@ -1,6 +1,6 @@
 <template>
   <div >
-  <div v-if="this.language=='EN'" style="display: flex;align-items: center;" >
+  <div v-if="this.language=='EN'" style="display: flex;align-items: center; width:fit-content;" >
     
     <h3 class="text " style="margin:0;">
       Theme:

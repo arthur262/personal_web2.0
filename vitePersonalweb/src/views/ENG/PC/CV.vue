@@ -4,31 +4,7 @@
       <!-- 上半截 -->
       <a-affix :offset-top="0">
       <header class="menu_background">
-      <div class="menu">
-        <a-row type="flex">
-          <a-col :flex="6">
-            <ul class="animation-container">
-              <li>
-                <router-link to="/Home_EN" class="text link"> Home</router-link>
-              </li>
-              <li>
-                <router-link to="/Programmer_EN" class="text link"
-                  >Programmer
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/Photograph_EN" class="text link">
-                  Photograph</router-link
-                >
-              </li>
-            </ul>
-          </a-col>
-          <!-- menu右侧工具区 -->
-          <a-col :flex="2" >
-          <SystemTool/>
-          </a-col>
-        </a-row>
-        </div>
+      <Nav/>
       </header>
       </a-affix>
        <!-- affix -->
@@ -81,13 +57,14 @@ import axios from "axios";
 import Educationcontent from "/src/components/CV/CV_Edu_Back.vue";
 import Skills from "/src/components/CV/CV_Skill.vue";
 import Project from "/src/components/CV/CV_Project.vue";
-import SystemTool from "/src/components/System/menu_tool.vue";
+
+import Nav from "/src/components/System/menu.vue";
 import { useIntersectionObserver } from "@vueuse/core";
 import {  ref } from "vue";
 
 
 export default {
-  components: { SystemTool,Skills, Educationcontent, Project },
+  components: { Nav,Skills, Educationcontent, Project },
   setup() {
     const target = ref(null);
     const targetIsVisible = ref(false);
