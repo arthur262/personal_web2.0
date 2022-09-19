@@ -1,7 +1,7 @@
 <h1 align="center">✨  personal_web2.0</h1>
 
-### 这是一个用于展示个人经历的VUE demo,关于本人在摄影计算力和学生时期的一些经历。相比于普通的网线更希望在动效方面能让人感觉更舒服
-### This is a VUE demo to show my personal experience, which is about my experience in photography and computing power as a student. Compared with ordinary network cable, it is hoped that the dynamic effect can make people feel more comfortable
+### 这是一个用于展示个人经历的VUE demo,关于本人在摄影计算力和学生时期的一些经历。相比于普通的网页更希望在动效方面能让人感觉更舒服
+### This is a VUE demo to show my personal experience, which is about my experience in photography and computing power as a student. Compared with ordinary Website, it is hoped that the dynamic effect can make people feel more comfortable
 &emsp;
 ### 技术栈 Technology used: 
 - Vue3.0 
