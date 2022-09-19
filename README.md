@@ -13,7 +13,7 @@
 &emsp;
 ## 项目目标 Project Task
 前端目标: 实现苹果官网的大部分特效，更添加一些特效来怎加页面的动感. 同时内嵌网易云音乐的音乐小组件，让用户放松一些。  
-后台目标: 完全拥有前后端和后台，能够通过提交一整个.vue页面去对布局进行重新修改.
+后台目标: 完全拥有前后端和后台，能够通过提交一整个.vue页面去对布局进行重新修改.  
 Front end goal: to achieve most of the effects of Apple official website, but also to add some effects to add dynamic page. At the same time, the music group embedded with NetEase Cloud music allows users to relax.  
 Background objective: Full ownership of the front and back ends and background, and the ability to re-modify the layout by submitting an entire.vUE page.  
 &emsp;
