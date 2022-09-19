@@ -19,12 +19,12 @@
         <a-menu class="backgroundtheme">
           <a-menu-item >
             <div style="display: flex;align-items: center;height:100%">
-            <router-link :to="this.path+'CN'" class="text " >中文</router-link>
+            <router-link :to="this.path+'_CN'" class="text " >中文</router-link>
             </div>
           </a-menu-item>
           <a-menu-item >
             <div style="display: flex;align-items: center;height:100%">
-            <router-link :to="this.path+'EN'" class="text " >English</router-link>
+            <router-link :to="this.path+'_EN'" class="text " >English</router-link>
             </div>
           </a-menu-item>
         </a-menu>
@@ -47,10 +47,10 @@
       <template #overlay>
         <a-menu class="backgroundtheme">
           <a-menu-item>
-            <router-link :to="this.path+'CN'" class="text">中文</router-link>
+            <router-link :to="this.path+'_CN'" class="text">中文</router-link>
           </a-menu-item>
           <a-menu-item>
-            <router-link :to="this.path+'EN'" class="text">English</router-link>
+            <router-link :to="this.path+'_EN'" class="text">English</router-link>
           </a-menu-item>
         </a-menu>
       </template>
@@ -91,10 +91,12 @@ export default {
   },
   mounted() {
     language_selector();
-    this.path=this.$route.path;
-    let temp = this.path.substr(0, this.path.length - 2);
-    this.language=this.path.substr( this.path.length - 2,this.path.length);
-    this.path=temp;
+    let path=this.$route.path.split("/");
+    path=path[path.length-1];
+    path=path.split("_");
+    this.path = path[0];
+    this.language= path[1];
+    
   },
   created() {
     let theme = localStorage.getItem("theme")

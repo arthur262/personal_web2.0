@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const formState = reactive({
   username: "",
-  password: "",
   introduction: "",
 });
 const onFinish = (values: any) => {
@@ -15,26 +14,18 @@ const onFinishFailed = (errorInfo: any) => {
 
 <template>
   <div class="container">
-    <h2 style="font-size: 30px">Meet Me</h2>
+    <h2 style="font-size: 20px">Meet Me</h2>
     <a-form
       :model="formState"
       name="basic"
       layout="vertical"
-      :label-col="{ span: 100 }"
-      :wrapper-col="{ span: 100 }"
+      :label-col="{ span: 50 }"
+      :wrapper-col="{ span: 50 }"
       autocomplete="off"
       @finish="onFinish"
       @finishFailed="onFinishFailed"
       style="max-width: 30vw; width: fit-content; margin: 0 auto"
     >
-      <a-form-item
-        label="First Name"
-        name="NAME"
-        style="width: 20vw"
-        :rules="[{ required: true, message: 'Please input your First Name!' }]"
-      >
-        <a-input v-model:value="formState.username" />
-      </a-form-item>
       <a-form-item
         label="email"
         name="YOUR EMAIL"
@@ -43,16 +34,6 @@ const onFinishFailed = (errorInfo: any) => {
       >
         <a-input v-model:value="formState.username" />
       </a-form-item>
-
-      <a-form-item
-        label="Subject"
-        name="MESSAGES"
-        style="width: 20vw"
-        :rules="[{ required: true, message: 'Please input your MESSAGES!' }]"
-      >
-        <a-input v-model:value="formState.password" />
-      </a-form-item>
-
       <a-form-item
         name="introduction"
         label="ADDTIONAL DETAILS"
@@ -71,9 +52,6 @@ const onFinishFailed = (errorInfo: any) => {
 <script lang="ts">
 import { reactive } from "vue";
 interface FormState {
-  username: string;
-  password: string;
-  remember: boolean;
 }
 export default {};
 </script>

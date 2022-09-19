@@ -202,7 +202,7 @@ export default {
   font-weight: bold;
   margin: 0 0.5vw;
   white-space: nowrap;
-  font-family: Crimson Text;
+  font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
   letter-spacing: 0.133333em;
 }
 #menu :hover a {

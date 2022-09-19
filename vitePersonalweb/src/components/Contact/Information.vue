@@ -69,6 +69,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color:#8eb8de;
 }
 li {
   margin: 5px 0px;
