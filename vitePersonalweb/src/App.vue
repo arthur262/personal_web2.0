@@ -16,6 +16,9 @@ export default {
   components: {
     musicbar,
   },
+  mounted() { 
+    localStorage.theme = JSON.stringify("light");
+  }
   }
 </script>
 
