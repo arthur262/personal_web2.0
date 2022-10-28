@@ -34,6 +34,7 @@ export default {
       this.$router.replace("/Home_M");
     }
     this.getdata();
+    
   },
   methods: {
     getdata() {

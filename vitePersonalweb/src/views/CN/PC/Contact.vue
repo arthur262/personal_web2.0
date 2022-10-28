@@ -25,7 +25,7 @@
 <script lang="ts">
 
 import information from "/src/components/Contact/Information.vue";
-import Map from "/src/components/Contact/map.vue";
+import Map from "/src/components/Contact/Map.vue";
 import Contact from "/src/components/Contact/Email_form.vue";
 import Nav from "/src/components/System/menu.vue";
 
