@@ -11,43 +11,20 @@
     </a-col>
     <a-col :flex="2">
       <ul id="menu" ref="menu" class="animation-container">
-        <li>
+        <li v-for="(item, index) in switchtext.link" :key="index">
           <router-link
-            :to="'/' + this.Other_Webs.first + '_' + this.Curent_lang"
+            :to="'/' + item + '_' + this.Curent_lang"
             class="link text"
           >
-            {{ this.Other_Webs_text.first }}</router-link
+            {{ this.switchtext.text[index] }}</router-link
           >
         </li>
         <li>
-          <router-link
-            :to="'/' + this.Other_Webs.second + '_' + this.Curent_lang"
-            class="link text"
-            >{{ this.Other_Webs_text.second }}
-          </router-link>
-        </li>
-        <li>
-          <router-link
-            :to="'/' + this.Other_Webs.third + '_' + this.Curent_lang"
-            class="link text"
-          >
-            {{ this.Other_Webs_text.third }}</router-link
-          >
-        </li>
-        <li>
-          <user-add-outlined />
-          <router-link
-            :to="'/' + this.Other_Webs.fourth + '_' + this.Curent_lang"
-            class="link text"
-          >
-            {{ this.Other_Webs_text.fourth }}</router-link
-          >
-        </li>
-        <li>
+          <!-- right size tool -->
           <SystemTool />
         </li>
       </ul>
-      <!-- 右侧工具区 -->
+      
     </a-col>
   </a-row>
 </template>
@@ -59,17 +36,9 @@ export default {
   data() {
     return {
       Curent_lang:"",
-      Other_Webs: {
-        first: "",
-        second: "",
-        third: "",
-        fourth: "",
-      },
-      Other_Webs_text: {
-        first: "",
-        second: "",
-        third: "",
-        fourth: "",
+      switchtext: {
+        link:[],
+        text:[]
       },
     };
   },
@@ -83,20 +52,6 @@ export default {
   methods: {
     //switch the menu
     switchpage(page: string, language: string) {
-      interface website_link {
-        first: string;
-        second: string;
-        third: string;
-        fourth: string;
-      }
-      interface website_text {
-        first: string;
-        second: string;
-        third: string;
-        fourth: string;
-      }
-      let link: website_link={first: "", second: "",third: "", fourth: ""};
-      let text: website_text = { first: "", second: "", third: "", fourth: "" };
 
       let E_table = {
         Student: ["Home", "Programmer", "Photograph", "Contact"],
@@ -111,91 +66,32 @@ export default {
         Contact:["主页","未来头秃程序员", "学习渣渣","摄影菜鸟",]
       }
 
-      //only when the language is not english the link and text goes different
-      if (page == "Student") {
-        //link
-        link.first = "Home";
-        link.second = "Programmer";
-        link.third = "Photograph";
-        link.fourth = "Contact";
-        //text
-        if (language == "CN") {
-          text.first = "主页";
-          text.second = "未来头秃程序员";
-          text.third = "野生摄影菜鸟";
-          text.fourth = "联系";
-        } else if (language == "EN") {
-          text.first = "Home";
-          text.second = "Programmer";
-          text.third = "Photograph";
-          text.fourth = "Contact";
-        }
-      } else if (page == "Photograph") {
-        //link
-        link.first = "Home";
-        link.second = "Programmer";
-        link.third = "Student";
-        link.fourth = "Contact";
-        //text
-        if (language == "CN") {
-          text.first = "主页";
-          text.second = "未来头秃程序员";
-          text.third = "学习渣渣";
-          text.fourth = "联系";
-        } else if (language == "EN") {
-          text.first = "Home";
-          text.second = "Programmer";
-          text.third = "Student";
-          text.fourth = "Contact";
-        }
-      } else if (page == "Contact") {
-        //link
-        link.first = "Home";
-        link.second = "Programmer";
-        link.third = "Student";
-        link.fourth = "Photograph";
-        //text
-        if (language == "CN") {
-          text.first = "主页";
-          text.second = "未来头秃程序员";
-          text.third = "学习渣渣";
-          text.fourth = "野生摄影菜鸟";
-        } else if (language == "EN") {
-          text.first = "Home";
-          text.second = "Programmer";
-          text.third = "Student";
-          text.fourth = "Photograph";
-        }
-      } else if (page == "Programmer") {
-        //link
-        link.first = "Home";
-        link.second = "Student";
-        link.third = "Photograph";
-        link.fourth = "Contact";
+      //when the language is not english the link and text goes different
+      this.switchtext.link= 
+        page=="Student"?E_table.Student:
+        page=="Programmer"?E_table.Programmer:
+        page=="Photograph"?E_table.Programmer:
+        page=="Contact"?E_table.Programmer:E_table.Student;
 
-        //text
-        if (language == "CN") {
-          text.first = "主页";
-          text.second = "学习渣渣";
-          text.third = "野生摄影菜鸟";
-          text.fourth = "联系";
-        } else if (language == "EN") {
-          text.first = "Home";
-          text.second = "Student";
-          text.third = "Photograph";
-          text.fourth = "Contact";
-        }
+
+
+
+      if(language=="EN"){
+        this.switchtext.text=
+        page=="Student"?E_table.Student:
+        page=="Programmer"?E_table.Programmer:
+        page=="Photograph"?E_table.Programmer:
+        page=="Contact"?E_table.Programmer:E_table.Student;
+
+      }else if(language=="CN"){
+        this.switchtext.text=
+        page=="Student"?C_table.Student:
+        page=="Programmer"?C_table.Programmer:
+        page=="Photograph"?C_table.Programmer:
+        page=="Contact"?C_table.Programmer:C_table.Student;
+
       }
 
-      this.Other_Webs.first = link.first;
-      this.Other_Webs.second = link.second;
-      this.Other_Webs.third = link.third;
-      this.Other_Webs.fourth = link.fourth;
-
-      this.Other_Webs_text.first = text.first;
-      this.Other_Webs_text.second = text.second;
-      this.Other_Webs_text.third = text.third;
-      this.Other_Webs_text.fourth = text.fourth;
     },
   },
 };

@@ -1,20 +1,16 @@
 <template>
   <div >
-  <div v-if="this.language=='EN'" style="display: flex;align-items: center; width:fit-content;" >
 
-    <h3 class="text " style="margin:0;">
-      Theme:
-      <a-switch
-        v-model:checked="mode"
-        checked-children="Light"
-        un-checked-children="Dark"
-      />
-    </h3>
-    <!-- language_selector -->
+    <a-switch
+    v-model:checked="mode"
+    checked-children="Light"
+    un-checked-children="Dark"
+  />
+    
     <a-dropdown>
-      <a class="ant-dropdown-link text " @click.prevent style="margin-left: 10px;">
-        language selection
-      </a>
+      <setting-filled  :style="{fontSize: '24px', color: '#08c'}" />
+
+
       <template #overlay>
         <a-menu class="backgroundtheme">
           <a-menu-item >
@@ -30,33 +26,6 @@
         </a-menu>
       </template>
     </a-dropdown>
-    </div>
-    
-    <div v-else style="display: flex">
-    <h3 class="text">
-      主题:
-      <a-switch
-        v-model:checked="mode"
-        checked-children="亮"
-        un-checked-children="暗"
-      />
-    </h3>
-    <a-dropdown>
-      <a class="ant-dropdown-link text" @click.prevent style="margin-left: 10px">
-      选择语言
-      </a>
-      <template #overlay>
-        <a-menu class="backgroundtheme">
-          <a-menu-item>
-            <router-link :to="this.path+'_CN'" class="text">中文</router-link>
-          </a-menu-item>
-          <a-menu-item>
-            <router-link :to="this.path+'_EN'" class="text">English</router-link>
-          </a-menu-item>
-        </a-menu>
-      </template>
-    </a-dropdown>
-    </div>
   </div>
 </template>
 
@@ -64,7 +33,11 @@
 import { ref } from "vue";
 import {language_selector} from "/src/assets/api/language_detech";
 import { changeLight, changeDark } from "/src/assets/api/themechanger";
+import { SettingFilled } from '@ant-design/icons-vue';
 export default {
+  components:{
+    SettingFilled,
+  },
   setup() {
     const mode = ref<boolean>(
       JSON.parse(localStorage.theme) == "light" ? true : false
