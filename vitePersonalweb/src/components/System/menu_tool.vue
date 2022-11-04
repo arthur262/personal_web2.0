@@ -1,7 +1,7 @@
 <template>
   <div >
   <div v-if="this.language=='EN'" style="display: flex;align-items: center; width:fit-content;" >
-    
+
     <h3 class="text " style="margin:0;">
       Theme:
       <a-switch
@@ -10,7 +10,7 @@
         un-checked-children="Dark"
       />
     </h3>
-    
+    <!-- language_selector -->
     <a-dropdown>
       <a class="ant-dropdown-link text " @click.prevent style="margin-left: 10px;">
         language selection
@@ -31,6 +31,7 @@
       </template>
     </a-dropdown>
     </div>
+    
     <div v-else style="display: flex">
     <h3 class="text">
       主题:

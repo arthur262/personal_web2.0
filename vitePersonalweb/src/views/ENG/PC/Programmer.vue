@@ -1,12 +1,11 @@
 <template>
-  <div>
+  <div style="width: 100%; min-height: 100vh" class="backgroundtheme">
   <Nav/>
   </div>
 </template>
 
 <script lang="ts">
   import Nav from "/src/components/System/menu.vue";
-import { ref } from "vue";
 export default {
   setup() {
 

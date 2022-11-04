@@ -5,7 +5,7 @@
         <img
           src="http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/Artsy.png"
           style="opacity: 0.7"
-          height="100"
+          height="80"
         />
       </router-link>
     </a-col>
@@ -35,6 +35,7 @@
           >
         </li>
         <li>
+          <user-add-outlined />
           <router-link
             :to="'/' + this.Other_Webs.fourth + '_' + this.Curent_lang"
             class="link text"
@@ -95,7 +96,20 @@ export default {
         fourth: string;
       }
       let link: website_link={first: "", second: "",third: "", fourth: ""};
-      let text: website_text={first: "", second: "",third: "", fourth: ""};
+      let text: website_text = { first: "", second: "", third: "", fourth: "" };
+
+      let E_table = {
+        Student: ["Home", "Programmer", "Photograph", "Contact"],
+        Programmer:["Home","Student", "Photograph","Contact",],
+        Photograph: ["Home", "Programmer", "Student", "Contact",],
+        Contact:["Home","Programmer", "Student","Photograph",]
+      }
+      let C_table = {
+        Student: ["主页", "未来头秃程序员", "摄影菜鸟", "联系我"],
+        Programmer:["主页","学习渣渣", "摄影菜鸟","联系我",],
+        Photograph: ["主页", "未来头秃程序员", "学习渣渣", "联系",],
+        Contact:["主页","未来头秃程序员", "学习渣渣","摄影菜鸟",]
+      }
 
       //only when the language is not english the link and text goes different
       if (page == "Student") {
@@ -197,17 +211,16 @@ export default {
   z-index: 10;
 }
 .link {
-  color: whitesmoke;
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  margin: 0 0.5vw;
+  margin: 0 0.3vw;
   white-space: nowrap;
-  font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+  font-family: Microsoft YaHei,黑体,宋体,sans-serif;
   letter-spacing: 0.133333em;
 }
-#menu :hover a {
-  color: rgba(245, 245, 245, 0.5);
-  transition: 1s;
+.link:hover{
+  color: rgba(25, 25, 25, 0.5) ;
+  transition:color .3s;
 }
 .container {
   padding: 0 2vw;

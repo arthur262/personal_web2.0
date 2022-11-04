@@ -7,7 +7,7 @@
 <template>
   <div>
     <router-view />
-     <!-- <musicbar /> -->
+     <!-- <musicbar />  -->
   </div>
 </template>
 <script lang="ts">
@@ -25,16 +25,16 @@ export default {
 
 <style >
 .text {
-  color: var(--textColor)!important;
-  transition:color .3s ease-in-out !important;
+  color: var(--textColor);
+  transition:color .3s ease-in-out ;
 }
 .backgroundtheme{
-  background-color: var(--wholeBackground) !important;
-  transition:background-color 0.5s ease-in-out !important;
+  background-color: var(--wholeBackground) ;
+  transition:background-color 0.5s ease-in-out ;
 }
 .box{
-  background-color: var(--boxColor) !important;
-  transition:background-color .3s ease-in-out !important;
+  background-color: var(--boxColor) ;
+  transition:background-color .3s ease-in-out ;
 }
 .shadow{
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
@@ -42,7 +42,7 @@ export default {
 
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family:  Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: start;
