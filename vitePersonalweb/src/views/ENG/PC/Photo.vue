@@ -117,12 +117,11 @@ import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
 import { ref } from 'vue';
 import axios from "axios";
 import Photo_random from "/src/components/Photo/Photo_random.vue";
-import SystemTool from "/src/components/System/menu_tool.vue";
 import Nav from "/src/components/System/menu.vue";
 
 
 export default {
-  components: { DoubleRightOutlined,Nav, ArrowRightOutlined, Photo_random,SystemTool },
+  components: { DoubleRightOutlined,Nav, ArrowRightOutlined, Photo_random },
   setup() {
     const bottom = ref<number>(10);
     return {bottom};

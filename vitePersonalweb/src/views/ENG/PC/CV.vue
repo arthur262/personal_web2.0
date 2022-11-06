@@ -1,12 +1,7 @@
 <template>
-  <div>
-    <a-layout style="scroll-behavior: smooth" class="backgroundtheme">
-      <!-- 上半截 -->
-      <a-affix :offset-top="0">
-      <header class="menu_background">
+  <div style="width: 100%; min-height: 100vh" class="backgroundtheme">
       <Nav/>
-      </header>
-      </a-affix>
+
        <!-- affix -->
        <a-affix :offset-top="100">
         <a-anchor
@@ -20,7 +15,7 @@
         </a-anchor>
         </a-affix>
 
-      <div style="margin: 0 auto; display: flex">
+      <div style="margin: 0 auto; display: flex; width:fit-content">
         <!-- 内容 -->
         <a-layout-content
           style="
@@ -48,7 +43,6 @@
           <Project :datas="DataBase" id="project"  />
         </div>
       </Transition>
-    </a-layout>
   </div>
 </template>
 
@@ -141,11 +135,7 @@ export default {
 </script>
 
 <style scoped>
-.menu_background{
-  width: 100%;
-    background:var(--box);
-    backdrop-filter: blur(20px);
-}
+
 .menu {
   width: 80%;
   margin: 0 auto;
