@@ -3,19 +3,17 @@
 <template>
   <div>
     <div class="container" :style="'background-image: url(' + dark_Img + ')'">
-      <Systemtool class="tool-position" />
       <selfCard class="content" />
     </div>
   </div>
 </template>
 <script lang="ts">
-import Systemtool from "/src/components/System/menu_tool.vue";
 import axios from "axios";
 import selfCard from "/src/components/Home/self-card.vue";
 
 export default {
   components: {
-    Systemtool,
+    
     selfCard,
   },
   data() {

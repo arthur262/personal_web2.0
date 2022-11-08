@@ -2,24 +2,20 @@
 
 <template>
   <div>
-
-    <div class="container" 
+    <canvas id="canvas" ></canvas>
+    <!-- <div class="container" 
     :style="'background-image: url(' +dark_Img + ')'"
     >
-      <Systemtool class="tool-position" />
       <selfCard class="content" />     
-    </div>
-    
+    </div> -->
   </div>
 </template>
 <script lang="ts">
-import Systemtool from "/src/components/System/menu_tool.vue";
 import axios from "axios";
 import selfCard from "/src/components/Home/self-card.vue";
 
 export default {
   components: {
-    Systemtool,
     selfCard,
   },
   data() {
@@ -34,9 +30,32 @@ export default {
       this.$router.replace("/Home_M");
     }
     this.getdata();
-    
+    this.init();
   },
   methods: {
+    init() {
+      var canvas,
+        ctx,
+        go = 1,
+        continuing = true,
+        count = 0,
+        imgData,
+        fullwidth = 0.8;
+      canvas = document.getElementById("canvas");
+      ctx = canvas.getContext("2d");
+      canvas.width = innerWidth;
+      canvas.height = innerHeight;
+      ctx.fillStyle = "black";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      for (var i = 0; i < canvas.width; i++) {
+        for (var j = 0; j < canvas.height; j++) {
+          
+        }
+      }
+      ctx.putImageData(imgData, 0, 0);
+    },
+
     getdata() {
       axios
         .get("/data/Photo_Src.json")
@@ -59,6 +78,7 @@ export default {
 </script>
 
 <style scoped>
+#canvas {width:100%; height:100%; margin:0px;}
 .content {
   height: fit-content;
   padding: 0 5vw;

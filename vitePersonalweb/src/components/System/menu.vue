@@ -1,4 +1,3 @@
-
 <template>
   <a-affix :offset-top="0">
     <header class="menu_background">
@@ -16,7 +15,6 @@
 
         <a-col :flex="2">
           <ul id="menu" ref="menu" class="animation-container">
-
             <li v-for="(item, index) in switchtext.link" :key="index">
               <router-link
                 :to="'/' + item + '_' + this.Curent_lang"
@@ -25,9 +23,8 @@
                 {{ this.switchtext.text[index] }}</router-link
               >
             </li>
-<!-- right size tool -->
+            <!-- right size tool -->
             <li>
-              
               <div>
                 <!-- color mode switch -->
                 <a-switch
@@ -200,8 +197,10 @@ export default {
   z-index: 10;
 }
 .link {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  -webkit-text-stroke: 2px green;
+  color: rgba(0, 0, 0, 0);
   margin: 0 0.3vw;
   white-space: nowrap;
   font-family: Microsoft YaHei, 黑体, 宋体, sans-serif;
