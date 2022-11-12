@@ -13,6 +13,7 @@
 <script lang="ts">
 import axios from "axios";
 import selfCard from "/src/components/Home/self-card.vue";
+import {init}from "/src/assets/api/draw_star.js";
 
 export default {
   components: {
@@ -30,32 +31,9 @@ export default {
       this.$router.replace("/Home_M");
     }
     this.getdata();
-    this.init();
+    init();
   },
   methods: {
-    init() {
-      var canvas,
-        ctx,
-        go = 1,
-        continuing = true,
-        count = 0,
-        imgData,
-        fullwidth = 0.8;
-      canvas = document.getElementById("canvas");
-      ctx = canvas.getContext("2d");
-      canvas.width = innerWidth;
-      canvas.height = innerHeight;
-      ctx.fillStyle = "black";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      for (var i = 0; i < canvas.width; i++) {
-        for (var j = 0; j < canvas.height; j++) {
-          
-        }
-      }
-      ctx.putImageData(imgData, 0, 0);
-    },
-
     getdata() {
       axios
         .get("/data/Photo_Src.json")
