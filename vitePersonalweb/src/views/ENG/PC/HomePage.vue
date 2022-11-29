@@ -2,18 +2,27 @@
 
 <template>
   <div>
-    <canvas id="canvas" ></canvas>
-    <!-- <div class="container" 
+    
+    <div class="container" 
     :style="'background-image: url(' +dark_Img + ')'"
     >
+    <video
+        class="videos"
+        src="/video/序列 01.mp4"
+        loop
+        playsinline
+        autoplay
+        muted
+      ></video>
       <selfCard class="content" />     
-    </div> -->
+    </div>
   </div>
 </template>
 <script lang="ts">
 import axios from "axios";
 import selfCard from "/src/components/Home/self-card.vue";
-import {init}from "/src/assets/api/draw_star.js";
+
+
 
 export default {
   components: {
@@ -31,7 +40,7 @@ export default {
       this.$router.replace("/Home_M");
     }
     this.getdata();
-    init();
+    
   },
   methods: {
     getdata() {
@@ -59,24 +68,24 @@ export default {
 #canvas {width:100%; height:100%; margin:0px;}
 .content {
   height: fit-content;
-  padding: 0 5vw;
-  display: table-cell;
-  vertical-align: middle;
-}
+  position:absolute;
 
-.tool-position {
-  position: absolute;
-  top: 2vh;
-  right: 2vw;
+  padding: 0 3vw;
+  vertical-align: middle;
+  top: calc(30%/2);
+  right: 0px;
 }
 .container {
   width: 100%;
-  background-image: url("/Photo/_DSC3555.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: table;
+  position: relative;
   min-height: 100vh;
-  background-position: center;
   overflow: hidden;
+}
+.container video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  z-index: 0;
 }
 </style>
