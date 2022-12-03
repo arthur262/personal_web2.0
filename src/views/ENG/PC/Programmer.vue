@@ -4,20 +4,21 @@
     class="backgroundtheme"
   >
     <Nav class="nav" />
-    <canvas id="canvas" width="200" height="300"></canvas>
-    <div style="background-color:aliceblue;width:400px;height:400px">
-      {{welcomemessage}}
-    </div>
+    <selfCard class="card"/>
+    <canvas id="canvas" width="200" height="300">
+      
+    </canvas>
+    
   </div>
 </template>
 
 <script lang="ts">
 import Nav from "/src/components/System/menu.vue";
 import { init } from "/src/assets/api/draw_star.js";
+import selfCard from "/src/components/Programmer/intro_card.vue"
 export default {
   mounted() {
     init();
-    this.setword();
   },
   data() {
     return {
@@ -26,19 +27,8 @@ export default {
     };
   },
   methods: {
-    setword() {
-      var n = 1;
-      var timer = setInterval((welcomemessage,welcomeText)=>{
-       
-        welcomemessage = welcomeText.substring(0, n);
-        if (n === welcomeText.length) {
-          clearInterval(timer);
-        }
-      
-      }, 100);
-    }
   },
-  components: { Nav },
+  components: { Nav,selfCard },
   created() {},
   watch: {},
 };
@@ -57,5 +47,10 @@ export default {
 }
 #canvas {
   z-index: 1;
+}
+.card{
+  z-index:10;position:absolute;
+  top:15vh;
+  left:10vw;
 }
 </style>

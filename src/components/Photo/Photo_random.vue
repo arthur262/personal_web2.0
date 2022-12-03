@@ -7,7 +7,7 @@
           <a-col span="22">
             <span style="width: fit-content">
               <h1
-              class="text"
+                class="text"
                 style="
                   font-family: 'Times New Roman', Times, serif;
                   letter-spacing: 0.133333em;
@@ -16,12 +16,11 @@
                   font-style: italic;
                   margin-bottom: 5vh;
                 "
-                
               >
                 Faithfully restore the world in My eyes
               </h1>
               <h1
-              class="text"
+                class="text"
                 style="
                   font-family: 'Times New Roman', Times, serif;
                   letter-spacing: 0.133333em;
@@ -30,7 +29,6 @@
                   font-style: normal;
                   margin-bottom: 5vh;
                 "
-                
               >
                 忠实的还原我所听，看，感
               </h1>
@@ -64,7 +62,7 @@
               v-if="index % 2 == 0"
               style="margin-bottom: 10vh"
             >
-             <a-col :span="14">
+              <a-col :span="14">
                 <div
                   v-motion
                   :initial="{ opacity: 0, y: 30, scale: 0.7 }"
@@ -105,13 +103,12 @@
                   :visible="{ opacity: 1, y: 0, scale: 1 }"
                   :delay="200"
                 >
-
-                      <a-image
-                        v-if="item.third !== ''"
-                        :src="item.third"
-                        :width="600"
-                      />
-                      </div>
+                  <a-image
+                    v-if="item.third !== ''"
+                    :src="item.third"
+                    :width="600"
+                  />
+                </div>
               </a-col>
             </a-row>
             <a-row
