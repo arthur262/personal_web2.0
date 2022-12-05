@@ -49,5 +49,16 @@ function anlylyrics(...el:Array<any>){
   }
   return el2;
 }
+function setword() {
+  var welcomeText = "Hello\n world";
+  var n = 1;
+  var timer = setInterval(() => {
+    document.getElementById("hello").innerHTML = welcomeText.substring(0, n);
+    if (n === welcomeText.length) {
+      clearInterval(timer);
+    }
+    n++;
+  }, 100);
+}
 
-export { format, threadhold,anlylyrics,back_format };
+export { setword, format, threadhold, anlylyrics, back_format };

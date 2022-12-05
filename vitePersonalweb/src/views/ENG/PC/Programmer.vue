@@ -5,8 +5,8 @@
   >
     <Nav class="nav" />
     <canvas id="canvas" width="200" height="300"></canvas>
-    <div style="background-color:aliceblue;width:400px;height:400px">
-      {{welcomemessage}}
+    <div style="background-color:aliceblue;width:400px;height:400px" id="hello">
+      
     </div>
   </div>
 </template>
@@ -14,29 +14,18 @@
 <script lang="ts">
 import Nav from "/src/components/System/menu.vue";
 import { init } from "/src/assets/api/draw_star.js";
+import { setword } from "/src/assets/api/common_api.ts";
 export default {
   mounted() {
     init();
-    this.setword();
+    setword();
   },
   data() {
     return {
-      welcomemessage: "",
-      welcomeText: "Hello world \n XXX",
+      
     };
   },
   methods: {
-    setword() {
-      var n = 1;
-      var timer = setInterval((welcomemessage,welcomeText)=>{
-       
-        welcomemessage = welcomeText.substring(0, n);
-        if (n === welcomeText.length) {
-          clearInterval(timer);
-        }
-      
-      }, 100);
-    }
   },
   components: { Nav },
   created() {},
