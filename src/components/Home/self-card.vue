@@ -146,7 +146,12 @@ export default {
   },
   methods: {},
   mounted: function () {
-    this.language = localStorage.language;
+   
+    let path=this.$route.path.split("/");
+    path=path[path.length-1];
+    path=path.split("_");
+    this.language = path[1];
+    localStorage.language=this.language ;
   },
 };
 </script>

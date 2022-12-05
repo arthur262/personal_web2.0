@@ -5,22 +5,20 @@
   >
     <Nav class="nav" />
     <canvas id="canvas" width="200" height="300"></canvas>
-    <div
-      style="background-color: aliceblue; width: 400px; height: 400px"
-      id="hello"
-    ></div>
+    <selfCard class="card"></selfCard>
   </div>
 </template>
 
 <script lang="ts">
 import Nav from "/src/components/System/menu.vue";
 import { init } from "/src/assets/api/draw_star.js";
-import { setword } from "/src/assets/api/common_api.ts";
+import selfCard from "/src/components/Programmer/intro_card.vue";
+
 export default {
   mounted() {
     init();
-    setword();
-
+    
+  },
   data() {
     return {
 
