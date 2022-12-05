@@ -5,9 +5,10 @@
   >
     <Nav class="nav" />
     <canvas id="canvas" width="200" height="300"></canvas>
-    <div style="background-color:aliceblue;width:400px;height:400px" id="hello">
-      
-    </div>
+    <div
+      style="background-color: aliceblue; width: 400px; height: 400px"
+      id="hello"
+    ></div>
   </div>
 </template>
 
@@ -19,15 +20,15 @@ export default {
   mounted() {
     init();
     setword();
-  },
+
   data() {
     return {
-      
+
     };
   },
   methods: {
   },
-  components: { Nav },
+  components: { Nav,selfCard },
   created() {},
   watch: {},
 };
@@ -46,5 +47,11 @@ export default {
 }
 #canvas {
   z-index: 1;
+}
+.card {
+  z-index: 10;
+  position: absolute;
+  top: 15vh;
+  left: 10vw;
 }
 </style>

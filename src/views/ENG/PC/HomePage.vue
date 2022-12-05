@@ -8,7 +8,7 @@
     >
     <video
         class="videos"
-        src="/video/序列 01.mp4"
+        src="/video/dalhousie.mp4"
         loop
         playsinline
         autoplay
@@ -20,8 +20,8 @@
 </template>
 <script lang="ts">
 import axios from "axios";
-import selfCard from "/src/components/Home/self-card.vue";
-
+import selfCard from "../../../components/Home/self-card.vue";
+import { language_selector } from "/src/assets/api/language_detech";
 
 
 export default {
@@ -40,6 +40,7 @@ export default {
       this.$router.replace("/Home_M");
     }
     this.getdata();
+    language_selector();
     
   },
   methods: {
@@ -69,11 +70,11 @@ export default {
 .content {
   height: fit-content;
   position:absolute;
-
   padding: 0 3vw;
   vertical-align: middle;
   top: calc(30%/2);
   right: 0px;
+  z-index: 10;
 }
 .container {
   width: 100%;
