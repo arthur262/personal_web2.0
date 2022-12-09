@@ -101,7 +101,7 @@ import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
     <section>
       <video
         class="videos"
-        src="/video/序列 01.mp4"
+        src="/video/dalhousie.mp4"
         loop
         playsinline
         autoplay

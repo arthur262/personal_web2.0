@@ -7,9 +7,9 @@
       <div style="grid-row: 5 / span 3; grid-column: 2/2">1</div>
 
       <div style="grid-row: 1 / span 1; grid-column: 3/6">2</div>
-      <div style="grid-row: 2 / span 5; grid-column: 3/6" id="hello" class="text"></div>
-      <div style="grid-row: 7 / span 1; grid-column: 3/5">3</div>
-      <div style="grid-row: 7 / span 1; grid-column: 5/6">4</div>
+      <div style="grid-row: 2 / span 4; grid-column: 3/6" id="hello" class="text"></div>
+      <div style="grid-row: 6 / span 2; grid-column: 3/5">3</div>
+      <div style="grid-row: 6 / span 2; grid-column: 5/6">4</div>
 
       <div style="grid-row: 1 / span 3; grid-column: 6/7">1</div>
       <div style="grid-row: 4 / span 4; grid-column: 6/7">1</div>
@@ -58,8 +58,8 @@ export default {
   }
 }
 .text{
-  font-size: 2.5em;
-  padding: 1ch 1ch;
+  font-size: 2em;
+  padding: 2ch 1ch;
   color: whitesmoke;
   letter-spacing: 0.1em;
   font-style: oblique;

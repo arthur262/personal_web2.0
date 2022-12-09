@@ -15,12 +15,12 @@
         <a-menu class="backgroundtheme">
           <a-menu-item >
             <div style="display: flex;align-items: center;height:100%">
-            <router-link :to="this.path+'_CN'" class="text " >中文</router-link>
+            <router-link :to="this.path+'_CN'" >中文</router-link>
             </div>
           </a-menu-item>
           <a-menu-item >
             <div style="display: flex;align-items: center;height:100%">
-            <router-link :to="this.path+'_EN'" class="text " >English</router-link>
+            <router-link :to="this.path+'_EN'" >English</router-link>
             </div>
           </a-menu-item>
         </a-menu>

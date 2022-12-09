@@ -89,7 +89,7 @@ function setword() {
       clearInterval(timer);
     }
     n++;
-  }, 100);
+  }, 50);
 }
 
 export { setword, format, threadhold, anlylyrics, back_format };
