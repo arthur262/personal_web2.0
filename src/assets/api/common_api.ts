@@ -74,21 +74,33 @@ function setword() {
   var n = 1;
   var timer = setInterval(() => {
     var text = welcomeText.substring(n, n + 1);
-
-    if (text == "&") {
-      n += 5;
-      document.getElementById("hello").innerHTML = welcomeText.substring(0, n);
-    } else if (text == "<") {
-      n += 3;
-      document.getElementById("hello").innerHTML = welcomeText.substring(0, n);
-    } else {
-      document.getElementById("hello").innerHTML = welcomeText.substring(0, n);
-    }
-
-    if (n === welcomeText.length) {
+    if (document.getElementById("hello") == null) {
+      //if user change the website then it should be cleaned;
       clearInterval(timer);
+    } else {
+      if (text == "&") {
+        n += 5;
+        document.getElementById("hello").innerHTML = welcomeText.substring(
+          0,
+          n
+        );
+      } else if (text == "<") {
+        n += 3;
+        document.getElementById("hello").innerHTML = welcomeText.substring(
+          0,
+          n
+        );
+      } else {
+        document.getElementById("hello").innerHTML = welcomeText.substring(
+          0,
+          n
+        );
+      }
+      if (n === welcomeText.length) {
+        clearInterval(timer);
+      }
+      n++;
     }
-    n++;
   }, 50);
 }
 
