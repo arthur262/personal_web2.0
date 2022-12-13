@@ -72,7 +72,7 @@ export default {
   position:absolute;
   padding: 0 3vw;
   vertical-align: middle;
-  top: calc(30%/2);
+  top: calc(30% / 2);
   right: 0px;
   z-index: 10;
 }

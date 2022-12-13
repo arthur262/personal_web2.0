@@ -78,7 +78,7 @@ li {
 }
 h4 {
   display: inline-block;
-  width: calc(100%-32px);
+  width: calc(100% - 32px);
   font-size: 20px;
 }
 ul {
