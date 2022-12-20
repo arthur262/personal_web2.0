@@ -16,7 +16,7 @@
         </a-affix>
 
       <div style="margin: 0 auto; display: flex; width:fit-content">
-        <!-- 内容 -->
+        <!-- content -->
         <a-layout-content
           style="
             margin-top: 1vh;

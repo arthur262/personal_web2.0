@@ -4,7 +4,6 @@
   <div>
     
     <div class="container" 
-    :style="'background-image: url(' +dark_Img + ')'"
     >
     <video
         class="videos"
@@ -30,8 +29,6 @@ export default {
   },
   data() {
     return {
-      light_Img: "",
-      dark_Img: "",
       theme: "",
     };
   },
@@ -48,8 +45,6 @@ export default {
       axios
         .get("/data/Photo_Src.json")
         .then((response) => {
-          this.light_Img = response.data.Homebackground.light;
-          this.dark_Img = response.data.Homebackground.dark;
         })
         .catch(function (error) {
           console.log(error);
