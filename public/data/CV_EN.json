@@ -26,39 +26,70 @@
 
   "Project": [
     {
-      "picture": ["http://arthur2.oss-cn-beijing.aliyuncs.com/System/%E6%88%AA%E5%B1%8F2022-08-09%20%E4%B8%8B%E5%8D%887.37.45(1).png","http://arthur2.oss-cn-beijing.aliyuncs.com/System/%E6%88%AA%E5%B1%8F2022-08-12%20%E4%B8%8B%E5%8D%883.25.06(1).png","http://arthur2.oss-cn-beijing.aliyuncs.com/System/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-08-13%20210350(1).png"],
+      "picture": [
+        "https://arthur1.oss-us-west-1.aliyuncs.com/source/System/screenshoot%202022-08-09%207.37.45(1).png",
+        "https://arthur1.oss-us-west-1.aliyuncs.com/source/System/screenshoot%202022-08-12%203.25.06(1).png",
+        "https://arthur1.oss-us-west-1.aliyuncs.com/source/System/screenshoot%202022-08-13%20210350(1).png"
+      ],
       "Title": "Mohammad Etemad Personal Web",
       "TimeRanges": "April.2022-Jun.15.2022",
       "github": "https://github.com/CSCIX691DAL/asw",
-      "Technical": ["React","Material UI","Ant design","NextJS","Firebase","bootstrap","date-fns","echarts","react-spring","react-hook-form"],
+      "Technical": [
+        "React",
+        "Material UI",
+        "Ant design",
+        "NextJS",
+        "Firebase",
+        "bootstrap",
+        "date-fns",
+        "echarts",
+        "react-spring",
+        "react-hook-form"
+      ],
       "children": [
         "Using Next.js, React,Material UI,and Spring react to build an animation personal website. As a core member of the team, I was responsible for building the framework of the whole website and the database and status management module behind it.",
         "At the same time, after completing the construction of my own part, I helped the students who did not follow the progress to understand and write the code. Besides, I reconstructed almost all the core code of the former team, including the creation of user management system, and was mainly responsible for the building of the homepage and accomplishment page. Added all the animation elements in the page"
       ]
     },
     {
-      "picture": ["http://arthur2.oss-cn-beijing.aliyuncs.com/System/screenshoot%202022-08-25%20152109.png","http://arthur2.oss-cn-beijing.aliyuncs.com/System/screenshoot%202022-08-25%20152144.png","http://arthur2.oss-cn-beijing.aliyuncs.com/System/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-08-25%20152606(1).png"],
-      "Title": "Personal Web Project1.0 ",
-      "TimeRanges": "Oct.2021-Nov.2021",
-      "github": "https://github.com/arthur262/personal_web.git",
-      "Technical": ["Vue2.0","Element UI","Ant design","better-scroll","axios"],
-      "children": [
-        "Ongoing outside class project with three other peers, using Vue and ant-design to Help myself to build a personal Photo show web as well as self CV, In the blueprint I will have a background for uploading images",
-        "Implementation technology: front and rear end separation, Axios to communicate and MongDB as the database in Dal server, and .json with switch package."
-      ]
-    },
-    {
-      "picture": ["http://arthur2.oss-cn-beijing.aliyuncs.com/System/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202022-08-13%20210350(2).png"],
+      "picture": [
+        "https://arthur1.oss-us-west-1.aliyuncs.com/source/System/screenshoot%202022-08-13%20210350(2).png"
+      ],
       "Title": "58 (Second Hand Sale website)",
       "TimeRanges": "April.2022-May.2022",
       "github": "https://github.com/arthur262/58.git",
-      "Technical": ["Vue2.0","Element Plus","Alicloud OSS","Next.js","axios"],
+      "Technical": [
+        "Vue2.0",
+        "Element Plus",
+        "Alicloud OSS",
+        "Next.js",
+        "axios"
+      ],
       "children": [
         "Using Vue and Element ui to build the basic structure for front display and use express-js to modified with MongDB and Alicloud OSS for json data and picture compression. I take the role of developer and designer. ",
         "Planning to adapt with SMS verification code. Also taking the 95% of the whole work and the team leader and design and project management."
       ]
+    },
+    {
+      "picture": [
+        "https://arthur1.oss-us-west-1.aliyuncs.com/source/System/screenshoot%202022-08-25%20152109.png",
+        "https://arthur1.oss-us-west-1.aliyuncs.com/source/System/screenshoot%202022-08-25%20152144.png",
+        "https://arthur1.oss-us-west-1.aliyuncs.com/source/System/screenshoot%202022-08-25%20152606(1).png"
+      ],
+      "Title": "Personal Web Project1.0 ",
+      "TimeRanges": "Oct.2021-Nov.2021",
+      "github": "https://github.com/arthur262/personal_web.git",
+      "Technical": [
+        "Vue2.0",
+        "Element UI",
+        "Ant design",
+        "better-scroll",
+        "axios"
+      ],
+      "children": [
+        "Ongoing outside class project with three other peers, using Vue and ant-design to Help myself to build a personal Photo show web as well as self CV, In the blueprint I will have a background for uploading images",
+        "Implementation technology: front and rear end separation, Axios to communicate and MongDB as the database in Dal server, and .json with switch package."
+      ]
     }
-    
-    
   ]
 }

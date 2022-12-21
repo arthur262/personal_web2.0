@@ -97,7 +97,7 @@ export default {
   vertical-align:middle;
 }
 .cardb {
-  background: url("http://arthur2.oss-cn-beijing.aliyuncs.com/Student/A7M2_152.jpg") rgba(36, 36, 36, 1) no-repeat  fixed;
+  background: url("https://arthur1.oss-us-west-1.aliyuncs.com/source/Student/A7M2_152.jpg") rgba(36, 36, 36, 1) no-repeat  fixed;
   background-position: center;
   background-size:cover;
   width: 100%;

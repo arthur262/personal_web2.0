@@ -2,24 +2,33 @@
 
 <template>
   <div>
-    <div class="container" :style="'background-image: url(' + dark_Img + ')'">
-      <selfCard class="content" />
+    
+    <div class="container" 
+    >
+    <video
+        class="videos"
+        src="https://arthur1.oss-us-west-1.aliyuncs.com/source/video/dalhousie.mp4"
+        loop
+        playsinline
+        autoplay
+        muted
+      ></video>
+      <selfCard class="content" />     
     </div>
   </div>
 </template>
 <script lang="ts">
 import axios from "axios";
-import selfCard from "/src/components/Home/self-card.vue";
+import selfCard from "../../../components/Home/self-card.vue";
+import { language_selector } from "/src/assets/api/language_detech";
+
 
 export default {
   components: {
-    
     selfCard,
   },
   data() {
     return {
-      light_Img: "",
-      dark_Img: "",
       theme: "",
     };
   },
@@ -28,14 +37,14 @@ export default {
       this.$router.replace("/Home_M");
     }
     this.getdata();
+    language_selector();
+    
   },
   methods: {
     getdata() {
       axios
         .get("/data/Photo_Src.json")
         .then((response) => {
-          this.light_Img = response.data.Homebackground.light;
-          this.dark_Img = response.data.Homebackground.dark;
         })
         .catch(function (error) {
           console.log(error);
@@ -52,26 +61,27 @@ export default {
 </script>
 
 <style scoped>
+#canvas {width:100%; height:100%; margin:0px;}
 .content {
   height: fit-content;
-  padding: 0 5vw;
-  display: table-cell;
+  position:absolute;
+  padding: 0 3vw;
   vertical-align: middle;
-}
-
-.tool-position {
-  position: absolute;
-  top: 2vh;
-  right: 2vw;
+  top: calc(30% / 2);
+  right: 0px;
+  z-index: 10;
 }
 .container {
   width: 100%;
-  background-image: url("/Photo/_DSC3555.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: table;
+  position: relative;
   min-height: 100vh;
-  background-position: center;
   overflow: hidden;
+}
+.container video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  z-index: 0;
 }
 </style>

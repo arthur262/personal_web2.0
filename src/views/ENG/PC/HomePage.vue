@@ -7,7 +7,7 @@
     >
     <video
         class="videos"
-        src="/video/dalhousie.mp4"
+        src="https://arthur1.oss-us-west-1.aliyuncs.com/source/video/dalhousie.mp4"
         loop
         playsinline
         autoplay

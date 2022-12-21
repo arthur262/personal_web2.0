@@ -41,7 +41,7 @@ export default {
 
 <style scoped>
   .backimg{
-    background-image: url("/Photo/A7M2(68).jpg");
+    background-image: url("https://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/A7M2(68).jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

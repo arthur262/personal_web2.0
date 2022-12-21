@@ -134,7 +134,7 @@ export default {
           : page == "Programmer"
           ? E_table.Programmer
           : page == "Photograph"
-          ? E_table.Programmer
+          ? E_table.Photograph
           : page == "Contact"
           ? E_table.Programmer
           : E_table.Student;
@@ -146,7 +146,7 @@ export default {
             : page == "Programmer"
             ? E_table.Programmer
             : page == "Photograph"
-            ? E_table.Programmer
+            ? E_table.Photograph
             : page == "Contact"
             ? E_table.Programmer
             : E_table.Student;
@@ -157,7 +157,7 @@ export default {
             : page == "Programmer"
             ? C_table.Programmer
             : page == "Photograph"
-            ? C_table.Programmer
+            ? C_table.Photograph
             : page == "Contact"
             ? C_table.Programmer
             : C_table.Student;

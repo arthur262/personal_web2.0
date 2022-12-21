@@ -1,21 +1,16 @@
 {
-  "Homebackground": {
-    "light": "/Photo/_DSC3555.jpg",
-    "dark": "/Photo/_DSC5461.jpg"
-  },
   "background_image": [
-    "http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/_DSC4999.jpg",
-    "http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/A7M2_1.jpg",
-    "/Photo/_DSC5506-Pano.jpg"
+    "https://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/_DSC4999.jpg",
+    "https://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/A7M2_1.jpg",
+    "https://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/DSC00528-5.jpg"
   ],
   "showup_img": [
-    "/Photo/_DSC3851.jpg",
-    "/Photo/A7M2(68).jpg",
-    "http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/_DSC4991.jpg",
+    "https://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/_DSC3851.jpg",
+    "https://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/A7M2(68).jpg",
+    "https://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/_DSC4991.jpg",
 
-    
-    "/Photo/_DSC5466-Pano.jpg",
-    "http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/_DSC4964.jpg",
-    "http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/_DSC4999.jpg"
+    "https://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/_DSC5466-Pano.jpg",
+    "https://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/_DSC4964.jpg",
+    "https://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/_DSC4999.jpg"
   ]
 }

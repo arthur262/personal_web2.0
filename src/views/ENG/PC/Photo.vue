@@ -3,9 +3,6 @@ import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
 </script>
 <template>
   <div style="width: 100%; min-height: 100vh;" class="backgroundtheme">
-  <audio src="http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/Y2Mate.is%20-%20%E8%BF%99%E4%B8%96%E7%95%8C%E9%82%A3%E4%B9%88%E5%A4%9A%E4%BA%BA%20-%20%E8%8E%AB%E6%96%87%E8%94%9A%20%E7%94%B5%E5%BD%B1%E3%80%8A%E6%88%91%E8%A6%81%E6%88%91%E4%BB%AC%E5%9C%A8%E4%B8%80%E8%B5%B7%E3%80%8B%E4%B8%BB%E9%A2%98%E6%9B%B2%E3%80%90%E5%8A%A8%E6%80%81%E6%AD%8C%E8%AF%8DMusic%20Lyrics%E3%80%91-i5L_etk6Tzo-160k-1660290728197.aac">
-  </audio>
-  
     <section>
       <a-carousel autoplay :dots="dos" style="z-index: 1">
         <div v-for="iteam in DataBase" :key="iteam" class="background-image">
@@ -101,7 +98,7 @@ import { DoubleRightOutlined, ArrowRightOutlined } from "@ant-design/icons-vue";
     <section>
       <video
         class="videos"
-        src="/video/dalhousie.mp4"
+        src="https://arthur1.oss-us-west-1.aliyuncs.com/source/video/dalhousie.mp4"
         loop
         playsinline
         autoplay
@@ -160,7 +157,7 @@ export default {
 
 <style scoped>
 .emotionimage {
-  background: url("/Photo/2f15e8bf58afc597b49da57c086aee0.jpg")
+  background: url("https://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/2f15e8bf58afc597b49da57c086aee0.jpg")
     no-repeat;
   width: 100%;
   height: 110vh;
@@ -231,8 +228,8 @@ export default {
   z-index: 10;
 }
 .doubleimge :nth-child(1) {
-  background: url(http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/A7M2_208.jpg)
-    no-repeat;
+   background: url(https://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/A7M2_208.jpg);
+  background-repeat:no-repeat;
   width: 50%;
   height: 80vh;
   background-position: center;
@@ -240,8 +237,8 @@ export default {
   background-attachment: fixed;
 }
 .doubleimge :nth-child(2) {
-  background: url(http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/_DSC3902.jpg)
-    no-repeat;
+  background: url(https://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/_DSC3902.jpg);
+    background-repeat:no-repeat;
   width: 50%;
   height: 80vh;
   background-position: center;

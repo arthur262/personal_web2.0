@@ -131,7 +131,7 @@ p {
 .ID {
   height: 24ch;
   width: 24ch;
-  background-image: url("http://arthur2.oss-cn-beijing.aliyuncs.com/Student/Personal.jpg");
+  background-image: url("https://arthur1.oss-us-west-1.aliyuncs.com/source/Student/Personal.jpg");
   background-size: 24ch;
   margin: auto 3ch auto;
 }

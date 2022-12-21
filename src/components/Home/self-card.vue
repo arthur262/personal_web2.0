@@ -10,7 +10,7 @@
                 <div class="selfshoots">
                   <img
                     width="400"
-                    src="/Photo/2f15e8bf58afc597b49da57c086aee0.jpg"
+                    src="https://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/2f15e8bf58afc597b49da57c086aee0.jpg"
                     style="border-radius: 1.5ch"
                   />
                 </div>
@@ -72,7 +72,7 @@
                 <div class="selfshoots">
                   <img
                     width="400"
-                    src="/Photo/2f15e8bf58afc597b49da57c086aee0.jpg"
+                    src="https://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/2f15e8bf58afc597b49da57c086aee0.jpg"
                     style="border-radius: 1.5ch"
                   />
                 </div>

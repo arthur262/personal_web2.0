@@ -2,7 +2,6 @@
 
 <template>
   <div class="container">
-    <div class="filterimage"></div>
     <div class="plasticback">
       <a-row type="flex" :gutter={xs:0,sm:6,md:24,lg:32}>
         <!-- 左侧菜单 -->
@@ -50,7 +49,7 @@
         <!-- 右侧图片区 -->
         <a-col :flex="12" :xs="{ order: 1 }" :sm="{ order: 1 }" :md="{ order: 2 }">
           <div class="selfshoots">
-          <img width="550" src="http://arthur2.oss-cn-beijing.aliyuncs.com/YuanZheZhang#5.1#(1).jpg" />
+          <img width="550" src="https://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/2f15e8bf58afc597b49da57c086aee0.jpg" />
           </div>
         </a-col>
       </a-row>
@@ -97,16 +96,6 @@ export default {
   background-color: rgba(245, 245, 245, 0.5);
 }
 
-.filterimage {
-  position: absolute;
-  width: 100%;
-  overflow: hidden;
-  min-height: 100vh;
-  background-image: url("http://arthur2.oss-cn-beijing.aliyuncs.com/DSC00368-HDR-2(1).jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  filter: blur(0.5px);
-}
 
 .plasticback {
   background-color: rgba(245, 245, 245, 0.1);

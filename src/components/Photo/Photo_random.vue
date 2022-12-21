@@ -106,7 +106,7 @@
                   <a-image
                     v-if="item.third !== ''"
                     :src="item.third"
-                    :width="600"
+                    :width="450"
                   />
                 </div>
               </a-col>
