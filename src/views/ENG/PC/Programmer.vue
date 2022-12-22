@@ -25,7 +25,6 @@ export default {
       visible.value = true;
     };
     const handleOk = e => {
-      console.log(e);
       visible.value = false;
     };
     return {
