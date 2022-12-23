@@ -12,7 +12,6 @@
         playsinline
         autoplay
         muted
-        id="home_video"
       ></video>
       <selfCard class="content" />     
     </div>
@@ -39,7 +38,6 @@ export default {
     }
     this.getdata();
     language_selector();
-    this.mute();
     
   },
   methods: {
@@ -58,9 +56,6 @@ export default {
       );
       return flag;
     },
-    mute() { 
-      document.getElementById("home_video").muted = "muted";
-    }
   },
 };
 </script>

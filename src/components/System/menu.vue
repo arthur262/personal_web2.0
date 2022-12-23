@@ -6,7 +6,7 @@
         <a-col :flex="2">
           <router-link to="/Photograph_EN">
             <img
-              src="http://arthur1.oss-us-west-1.aliyuncs.com/source/Photo/Artsy.png"
+              src="http://arthur2.oss-cn-beijing.aliyuncs.com/Photopage/Artsy.png"
               style="opacity: 0.7"
               height="80"
             />

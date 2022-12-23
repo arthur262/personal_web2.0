@@ -83,12 +83,12 @@
                   <ul class="menu">
                     <li>
                       <router-link to="/Programmer_EN" class="link middle"
-                        >As Programmer
+                        >Programmer
                       </router-link>
                     </li>
                     <li>
                       <router-link to="/Student_EN" class="link middle">
-                        As Student</router-link
+                        Student</router-link
                       >
                     </li>
                     <li>
@@ -239,5 +239,6 @@ a {
   margin: 0 0.8vw;
   text-transform: uppercase;
   font-family: "Executive-Medium";
+  color: darkgreen;
 }
 </style>

@@ -3,9 +3,9 @@
     style="width: 100%; min-height: 100vh; background-color: black"
     class="backgroundtheme"
   >
-  <a-modal v-model:visible="visible" title="Construction page" @ok="handleOk">
+  <!-- <a-modal v-model:visible="visible" title="Construction page" @ok="handleOk">
       <h4>This page is under construction, the current page does not represent the final quality</h4>
-    </a-modal>
+    </a-modal> -->
     <Nav class="nav" />
     <canvas id="canvas" width="200" height="300"></canvas>
     <selfCard class="card"></selfCard>
@@ -67,7 +67,7 @@ export default {
 .card {
   z-index: 10;
   position: absolute;
-  top: 15vh;
+  top: 10vh;
   left: 10vw;
 }
 </style>

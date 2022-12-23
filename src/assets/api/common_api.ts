@@ -66,9 +66,9 @@ function setword() {
     " &nbsp; &nbsp;" +
     "this.English_name = 'Arthur';<br> " +
     " &nbsp; &nbsp;" +
-    "this.First_name = 'YuanZhe';<br>" +
+    "this.Job = 'Frontend Devlop';<br>" +
     " &nbsp; &nbsp;" +
-    "this.Last_name = 'Zhang';<br>" +
+    "this.AtudyArea = 'Animation';<br>" +
     " &nbsp; " +
     "} <br> }";
   var n = 1;
